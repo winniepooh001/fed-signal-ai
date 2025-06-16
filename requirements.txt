@@ -1,0 +1,13 @@
+langchain>=0.1.0
+langchain-openai>=0.1.0
+tradingview-screener>=3.0.0
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+psycopg2-binary>=2.9.0  # For PostgreSQL
+chromadb>=0.4.0  # For vector database
+sentence-transformers>=2.2.0
+pydantic>=2.0.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+pandas>=2.0.0
+numpy>=1.24.0
