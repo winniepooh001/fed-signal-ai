@@ -8,30 +8,11 @@ import uuid
 Base = declarative_base()
 
 
-# class ScrapedData(Base):
-#     """Store scraped data from various sources"""
-#     __tablename__ = "scraped_data"
-#
-#     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-#     source = Column(String(100), nullable=False)  # 'fed_website', 'twitter', etc.
-#     url = Column(TEXT, nullable=True)
-#     target_content = Column(String(500), nullable=True)
-#     raw_content = Column(TEXT, nullable=False)
-#     processed_content = Column(TEXT, nullable=True)
-#     extra_metadata = Column(TEXT, nullable=True)  # Changed from 'metadata' to 'extra_metadata'
-#     scraped_at = Column(DateTime, default=datetime.utcnow)
-#     created_at = Column(DateTime, default=datetime.utcnow)
-#
-#     # Relationships
-#     embeddings = relationship("DataEmbedding", back_populates="scraped_data")
-#     agent_executions = relationship("AgentExecution", back_populates="scraped_data")
-
-
 class DataEmbedding(Base):
     """Store embeddings for scraped content"""
     __tablename__ = "data_embeddings"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=False)
     embedding_model = Column(String(100), nullable=False)
     embedding_vector = Column(TEXT, nullable=False)  # JSON as text for SQLite
@@ -47,7 +28,7 @@ class AgentExecution(Base):
     """Store complete agent execution sessions"""
     __tablename__ = "agent_executions"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=True)
     user_prompt = Column(TEXT, nullable=False)
     agent_reasoning = Column(TEXT, nullable=True)
@@ -68,7 +49,7 @@ class ScreenerInput(Base):
     """Store screener input parameters"""
     __tablename__ = "screener_inputs"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     agent_execution_id = Column(String, ForeignKey("agent_executions.id"), nullable=False)
     columns = Column(TEXT, nullable=False)  # JSON as text
     filters = Column(TEXT, nullable=False)  # JSON as text
@@ -87,7 +68,7 @@ class ScreenerResult(Base):
     """Store screener query results"""
     __tablename__ = "screener_results"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     screener_input_id = Column(String, ForeignKey("screener_inputs.id"), nullable=False)
     total_results = Column(Integer, nullable=False)
     returned_results = Column(Integer, nullable=False)
@@ -106,7 +87,7 @@ class LLMUsage(Base):
     """Track LLM API calls and token usage"""
     __tablename__ = "llm_usage"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     agent_execution_id = Column(String, ForeignKey("agent_executions.id"), nullable=True)
     model_name = Column(String(100), nullable=False)
     prompt_tokens = Column(Integer, nullable=False)
@@ -126,7 +107,7 @@ class ScraperState(Base):
     """Track scraper execution state and last check times"""
     __tablename__ = "scraper_states"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     scraper_name = Column(String(100), nullable=False, unique=True)
     last_check_time = Column(DateTime, nullable=True)
     last_run_metadata = Column(TEXT, nullable=True)  # JSON metadata about last run
@@ -141,7 +122,7 @@ class ScrapedData(Base):
     """Store scraped data from various sources - UPDATED"""
     __tablename__ = "scraped_data"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     external_id = Column(String(100), nullable=True, index=True)  # NEW: External source ID
     source = Column(String(100), nullable=False, index=True)  # 'fed_reserve', 'reddit_wsb', etc.
     url = Column(TEXT, nullable=True)
@@ -170,8 +151,7 @@ class ScrapedContentAnalysis(Base):
     """Store analysis results for scraped content"""
     __tablename__ = "scraped_content_analysis"
 
-
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=False)
     analysis_type = Column(String(50), nullable=False)  # 'sentiment', 'relevance', 'entities'
     analysis_result = Column(TEXT, nullable=False)  # JSON analysis results
@@ -183,30 +163,11 @@ class ScrapedContentAnalysis(Base):
     scraped_data = relationship("ScrapedData")
 
 
-class TrendingTicker(Base):
-    """Track trending tickers from social media"""
-    __tablename__ = "trending_tickers"
-
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    ticker = Column(String(10), nullable=False, index=True)
-    source = Column(String(50), nullable=False)  # 'reddit_wsb', 'twitter', etc.
-    mention_count = Column(Integer, default=1)
-    total_engagement = Column(Integer, default=0)  # Total upvotes/likes
-    sentiment_score = Column(Float, nullable=True)
-    trend_date = Column(DateTime, default=datetime.utcnow, index=True)
-    extra_metadata = Column(TEXT, nullable=True)  # JSON with additional data
-
-    # Unique constraint for ticker + source + date
-    __table_args__ = (
-        Index('idx_ticker_source_date', 'ticker', 'source', 'trend_date'),
-        {'extend_existing': True}
-    )
-
 class MarketData(Base):
     """Store market data separately from scraped content"""
     __tablename__ = "market_data"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, autoincrement=True)
     scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=True)  # Reference to Fed content
     data_type = Column(String(50), nullable=False)  # 'market_indicators', 'sector_rotation', 'individual_stock'
     ticker = Column(String(20), nullable=False)  # Stock/ETF ticker symbol

@@ -46,8 +46,8 @@ def main():
     # Configuration
     config = {
         'data_dir': f'{cur_dir}/data',
-        'output_file': os.getenv('OUTPUT_FILE', f'{cur_dir}/output/relevant_fed_content.json'),
-        'market_data_output': os.getenv('MARKET_DATA_OUTPUT', f'{cur_dir}/output/market_data_context.json'),
+        'output_file': os.getenv('OUTPUT_FILE', '{cur_dir}/output/{execution_id}.json'),
+        'market_data_output': os.getenv('MARKET_DATA_OUTPUT', '{cur_dir}/output/{execution_id}.json'),
         'log_file': os.getenv('LOG_FILE', f'{cur_dir}/logs/fed_scraper.log'),
         'lock_file': os.getenv('LOCK_FILE', f'{cur_dir}/data/fed_scraper.lock'),
         'database_url': os.getenv('DATABASE_URL', 'sqlite:///screener_data.db')
@@ -83,6 +83,8 @@ def main():
                 except Exception as e:
                     logger.error(f"Database initialization failed: {e}")
                     db_manager = None
+            if execution_id is None:
+                raise KeyError("No Execution ID provided")
 
             # Initialize components
             file_manager = SimpleFileManager(config['data_dir'])
@@ -172,7 +174,7 @@ def main():
 
                 # Write relevant content directly to output file (preserve original functionality)
                 if relevant_items:
-                    write_relevant_content_with_scraped_ids(relevant_items, config['output_file'])
+                    write_relevant_content_with_scraped_ids(relevant_items, config['output_file'].format(cur_dir=cur_dir, execution_id=execution_id))
                 else:
                     logger.info("No relevant content found")
 

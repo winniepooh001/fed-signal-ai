@@ -210,7 +210,7 @@ def fetch_and_save_market_data_to_table(
 
         # Collect and save market data
         results = fetcher.collect_and_save_market_data(
-            scraped_data_id=scraped_data_id,
+            scraped_data_id=agent_execution_id,
             additional_symbols=additional_symbols
         )
 
