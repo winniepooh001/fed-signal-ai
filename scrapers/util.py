@@ -12,9 +12,8 @@ from scrapers.model_object import FedContent
 
 logger = get_logger(__name__)
 
-def write_relevant_content(content_items: List[FedContent], output_file: str):
-    """Write relevant content directly to output file"""
-
+def write_relevant_content_with_scraped_ids(content_items: List[FedContent], output_file: str):
+    """Write relevant content with scraped_data_ids included"""
 
     if not content_items:
         logger.info("No relevant content found - no output file written")
@@ -35,27 +34,30 @@ def write_relevant_content(content_items: List[FedContent], output_file: str):
             }
 
             for content in content_items:
-                output_data['items'].append({
+                item_data = {
+                    'scraped_data_id': getattr(content, 'scraped_data_id', None),  # Include database ID
                     'url': content.url,
                     'title': content.title,
                     'published_date': content.published_date.isoformat(),
-                    'sentiment_score': content.sentiment["sentiment_analysis"]["scores"],
-                    'sentiment': content.sentiment["sentiment_analysis"]['sentiment'],
-                    'model_name': content.sentiment["model"],
-                    'full_content': content.content,  # Include full content for analysis
-                    'summary': content.summary
-                })
+                    'sentiment_score': content.sentiment["sentiment_analysis"]["scores"] if content.sentiment else {},
+                    'sentiment': content.sentiment["sentiment_analysis"]['sentiment'] if content.sentiment else 'UNKNOWN',
+                    'model_name': content.sentiment["model"] if content.sentiment else 'unknown',
+                    'full_content': content.content,
+                    'summary': getattr(content, 'summary', 'No summary available')
+                }
+                output_data['items'].append(item_data)
 
             # Write to output file
             with open(output_file, 'w', encoding='utf-8') as f:
                 json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-            logger.info(f"✅ Wrote {len(content_items)} relevant items to {output_file}")
+            logger.info(f"✅ Wrote {len(content_items)} relevant items with scraped_data_ids to {output_file}")
 
     except RuntimeError as e:
         logger.error(f"Could not write to output file (file locked): {e}")
     except Exception as e:
         logger.error(f"Error writing output file: {e}")
+
 
 class FileLocker:
     """Cross-platform file-based locking mechanism"""

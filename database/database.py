@@ -6,7 +6,7 @@ import logging
 from datetime import datetime, timedelta
 import json
 
-from database.models import Base, ScrapedData, ScreenerInput, ScreenerResult, AgentExecution, DataEmbedding, LLMUsage
+from database.models import Base, ScrapedData, ScreenerInput, ScreenerResult, AgentExecution, DataEmbedding, LLMUsage, MarketData
 
 logger = logging.getLogger(__name__)
 
@@ -285,3 +285,91 @@ class DatabaseManager:
             # Sort by similarity and return top results
             similarities.sort(key=lambda x: x['similarity'], reverse=True)
             return similarities[:limit]
+
+
+    def save_market_data_point(self,
+                               ticker: str,
+                               price: float,
+                               data_type: str,
+                               data_source: str,
+                               scraped_data_id: Optional[str] = None,
+                               change_percent: Optional[float] = None,
+                               volume: Optional[int] = None,
+                               market_cap: Optional[float] = None,
+                               provider_timestamp: Optional[datetime] = None) -> str:
+        """Save individual market data point"""
+        with self.get_session() as session:
+            market_data = MarketData(
+                scraped_data_id=scraped_data_id,
+                data_type=data_type,
+                ticker=ticker.upper(),
+                price=price,
+                change_percent=change_percent,
+                volume=volume,
+                market_cap=market_cap,
+                data_source=data_source,
+                provider_timestamp=provider_timestamp,
+                retrieved_at=datetime.utcnow()
+            )
+            session.add(market_data)
+            session.flush()
+            market_data_id = market_data.id
+            logger.debug(f"Saved market data point: {ticker} from {data_source}")
+            return market_data_id
+
+
+    def get_market_data_by_scraped_id(self, scraped_data_id: str) -> List[Dict]:
+        """Get market data points linked to a scraped data record"""
+        with self.get_session() as session:
+            market_data_points = session.query(MarketData).filter_by(
+                scraped_data_id=scraped_data_id
+            ).all()
+
+            return [
+                {
+                    'id': md.id,
+                    'ticker': md.ticker,
+                    'price': md.price,
+                    'change_percent': md.change_percent,
+                    'volume': md.volume,
+                    'data_type': md.data_type,
+                    'data_source': md.data_source,
+                    'provider_timestamp': md.provider_timestamp.isoformat() if md.provider_timestamp else None,
+                    'retrieved_at': md.retrieved_at.isoformat()
+                }
+                for md in market_data_points
+            ]
+
+
+    def get_recent_market_data(self,
+                               data_type: Optional[str] = None,
+                               ticker: Optional[str] = None,
+                               limit: int = 100) -> List[Dict]:
+        """Get recent market data with optional filters"""
+        with self.get_session() as session:
+            query = session.query(MarketData)
+
+            if data_type:
+                query = query.filter_by(data_type=data_type)
+            if ticker:
+                query = query.filter_by(ticker=ticker.upper())
+
+            market_data_points = query.order_by(
+                MarketData.retrieved_at.desc()
+            ).limit(limit).all()
+
+            return [
+                {
+                    'id': md.id,
+                    'ticker': md.ticker,
+                    'price': md.price,
+                    'change_percent': md.change_percent,
+                    'volume': md.volume,
+                    'data_type': md.data_type,
+                    'data_source': md.data_source,
+                    'scraped_data_id': md.scraped_data_id,
+                    'provider_timestamp': md.provider_timestamp.isoformat() if md.provider_timestamp else None,
+                    'retrieved_at': md.retrieved_at.isoformat()
+                }
+                for md in market_data_points
+            ]

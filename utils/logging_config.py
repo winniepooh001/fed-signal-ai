@@ -145,9 +145,10 @@ class ScreenerLogger:
 
 
 # Convenience functions for easy access
-def get_logger(name: str = None) -> logging.Logger:
-    """Get the unified logger instance - convenience function (name parameter ignored)"""
-    return ScreenerLogger.get_logger(name)
+def get_logger(name="Screener") -> logging.Logger:
+    if not ScreenerLogger._initialized:
+        ScreenerLogger.initialize()  # Default to INFO with no file
+    return ScreenerLogger._logger.getChild(name)
 
 
 def initialize_logging(log_level: str = "INFO", **kwargs) -> logging.Logger:

@@ -201,3 +201,31 @@ class TrendingTicker(Base):
         Index('idx_ticker_source_date', 'ticker', 'source', 'trend_date'),
         {'extend_existing': True}
     )
+
+class MarketData(Base):
+    """Store market data separately from scraped content"""
+    __tablename__ = "market_data"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=True)  # Reference to Fed content
+    data_type = Column(String(50), nullable=False)  # 'market_indicators', 'sector_rotation', 'individual_stock'
+    ticker = Column(String(20), nullable=False)  # Stock/ETF ticker symbol
+    price = Column(Float, nullable=False)  # Current price
+    change_percent = Column(Float, nullable=True)  # Percentage change
+    volume = Column(Integer, nullable=True)  # Trading volume
+    market_cap = Column(Float, nullable=True)  # Market capitalization
+    data_source = Column(String(50), nullable=False)  # 'tiingo', 'yfinance', etc.
+    provider_timestamp = Column(DateTime, nullable=True)  # Timestamp from data provider
+    retrieved_at = Column(DateTime, default=datetime.utcnow, nullable=False)  # When we pulled the data
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    # Relationships
+    scraped_data = relationship("ScrapedData")
+
+    # Indexes for performance
+    __table_args__ = (
+        Index('idx_market_data_ticker_retrieved', 'ticker', 'retrieved_at'),
+        Index('idx_market_data_scraped_data_id', 'scraped_data_id'),
+        Index('idx_market_data_type_retrieved', 'data_type', 'retrieved_at'),
+        {'extend_existing': True}
+    )
