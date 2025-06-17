@@ -24,3 +24,15 @@ html2text>=2020.1.16   # For email text conversion (optional)
 
 # Additional utilities
 psutil>=5.9.0  # For system information logging
+
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+feedparser>=6.0.0
+
+# Sentiment Analysis Options (install as needed)
+vaderSentiment>=3.3.2
+textblob>=0.17.0
+
+# torch>=1.13.0
+# transformers>=4.20.0
+# numpy>=1.21.0
