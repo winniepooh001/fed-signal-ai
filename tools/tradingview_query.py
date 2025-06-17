@@ -7,8 +7,8 @@ import logging
 import time
 
 from schema.tool_schemas import TradingViewQueryInput, ScreenerFilter
-
-logger = logging.getLogger(__name__)
+from validator.filter_validation import FilterValidator
+logger = logging.getLogger()
 
 
 class TradingViewQueryTool(BaseTool):
@@ -43,6 +43,32 @@ class TradingViewQueryTool(BaseTool):
              reasoning: Optional[str] = None) -> str:
         """Execute TradingView query and save to database"""
         start_time = time.time()
+
+        # Validate and fix filters BEFORE processing
+        if filters:
+            try:
+                # Convert ScreenerFilter objects to dicts for validation
+                filter_dicts = []
+                for f in filters:
+                    if hasattr(f, 'model_dump'):  # Pydantic v2
+                        filter_dicts.append(f.model_dump())
+                    elif hasattr(f, 'dict'):  # Pydantic v1
+                        filter_dicts.append(f.dict())
+                    elif isinstance(f, dict):
+                        filter_dicts.append(f)
+                    else:
+                        filter_dicts.append({'type': 'equals', 'column': 'unknown', 'value': str(f)})
+
+                # Validate and fix filters
+                fixed_filter_dicts = FilterValidator.validate_and_fix_filters(filter_dicts)
+
+                # Convert back to ScreenerFilter objects
+                filters = [ScreenerFilter(**f_dict) for f_dict in fixed_filter_dicts]
+
+                logger.info(f"Filter validation completed: {len(fixed_filter_dicts)} final filter(s)")
+
+            except Exception as e:
+                logger.error(f"Filter validation failed: {e} - proceeding with original filters")
 
         try:
             # Save screener input to database

@@ -1,0 +1,699 @@
+2025-06-16 18:11:36 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 18:11:36 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 18:11:36 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 18:11:36 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 18:11:36 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 18:11:36 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 18:11:36 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 18:11:44 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 18:11:44 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 18:11:44 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 18:11:44 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 18:11:44 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 18:11:44 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 18:11:44 | INFO     | main.py:114  | main() | Initializing Two-Agent Screener System
+2025-06-16 18:11:44 | INFO     | main.py:118  | main() | Setting up Fed Analysis Agent...
+2025-06-16 18:11:44 | INFO     | fed_analysis_agent.py:29   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 18:11:44 | DEBUG    | fed_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:11:44 | INFO     | fed_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:11:44 | INFO     | fed_analysis_agent.py:36   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:11:44 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 18:11:44 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:11:47 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:40   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:11:47 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:44   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:51   | __init__() | Setting up Fed analysis tools
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:58   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:61   | __init__() | Creating Fed analysis agent
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:69   | __init__() | Creating Fed analysis agent executor
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:78   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 18:11:47 | INFO     | main.py:125  | main() | Setting up Screener Analysis Agent...
+2025-06-16 18:11:47 | INFO     | screener_analysis_agent.py:29   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 18:11:47 | DEBUG    | screener_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:11:47 | INFO     | screener_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:11:47 | DEBUG    | screener_analysis_agent.py:37   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:11:47 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:11:47 | INFO     | screener_analysis_agent.py:41   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:11:47 | INFO     | screener_analysis_agent.py:48   | __init__() | Setting up screener execution tools
+2025-06-16 18:11:47 | DEBUG    | tradingview_query.py:38   | __init__() | TradingViewQueryTool initialized
+2025-06-16 18:11:47 | DEBUG    | tradingview_query.py:40   | __init__() | Database manager configured
+2025-06-16 18:11:47 | DEBUG    | screener_analysis_agent.py:55   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 18:11:47 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Creating screener analysis agent
+2025-06-16 18:11:47 | DEBUG    | screener_analysis_agent.py:66   | __init__() | Creating screener analysis agent executor
+2025-06-16 18:11:47 | INFO     | screener_analysis_agent.py:75   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 18:11:47 | INFO     | main.py:132  | main() | Both agents initialized successfully
+2025-06-16 18:11:47 | INFO     | main.py:135  | main() | Starting Fed analysis workflow...
+2025-06-16 18:11:47 | INFO     | main.py:32   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:11:47 | INFO     | main.py:33   | run_fed_analysis_workflow() | STARTING FED ANALYSIS WORKFLOW
+2025-06-16 18:11:47 | INFO     | main.py:34   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:11:47 | INFO     | main.py:44   | run_fed_analysis_workflow() | STEP 1: Fed Data Analysis
+2025-06-16 18:11:47 | INFO     | main.py:45   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:96   | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:97   | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 18:11:47 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: f8bcb04c-9277-4e03-9035-94f985b06c68
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:106  | analyze_fed_data() | Started Fed analysis execution tracking with ID: f8bcb04c-9277-4e03-9035-94f985b06c68
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:117  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:287  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:294  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 18:11:47 | DEBUG    | fed_analysis_agent.py:302  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:121  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 18:11:47 | INFO     | fed_analysis_agent.py:155  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 18:11:47 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:11:48 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:11:48 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 0a181376-b60f-4543-b1fc-8f6cd37c84cd
+2025-06-16 18:11:48 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:11:49 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: 3ba0a00d-ffc6-4b59-9c02-b7b853284839
+2025-06-16 18:11:49 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 18:11:49 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data 3ba0a00d-ffc6-4b59-9c02-b7b853284839
+2025-06-16 18:11:49 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID 3ba0a00d-ffc6-4b59-9c02-b7b853284839, created 2 embeddings
+2025-06-16 18:11:49 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:11:49 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:11:55 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: ffc79c7d-0d6d-4cb5-a340-5c9eeeeaec18
+2025-06-16 18:11:55 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:11:55 | INFO     | fed_analysis_agent.py:160  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 18:11:55 | DEBUG    | fed_analysis_agent.py:226  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 18:11:55 | DEBUG    | fed_analysis_agent.py:260  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 18:11:55 | DEBUG    | fed_analysis_agent.py:166  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 18:11:55 | DEBUG    | fed_analysis_agent.py:271  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 18:11:55 | INFO     | fed_analysis_agent.py:281  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 18:11:55 | DEBUG    | fed_analysis_agent.py:174  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 18:11:55 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution f8bcb04c-9277-4e03-9035-94f985b06c68
+2025-06-16 18:11:55 | INFO     | fed_analysis_agent.py:181  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 18:11:55 | INFO     | fed_analysis_agent.py:182  | analyze_fed_data() | LLM cost: $0.0000
+2025-06-16 18:11:55 | INFO     | main.py:56   | run_fed_analysis_workflow() | ✅ Fed analysis completed successfully
+2025-06-16 18:11:55 | INFO     | main.py:57   | run_fed_analysis_workflow() | Execution ID: f8bcb04c-9277-4e03-9035-94f985b06c68
+2025-06-16 18:11:55 | INFO     | main.py:58   | run_fed_analysis_workflow() | Analysis result: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high_risk', 'sector_implications': {}, 'key_factors': [], 'raw_analysis': "### Federal Reserve Economic Data Analysis\n\n#### 1. Overall Market Environment Classification\nBased on the recent communications from the Federal Reserve, the current market environment can be classified as **Neutral**. The Fed's stance appears to be data-dependent, indicating a balanced approach to monetary policy without strong signals leaning towards either hawkish or dovish extremes.\n\n#### 2. Key Economic Factors Identified\n- **Interest Rate Direction and Policy Stance**: The Fed has maintained a cautious approach, suggesting that any future rate adjustments will be contingent on incoming economic data. This indicates a **neutral policy stance** with no immediate plans for aggressive rate hikes or cuts.\n  \n- **Inflation Trends**: Inflation remains a concern, but the Fed's language does not indicate panic. Instead, it reflects a commitment to monitoring inflationary pressures while balancing growth objectives.\n\n- **Employment and Growth Outlook**: The Fed's communications suggest a focus on sustaining employment levels and supporting economic growth, which aligns with a **dovish** inclination but without explicit commitments to rate cuts.\n\n- **Financial Stability Considerations**: The Fed emphasizes the importance of a stable financial system, which suggests vigilance against potential risks that could arise from rapid rate changes.\n\n- **Dollar Strength Implications**: The Fed's policies will likely influence the strength of the dollar, particularly if inflationary pressures lead to rate hikes, which could strengthen the dollar against other currencies.\n\n#### 3. Sector Impact Assessment\n- **Rate-Sensitive Sectors**: Sectors such as utilities and real estate investment trusts (REITs) may experience volatility due to the Fed's cautious stance on interest rates. If rates remain stable, these sectors could benefit from continued investment.\n\n- **Growth vs. Value Rotation**: The current neutral stance may lead to a mixed sentiment in the market, with investors potentially rotating between growth and value stocks based on individual sector performance and economic data releases.\n\n- **Defensive vs. Cyclical Sector Preferences**: Given the uncertainty in economic growth, there may be a preference for defensive sectors (e.g., consumer staples, healthcare) over cyclical sectors (e.g., industrials, consumer discretionary) until clearer signals emerge from the Fed regarding future policy direction.\n\n#### 4. Risk Sentiment Evaluation\nThe overall risk sentiment appears to be **balanced**. Investors are likely adopting a wait-and-see approach, reflecting uncertainty about future economic conditions and the Fed's policy responses. This cautious sentiment may lead to increased volatility in the markets as participants react to new economic data and Fed communications.\n\n### Conclusion\nIn summary, the Federal Reserve's current communications suggest a neutral policy stance with a focus on data dependency. The market environment reflects a balanced risk sentiment, with implications for various sectors depending on interest rate movements and economic conditions. Investors should remain vigilant for upcoming economic data that could influence the Fed's future decisions and market dynamics."}
+2025-06-16 18:11:55 | INFO     | main.py:59   | run_fed_analysis_workflow() | Screening needed: True
+2025-06-16 18:11:55 | INFO     | main.py:63   | run_fed_analysis_workflow() | STEP 2: Creating Screener Based on Fed Analysis
+2025-06-16 18:11:55 | INFO     | main.py:64   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:11:55 | INFO     | screener_analysis_agent.py:95   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 18:11:55 | INFO     | screener_analysis_agent.py:105  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 18:11:55 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 6a0c8ff4-4672-4932-94e0-8aa9808fa661
+2025-06-16 18:11:55 | INFO     | screener_analysis_agent.py:117  | create_screener_from_analysis() | Started screener execution tracking with ID: 6a0c8ff4-4672-4932-94e0-8aa9808fa661
+2025-06-16 18:11:55 | DEBUG    | tradingview_query.py:47   | set_execution_id() | Execution ID set to: 6a0c8ff4-4672-4932-94e0-8aa9808fa661
+2025-06-16 18:11:55 | DEBUG    | screener_analysis_agent.py:198  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 18:11:55 | INFO     | screener_analysis_agent.py:134  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 18:11:55 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:11:56 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:11:59 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 110ce6e3-bcff-454d-b3d4-a6a11852fba8
+2025-06-16 18:11:59 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:54   | _run() | Starting TradingView query execution
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:55   | _run() | Columns: ['name', 'close', 'change', 'volume', 'market_cap_basic', 'dividend_yield_recent', 'price_earnings_ttm', 'debt_to_equity']
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:56   | _run() | Filters: 6 filter(s)
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:57   | _run() | Sort: dividend_yield_recent (DESC)
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:58   | _run() | Limit: 50
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:69   | _run() | Saving screener input to database
+2025-06-16 18:11:59 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: a496580d-c20d-4c7a-a9a3-fe0c28e4f5e2
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:91   | _run() | Screener input saved with ID: a496580d-c20d-4c7a-a9a3-fe0c28e4f5e2
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:94   | _run() | Building TradingView query
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:100  | _run() | Applying mandatory filters
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:120  | _run() | Applied 1 mandatory filters
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:126  | _run() | Processing user filters
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:138  | _run() | Applied greater_than filter: dividend_yield_recent > 3.0
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:141  | _run() | Applied less_than filter: price_earnings_ttm < 15
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:141  | _run() | Applied less_than filter: debt_to_equity < 1.0
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:144  | _run() | Applied equals filter: sector == Utilities
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:144  | _run() | Applied equals filter: sector == Consumer Staples
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:144  | _run() | Applied equals filter: sector == Healthcare
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:158  | _run() | Applied 6 user filters successfully
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:166  | _run() | Executing TradingView screener query
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:170  | _run() | Query executed successfully in 268.5ms
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:171  | _run() | Total results available: 0
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:172  | _run() | Results returned: 0
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:180  | _run() | Saving screener results to database
+2025-06-16 18:11:59 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: 600735c6-09fc-4e72-820a-2a9968f967ab
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:189  | _run() | Screener result saved with ID: 600735c6-09fc-4e72-820a-2a9968f967ab
+2025-06-16 18:11:59 | INFO     | tradingview_query.py:207  | _run() | TradingView query completed successfully
+2025-06-16 18:11:59 | DEBUG    | tradingview_query.py:208  | _run() | Database IDs: input=a496580d-c20d-4c7a-a9a3-fe0c28e4f5e2, result=600735c6-09fc-4e72-820a-2a9968f967ab
+2025-06-16 18:11:59 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:12:00 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:12:03 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: fc54170b-1c7a-4dc3-a97e-b1893be90bcf
+2025-06-16 18:12:03 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:54   | _run() | Starting TradingView query execution
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:55   | _run() | Columns: ['name', 'close', 'change', 'volume', 'market_cap_basic', 'dividend_yield_recent', 'price_earnings_ttm', 'debt_to_equity']
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:56   | _run() | Filters: 5 filter(s)
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:57   | _run() | Sort: dividend_yield_recent (DESC)
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:58   | _run() | Limit: 50
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:69   | _run() | Saving screener input to database
+2025-06-16 18:12:03 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: 713a6bef-b194-4a7a-bb27-90cb009c1df5
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:91   | _run() | Screener input saved with ID: 713a6bef-b194-4a7a-bb27-90cb009c1df5
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:94   | _run() | Building TradingView query
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:100  | _run() | Applying mandatory filters
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:120  | _run() | Applied 1 mandatory filters
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:126  | _run() | Processing user filters
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:138  | _run() | Applied greater_than filter: dividend_yield_recent > 3.0
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:141  | _run() | Applied less_than filter: price_earnings_ttm < 20
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:141  | _run() | Applied less_than filter: debt_to_equity < 1.5
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:138  | _run() | Applied greater_than filter: market_cap_basic > 1000000000
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:138  | _run() | Applied greater_than filter: volume > 500000
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:158  | _run() | Applied 5 user filters successfully
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:166  | _run() | Executing TradingView screener query
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:170  | _run() | Query executed successfully in 190.6ms
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:171  | _run() | Total results available: 182
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:172  | _run() | Results returned: 50
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:180  | _run() | Saving screener results to database
+2025-06-16 18:12:03 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: 4a940cf1-8933-4f8b-b887-5d4d21aaa8fe
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:189  | _run() | Screener result saved with ID: 4a940cf1-8933-4f8b-b887-5d4d21aaa8fe
+2025-06-16 18:12:03 | INFO     | tradingview_query.py:207  | _run() | TradingView query completed successfully
+2025-06-16 18:12:03 | DEBUG    | tradingview_query.py:208  | _run() | Database IDs: input=713a6bef-b194-4a7a-bb27-90cb009c1df5, result=4a940cf1-8933-4f8b-b887-5d4d21aaa8fe
+2025-06-16 18:12:03 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:12:03 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:12:22 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 7dd1f7c4-4870-4d83-a518-221b5d835759
+2025-06-16 18:12:22 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:12:22 | INFO     | screener_analysis_agent.py:139  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:258  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:279  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:292  | _extract_screener_results() | Extracted screener results: 0 total stocks
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:279  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:292  | _extract_screener_results() | Extracted screener results: 182 total stocks
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:145  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:149  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 18:12:22 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 6a0c8ff4-4672-4932-94e0-8aa9808fa661
+2025-06-16 18:12:22 | INFO     | screener_analysis_agent.py:156  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 18:12:22 | INFO     | screener_analysis_agent.py:157  | create_screener_from_analysis() | LLM cost: $0.0000
+2025-06-16 18:12:22 | INFO     | main.py:74   | run_fed_analysis_workflow() | ✅ Screener created successfully
+2025-06-16 18:12:22 | INFO     | main.py:75   | run_fed_analysis_workflow() | Execution ID: 6a0c8ff4-4672-4932-94e0-8aa9808fa661
+2025-06-16 18:12:22 | INFO     | main.py:79   | run_fed_analysis_workflow() | Total stocks found: 182
+2025-06-16 18:12:22 | INFO     | main.py:80   | run_fed_analysis_workflow() | Stocks returned: 50
+2025-06-16 18:12:22 | INFO     | main.py:83   | run_fed_analysis_workflow() | Sample stocks:
+2025-06-16 18:12:22 | INFO     | main.py:88   | run_fed_analysis_workflow() |   1. ZIM: +2.9% change, 13,262,667 volume
+2025-06-16 18:12:22 | INFO     | main.py:88   | run_fed_analysis_workflow() |   2. CSWC: +0.0% change, 519,758 volume
+2025-06-16 18:12:22 | INFO     | main.py:88   | run_fed_analysis_workflow() |   3. BWLP: -0.8% change, 675,111 volume
+2025-06-16 18:12:22 | INFO     | main.py:88   | run_fed_analysis_workflow() |   4. TRMD: -2.1% change, 1,150,462 volume
+2025-06-16 18:12:22 | INFO     | main.py:88   | run_fed_analysis_workflow() |   5. MNR: +0.1% change, 1,360,449 volume
+2025-06-16 18:12:22 | INFO     | main.py:102  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:12:22 | INFO     | main.py:103  | run_fed_analysis_workflow() | FED ANALYSIS WORKFLOW SUMMARY
+2025-06-16 18:12:22 | INFO     | main.py:104  | run_fed_analysis_workflow() | Total LLM Cost: $0.0000
+2025-06-16 18:12:22 | INFO     | main.py:105  | run_fed_analysis_workflow() | Workflow Success: True
+2025-06-16 18:12:22 | INFO     | main.py:106  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:12:22 | INFO     | main.py:144  | main() | Fed Workflow: ✅ SUCCESS - Cost: $0.0000
+2025-06-16 18:12:22 | INFO     | main.py:147  | main() | Recent execution history:
+2025-06-16 18:12:22 | DEBUG    | fed_analysis_agent.py:314  | get_analysis_history() | Retrieving Fed analysis history (limit: 3)
+2025-06-16 18:12:22 | DEBUG    | fed_analysis_agent.py:337  | get_analysis_history() | Retrieved 1 Fed analysis records
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:305  | get_screener_history() | Retrieving screener execution history (limit: 3)
+2025-06-16 18:12:22 | DEBUG    | screener_analysis_agent.py:329  | get_screener_history() | Retrieved 1 screener execution records
+2025-06-16 18:12:22 | INFO     | main.py:151  | main() | Fed Analysis History:
+2025-06-16 18:12:22 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:11:47.878848: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:12:22 | INFO     | main.py:156  | main() | Screener Execution History:
+2025-06-16 18:12:22 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:12:22 | INFO     | main.py:189  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 18:12:22 | INFO     | main.py:190  | <module>() | ============================================================
+2025-06-16 18:20:32 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 18:20:32 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 18:20:32 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 18:20:32 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 18:20:32 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 18:20:32 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 18:20:32 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 18:20:40 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 18:20:40 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 18:20:40 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 18:20:40 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 18:20:40 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 18:20:40 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 18:20:40 | INFO     | main.py:114  | main() | Initializing Two-Agent Screener System
+2025-06-16 18:20:40 | INFO     | main.py:118  | main() | Setting up Fed Analysis Agent...
+2025-06-16 18:20:40 | INFO     | fed_analysis_agent.py:29   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 18:20:40 | DEBUG    | fed_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:20:40 | INFO     | fed_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:20:40 | INFO     | fed_analysis_agent.py:36   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:20:40 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 18:20:40 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:20:42 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:20:42 | DEBUG    | fed_analysis_agent.py:40   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:20:42 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:20:42 | INFO     | fed_analysis_agent.py:44   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:51   | __init__() | Setting up Fed analysis tools
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:58   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:61   | __init__() | Creating Fed analysis agent
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:69   | __init__() | Creating Fed analysis agent executor
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:78   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 18:20:43 | INFO     | main.py:125  | main() | Setting up Screener Analysis Agent...
+2025-06-16 18:20:43 | INFO     | screener_analysis_agent.py:29   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 18:20:43 | DEBUG    | screener_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:20:43 | INFO     | screener_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:20:43 | DEBUG    | screener_analysis_agent.py:37   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:20:43 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:20:43 | INFO     | screener_analysis_agent.py:41   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:20:43 | INFO     | screener_analysis_agent.py:48   | __init__() | Setting up screener execution tools
+2025-06-16 18:20:43 | DEBUG    | tradingview_query.py:38   | __init__() | TradingViewQueryTool initialized
+2025-06-16 18:20:43 | DEBUG    | tradingview_query.py:40   | __init__() | Database manager configured
+2025-06-16 18:20:43 | DEBUG    | screener_analysis_agent.py:55   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 18:20:43 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Creating screener analysis agent
+2025-06-16 18:20:43 | DEBUG    | screener_analysis_agent.py:66   | __init__() | Creating screener analysis agent executor
+2025-06-16 18:20:43 | INFO     | screener_analysis_agent.py:75   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 18:20:43 | INFO     | main.py:132  | main() | Both agents initialized successfully
+2025-06-16 18:20:43 | INFO     | main.py:135  | main() | Starting Fed analysis workflow...
+2025-06-16 18:20:43 | INFO     | main.py:32   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:20:43 | INFO     | main.py:33   | run_fed_analysis_workflow() | STARTING FED ANALYSIS WORKFLOW
+2025-06-16 18:20:43 | INFO     | main.py:34   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:20:43 | INFO     | main.py:44   | run_fed_analysis_workflow() | STEP 1: Fed Data Analysis
+2025-06-16 18:20:43 | INFO     | main.py:45   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:96   | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:97   | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 18:20:43 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 7290667c-0ea7-48cc-a66b-e04d302607b0
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:106  | analyze_fed_data() | Started Fed analysis execution tracking with ID: 7290667c-0ea7-48cc-a66b-e04d302607b0
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:117  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:287  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:294  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 18:20:43 | DEBUG    | fed_analysis_agent.py:302  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:121  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 18:20:43 | INFO     | fed_analysis_agent.py:155  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 18:20:43 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:20:44 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:20:44 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 3b46fc6e-66cc-43e4-ab05-1d7eb4dbc9e4
+2025-06-16 18:20:44 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:20:44 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: db10f335-eba5-467b-bd08-70dc87a91d0b
+2025-06-16 18:20:44 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 18:20:44 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data db10f335-eba5-467b-bd08-70dc87a91d0b
+2025-06-16 18:20:44 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID db10f335-eba5-467b-bd08-70dc87a91d0b, created 2 embeddings
+2025-06-16 18:20:44 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:20:45 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:20:53 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: fd095d7c-77f2-410a-81d0-c8f573fd2025
+2025-06-16 18:20:53 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:20:53 | INFO     | fed_analysis_agent.py:160  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 18:20:53 | DEBUG    | fed_analysis_agent.py:226  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 18:20:53 | DEBUG    | fed_analysis_agent.py:260  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 18:20:53 | DEBUG    | fed_analysis_agent.py:166  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 18:20:53 | DEBUG    | fed_analysis_agent.py:271  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 18:20:53 | INFO     | fed_analysis_agent.py:281  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 18:20:53 | DEBUG    | fed_analysis_agent.py:174  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 18:20:53 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 7290667c-0ea7-48cc-a66b-e04d302607b0
+2025-06-16 18:20:53 | INFO     | fed_analysis_agent.py:181  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 18:20:53 | INFO     | fed_analysis_agent.py:182  | analyze_fed_data() | LLM cost: $0.0000
+2025-06-16 18:20:53 | INFO     | main.py:56   | run_fed_analysis_workflow() | ✅ Fed analysis completed successfully
+2025-06-16 18:20:53 | INFO     | main.py:57   | run_fed_analysis_workflow() | Execution ID: 7290667c-0ea7-48cc-a66b-e04d302607b0
+2025-06-16 18:20:53 | INFO     | main.py:58   | run_fed_analysis_workflow() | Analysis result: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high_risk', 'sector_implications': {}, 'key_factors': [], 'raw_analysis': "### Federal Reserve Economic Analysis\n\n#### 1. Overall Market Environment Classification\nBased on the recent communications from the Federal Reserve, the current market environment can be classified as **Neutral**. The Fed's stance appears to be data-dependent, indicating a balanced approach to monetary policy without strong signals leaning towards either hawkish or dovish extremes.\n\n#### 2. Key Economic Factors Identified\n- **Interest Rate Direction and Policy Stance**: The Fed has maintained a cautious approach, suggesting that any future adjustments to interest rates will be contingent on incoming economic data. This indicates a **neutral policy stance** with no immediate plans for rate hikes or cuts.\n  \n- **Inflation Trends**: Inflation remains a critical concern, with the Fed likely monitoring price stability closely. However, there are no immediate signals of aggressive tightening, suggesting that inflation is being managed but remains a focus.\n\n- **Economic Outlook and Growth Concerns**: The Fed's communications reflect a careful assessment of growth prospects, indicating that while there are positive signs, uncertainties remain. This cautious optimism suggests that the Fed is prepared to support growth if necessary.\n\n- **Financial Stability Considerations**: The Fed continues to emphasize the importance of financial stability, which may influence its policy decisions. This focus suggests a commitment to ensuring that monetary policy does not inadvertently create financial imbalances.\n\n- **Dollar Strength Implications**: The Fed's policies will also impact the strength of the dollar, which is influenced by interest rate decisions. A stable dollar is crucial for maintaining international trade balances and economic stability.\n\n#### 3. Sector Impact Assessment\n- **Rate-Sensitive Sectors**: Sectors such as banks and utilities may experience mixed impacts. Banks could benefit from a stable interest rate environment, while utilities may continue to attract investors seeking yield in a low-rate environment.\n\n- **Growth vs. Value Rotation**: The current neutral stance may lead to a rotation between growth and value stocks, as investors assess the implications of potential future rate changes. Growth sectors may see continued interest if economic data supports expansion, while value sectors may attract those seeking stability.\n\n- **Defensive vs. Cyclical Sector Preferences**: Given the cautious economic outlook, investors may favor defensive sectors (e.g., consumer staples, healthcare) over cyclical sectors (e.g., industrials, materials) until clearer signals emerge regarding economic strength.\n\n#### 4. Risk Sentiment Evaluation\nThe overall risk sentiment appears to be **balanced**. While there are concerns regarding inflation and economic growth, the Fed's neutral stance suggests that it is prepared to act if conditions warrant. This balance may lead to a cautious approach among investors, with a focus on maintaining diversified portfolios to mitigate potential volatility.\n\n### Conclusion\nIn summary, the Federal Reserve's current communications indicate a neutral policy stance with a focus on data dependency. The market environment reflects a balanced sentiment, with key economic factors such as inflation, growth outlook, and financial stability considerations shaping investor behavior. Sector impacts will likely vary, with a potential rotation between growth and value stocks as market conditions evolve."}
+2025-06-16 18:20:53 | INFO     | main.py:59   | run_fed_analysis_workflow() | Screening needed: True
+2025-06-16 18:20:53 | INFO     | main.py:63   | run_fed_analysis_workflow() | STEP 2: Creating Screener Based on Fed Analysis
+2025-06-16 18:20:53 | INFO     | main.py:64   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:20:53 | INFO     | screener_analysis_agent.py:95   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 18:20:53 | INFO     | screener_analysis_agent.py:105  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 18:20:53 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 3568aeb8-9ab5-4e48-9769-0f56c3c7f871
+2025-06-16 18:20:53 | INFO     | screener_analysis_agent.py:117  | create_screener_from_analysis() | Started screener execution tracking with ID: 3568aeb8-9ab5-4e48-9769-0f56c3c7f871
+2025-06-16 18:20:53 | DEBUG    | tradingview_query.py:47   | set_execution_id() | Execution ID set to: 3568aeb8-9ab5-4e48-9769-0f56c3c7f871
+2025-06-16 18:20:53 | DEBUG    | screener_analysis_agent.py:198  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 18:20:53 | INFO     | screener_analysis_agent.py:134  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 18:20:53 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:20:53 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:20:56 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 16b05015-0183-4d0c-a137-f53121815749
+2025-06-16 18:20:56 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:54   | _run() | Starting TradingView query execution
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:55   | _run() | Columns: ['name', 'close', 'change', 'volume', 'market_cap_basic', 'dividend_yield_recent', 'price_earnings_ttm', 'debt_to_equity']
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:56   | _run() | Filters: 6 filter(s)
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:57   | _run() | Sort: dividend_yield_recent (DESC)
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:58   | _run() | Limit: 50
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:69   | _run() | Saving screener input to database
+2025-06-16 18:20:56 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: 27b34eae-1652-4ab5-957a-35345964cf55
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:91   | _run() | Screener input saved with ID: 27b34eae-1652-4ab5-957a-35345964cf55
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:94   | _run() | Building TradingView query
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:100  | _run() | Applying mandatory filters
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:120  | _run() | Applied 1 mandatory filters
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:126  | _run() | Processing user filters
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:138  | _run() | Applied greater_than filter: dividend_yield_recent > 3.0
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:141  | _run() | Applied less_than filter: price_earnings_ttm < 15
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:141  | _run() | Applied less_than filter: debt_to_equity < 1.0
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:144  | _run() | Applied equals filter: sector == Utilities
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:144  | _run() | Applied equals filter: sector == Consumer Staples
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:144  | _run() | Applied equals filter: sector == Healthcare
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:158  | _run() | Applied 6 user filters successfully
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:166  | _run() | Executing TradingView screener query
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:170  | _run() | Query executed successfully in 214.0ms
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:171  | _run() | Total results available: 0
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:172  | _run() | Results returned: 0
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:180  | _run() | Saving screener results to database
+2025-06-16 18:20:56 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: fb2ea6a8-ebc3-4600-b71d-45c2c7636644
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:189  | _run() | Screener result saved with ID: fb2ea6a8-ebc3-4600-b71d-45c2c7636644
+2025-06-16 18:20:56 | INFO     | tradingview_query.py:207  | _run() | TradingView query completed successfully
+2025-06-16 18:20:56 | DEBUG    | tradingview_query.py:208  | _run() | Database IDs: input=27b34eae-1652-4ab5-957a-35345964cf55, result=fb2ea6a8-ebc3-4600-b71d-45c2c7636644
+2025-06-16 18:20:56 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:20:56 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:21:01 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: df5fc104-fb64-4566-bbf5-e41bd95aa4c9
+2025-06-16 18:21:01 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:21:01 | INFO     | screener_analysis_agent.py:139  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:269  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:290  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:303  | _extract_screener_results() | Extracted screener results: 0 total stocks
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:145  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:149  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 18:21:01 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 3568aeb8-9ab5-4e48-9769-0f56c3c7f871
+2025-06-16 18:21:01 | INFO     | screener_analysis_agent.py:156  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 18:21:01 | INFO     | screener_analysis_agent.py:157  | create_screener_from_analysis() | LLM cost: $0.0000
+2025-06-16 18:21:01 | INFO     | main.py:74   | run_fed_analysis_workflow() | ✅ Screener created successfully
+2025-06-16 18:21:01 | INFO     | main.py:75   | run_fed_analysis_workflow() | Execution ID: 3568aeb8-9ab5-4e48-9769-0f56c3c7f871
+2025-06-16 18:21:01 | INFO     | main.py:79   | run_fed_analysis_workflow() | Total stocks found: 0
+2025-06-16 18:21:01 | INFO     | main.py:80   | run_fed_analysis_workflow() | Stocks returned: 0
+2025-06-16 18:21:01 | INFO     | main.py:102  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:21:01 | INFO     | main.py:103  | run_fed_analysis_workflow() | FED ANALYSIS WORKFLOW SUMMARY
+2025-06-16 18:21:01 | INFO     | main.py:104  | run_fed_analysis_workflow() | Total LLM Cost: $0.0000
+2025-06-16 18:21:01 | INFO     | main.py:105  | run_fed_analysis_workflow() | Workflow Success: True
+2025-06-16 18:21:01 | INFO     | main.py:106  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:21:01 | INFO     | main.py:144  | main() | Fed Workflow: ✅ SUCCESS - Cost: $0.0000
+2025-06-16 18:21:01 | INFO     | main.py:147  | main() | Recent execution history:
+2025-06-16 18:21:01 | DEBUG    | fed_analysis_agent.py:314  | get_analysis_history() | Retrieving Fed analysis history (limit: 3)
+2025-06-16 18:21:01 | DEBUG    | fed_analysis_agent.py:337  | get_analysis_history() | Retrieved 2 Fed analysis records
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:316  | get_screener_history() | Retrieving screener execution history (limit: 3)
+2025-06-16 18:21:01 | DEBUG    | screener_analysis_agent.py:340  | get_screener_history() | Retrieved 2 screener execution records
+2025-06-16 18:21:01 | INFO     | main.py:151  | main() | Fed Analysis History:
+2025-06-16 18:21:01 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:20:43.502089: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:21:01 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:11:47.878848: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:21:01 | INFO     | main.py:156  | main() | Screener Execution History:
+2025-06-16 18:21:01 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:21:01 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:21:01 | INFO     | main.py:189  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 18:21:01 | INFO     | main.py:190  | <module>() | ============================================================
+2025-06-16 18:38:33 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 18:38:33 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 18:38:33 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 18:38:33 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 18:38:33 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 18:38:33 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 18:38:33 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 18:38:42 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 18:38:42 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 18:38:42 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 18:38:42 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 18:38:42 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 18:38:42 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 18:38:42 | INFO     | main.py:114  | main() | Initializing Two-Agent Screener System
+2025-06-16 18:38:42 | INFO     | main.py:118  | main() | Setting up Fed Analysis Agent...
+2025-06-16 18:38:42 | INFO     | fed_analysis_agent.py:29   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 18:38:42 | DEBUG    | fed_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:38:42 | INFO     | fed_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:38:42 | INFO     | fed_analysis_agent.py:36   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:38:42 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 18:38:42 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:38:44 | WARNING  | main.py:193  | <module>() | System interrupted by user (Ctrl+C)
+2025-06-16 18:39:53 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 18:39:53 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 18:39:53 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 18:39:53 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 18:39:53 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 18:39:53 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 18:39:53 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 18:40:01 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 18:40:01 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 18:40:01 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 18:40:01 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 18:40:01 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 18:40:01 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 18:40:01 | INFO     | main.py:114  | main() | Initializing Two-Agent Screener System
+2025-06-16 18:40:01 | INFO     | main.py:118  | main() | Setting up Fed Analysis Agent...
+2025-06-16 18:40:01 | INFO     | fed_analysis_agent.py:29   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 18:40:01 | DEBUG    | fed_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:40:01 | INFO     | fed_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:40:01 | INFO     | fed_analysis_agent.py:36   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:40:01 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 18:40:01 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:40:05 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:40   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:40:05 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:44   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:51   | __init__() | Setting up Fed analysis tools
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:58   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:61   | __init__() | Creating Fed analysis agent
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:69   | __init__() | Creating Fed analysis agent executor
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:78   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 18:40:05 | INFO     | main.py:125  | main() | Setting up Screener Analysis Agent...
+2025-06-16 18:40:05 | INFO     | screener_analysis_agent.py:29   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 18:40:05 | DEBUG    | screener_analysis_agent.py:30   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:40:05 | INFO     | screener_analysis_agent.py:33   | __init__() | Setting up database manager
+2025-06-16 18:40:05 | DEBUG    | screener_analysis_agent.py:37   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:40:05 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:40:05 | INFO     | screener_analysis_agent.py:41   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:40:05 | INFO     | screener_analysis_agent.py:48   | __init__() | Setting up screener execution tools
+2025-06-16 18:40:05 | DEBUG    | screener_analysis_agent.py:55   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 18:40:05 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Creating screener analysis agent
+2025-06-16 18:40:05 | DEBUG    | screener_analysis_agent.py:66   | __init__() | Creating screener analysis agent executor
+2025-06-16 18:40:05 | INFO     | screener_analysis_agent.py:75   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 18:40:05 | INFO     | main.py:132  | main() | Both agents initialized successfully
+2025-06-16 18:40:05 | INFO     | main.py:135  | main() | Starting Fed analysis workflow...
+2025-06-16 18:40:05 | INFO     | main.py:32   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:40:05 | INFO     | main.py:33   | run_fed_analysis_workflow() | STARTING FED ANALYSIS WORKFLOW
+2025-06-16 18:40:05 | INFO     | main.py:34   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:40:05 | INFO     | main.py:44   | run_fed_analysis_workflow() | STEP 1: Fed Data Analysis
+2025-06-16 18:40:05 | INFO     | main.py:45   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:96   | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:97   | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 18:40:05 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: d49732fb-592c-4bac-bdff-385461a19060
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:106  | analyze_fed_data() | Started Fed analysis execution tracking with ID: d49732fb-592c-4bac-bdff-385461a19060
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:117  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:287  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:294  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 18:40:05 | DEBUG    | fed_analysis_agent.py:302  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:121  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 18:40:05 | INFO     | fed_analysis_agent.py:155  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 18:40:05 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:40:06 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:40:07 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: c21416d9-5a86-47c4-b273-01a20b70a618
+2025-06-16 18:40:07 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:40:07 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: a32a8b6d-3e3b-4389-9332-13adb8e1b16a
+2025-06-16 18:40:07 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 18:40:07 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data a32a8b6d-3e3b-4389-9332-13adb8e1b16a
+2025-06-16 18:40:07 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID a32a8b6d-3e3b-4389-9332-13adb8e1b16a, created 2 embeddings
+2025-06-16 18:40:07 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:40:08 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:40:22 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: e6d50435-8839-45c3-aa40-cb6b434e1dab
+2025-06-16 18:40:22 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:40:22 | INFO     | fed_analysis_agent.py:160  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 18:40:22 | DEBUG    | fed_analysis_agent.py:226  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 18:40:22 | DEBUG    | fed_analysis_agent.py:260  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 18:40:22 | DEBUG    | fed_analysis_agent.py:166  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 18:40:22 | DEBUG    | fed_analysis_agent.py:271  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 18:40:22 | INFO     | fed_analysis_agent.py:281  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 18:40:22 | DEBUG    | fed_analysis_agent.py:174  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 18:40:22 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution d49732fb-592c-4bac-bdff-385461a19060
+2025-06-16 18:40:22 | INFO     | fed_analysis_agent.py:181  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 18:40:22 | INFO     | fed_analysis_agent.py:182  | analyze_fed_data() | LLM cost: $0.0000
+2025-06-16 18:40:22 | INFO     | main.py:56   | run_fed_analysis_workflow() | ✅ Fed analysis completed successfully
+2025-06-16 18:40:22 | INFO     | main.py:57   | run_fed_analysis_workflow() | Execution ID: d49732fb-592c-4bac-bdff-385461a19060
+2025-06-16 18:40:22 | INFO     | main.py:58   | run_fed_analysis_workflow() | Analysis result: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high_risk', 'sector_implications': {}, 'key_factors': [], 'raw_analysis': "### Federal Reserve Economic Data Analysis\n\n#### 1. Overall Market Environment Classification\nBased on the recent communications from the Federal Reserve, the current market environment can be classified as **Neutral**. The Fed's stance appears to be data-dependent, indicating a balanced approach to monetary policy without strong signals leaning towards either hawkish or dovish extremes.\n\n#### 2. Key Economic Factors Identified\n- **Interest Rate Direction and Policy Stance**: The Fed's recent communications suggest a cautious approach to interest rate adjustments. There are no immediate plans for aggressive rate hikes, indicating a **neutral to slightly dovish** stance aimed at supporting economic growth while monitoring inflation trends.\n  \n- **Inflation Trends**: Inflation remains a concern, but the Fed is likely to adopt a wait-and-see approach, assessing incoming data before making further policy changes. This reflects a **balanced risk assessment** regarding inflation pressures.\n\n- **Employment and Growth Outlook**: The Fed's focus on employment suggests a commitment to fostering job growth, which aligns with a dovish policy stance. However, there are indications of potential growth concerns, which may lead to cautious optimism.\n\n- **Financial Stability Considerations**: The Fed is likely to remain vigilant regarding financial stability, particularly in light of recent market volatility. This suggests a careful balancing act between supporting growth and ensuring financial system resilience.\n\n- **Dollar Strength Implications**: The Fed's policy decisions will also impact the strength of the U.S. dollar, which is influenced by interest rate expectations. A stable or slightly dovish stance may lead to a weaker dollar, affecting international trade dynamics.\n\n#### 3. Sector Impact Assessment\n- **Rate-Sensitive Sectors**: Sectors such as utilities and real estate investment trusts (REITs) may benefit from a stable interest rate environment, as lower rates typically enhance their attractiveness. Conversely, financial institutions like banks may face pressure on margins if rates remain low for an extended period.\n\n- **Growth vs. Value Rotation**: The current neutral stance may lead to a rotation towards growth sectors, as investors seek opportunities in companies that can thrive in a low-rate environment. Value stocks may lag if growth expectations remain subdued.\n\n- **Defensive vs. Cyclical Sector Preferences**: Given the cautious economic outlook, investors may favor defensive sectors (e.g., consumer staples, healthcare) over cyclical sectors (e.g., industrials, materials) until clearer growth signals emerge.\n\n#### 4. Risk Sentiment Evaluation\nThe overall risk sentiment appears to be **cautiously optimistic**. While there are concerns regarding inflation and economic growth, the Fed's balanced approach suggests that it is committed to supporting the economy. This may lead to a moderate risk-on sentiment, with investors willing to take on some risk but remaining vigilant about potential economic headwinds.\n\n### Conclusion\nIn summary, the Federal Reserve's current communications reflect a neutral policy stance with a focus on data dependency. The market environment is characterized by cautious optimism, with implications for sector performance and investor sentiment. The Fed's approach will continue to shape economic conditions and market dynamics in the near term."}
+2025-06-16 18:40:22 | INFO     | main.py:59   | run_fed_analysis_workflow() | Screening needed: True
+2025-06-16 18:40:22 | INFO     | main.py:63   | run_fed_analysis_workflow() | STEP 2: Creating Screener Based on Fed Analysis
+2025-06-16 18:40:22 | INFO     | main.py:64   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:40:22 | INFO     | screener_analysis_agent.py:95   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 18:40:22 | INFO     | screener_analysis_agent.py:105  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 18:40:22 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 6c3d246f-bf68-41cf-a274-d6bed5c4cf60
+2025-06-16 18:40:22 | INFO     | screener_analysis_agent.py:117  | create_screener_from_analysis() | Started screener execution tracking with ID: 6c3d246f-bf68-41cf-a274-d6bed5c4cf60
+2025-06-16 18:40:22 | DEBUG    | screener_analysis_agent.py:198  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 18:40:22 | INFO     | screener_analysis_agent.py:134  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 18:40:22 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:40:24 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:40:27 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 94d44a23-5b20-48d7-933f-17b464580b80
+2025-06-16 18:40:27 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:40:27 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 5 filters
+2025-06-16 18:40:27 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 5 → 5 filters
+2025-06-16 18:40:27 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 5 final filter(s)
+2025-06-16 18:40:27 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: d80ae986-22e4-40ee-8d9e-8cf888244569
+2025-06-16 18:40:27 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 18:40:27 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: 0b67729e-729f-4e30-805a-538a6913aa7c
+2025-06-16 18:40:27 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 141 total results, 50 returned, saved with IDs d80ae986-22e4-40ee-8d9e-8cf888244569/0b67729e-729f-4e30-805a-538a6913aa7c
+2025-06-16 18:40:27 | INFO     | llm_callback.py:65   | on_llm_start() | LLM call started: gpt-4o-mini
+2025-06-16 18:40:27 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:40:39 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 4bfacd2d-dd67-4e87-9d98-e63a0b70d174
+2025-06-16 18:40:39 | INFO     | llm_callback.py:96   | on_llm_end() | LLM call completed: gpt-4o-mini - 0 tokens, $0.0000
+2025-06-16 18:40:39 | INFO     | screener_analysis_agent.py:139  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:269  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:290  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:303  | _extract_screener_results() | Extracted screener results: 141 total stocks
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:145  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:149  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 18:40:39 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 6c3d246f-bf68-41cf-a274-d6bed5c4cf60
+2025-06-16 18:40:39 | INFO     | screener_analysis_agent.py:156  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 18:40:39 | INFO     | screener_analysis_agent.py:157  | create_screener_from_analysis() | LLM cost: $0.0000
+2025-06-16 18:40:39 | INFO     | main.py:74   | run_fed_analysis_workflow() | ✅ Screener created successfully
+2025-06-16 18:40:39 | INFO     | main.py:75   | run_fed_analysis_workflow() | Execution ID: 6c3d246f-bf68-41cf-a274-d6bed5c4cf60
+2025-06-16 18:40:39 | INFO     | main.py:79   | run_fed_analysis_workflow() | Total stocks found: 141
+2025-06-16 18:40:39 | INFO     | main.py:80   | run_fed_analysis_workflow() | Stocks returned: 50
+2025-06-16 18:40:39 | INFO     | main.py:83   | run_fed_analysis_workflow() | Sample stocks:
+2025-06-16 18:40:39 | INFO     | main.py:88   | run_fed_analysis_workflow() |   1. BWLP: -0.8% change, 675,111 volume
+2025-06-16 18:40:39 | INFO     | main.py:88   | run_fed_analysis_workflow() |   2. MNR: +0.1% change, 1,360,449 volume
+2025-06-16 18:40:39 | INFO     | main.py:88   | run_fed_analysis_workflow() |   3. CLM: -1.1% change, 1,912,927 volume
+2025-06-16 18:40:39 | INFO     | main.py:88   | run_fed_analysis_workflow() |   4. CRF: -1.3% change, 1,216,508 volume
+2025-06-16 18:40:39 | INFO     | main.py:88   | run_fed_analysis_workflow() |   5. PBR.A: -0.5% change, 8,739,606 volume
+2025-06-16 18:40:39 | INFO     | main.py:102  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:40:39 | INFO     | main.py:103  | run_fed_analysis_workflow() | FED ANALYSIS WORKFLOW SUMMARY
+2025-06-16 18:40:39 | INFO     | main.py:104  | run_fed_analysis_workflow() | Total LLM Cost: $0.0000
+2025-06-16 18:40:39 | INFO     | main.py:105  | run_fed_analysis_workflow() | Workflow Success: True
+2025-06-16 18:40:39 | INFO     | main.py:106  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:40:39 | INFO     | main.py:144  | main() | Fed Workflow: ✅ SUCCESS - Cost: $0.0000
+2025-06-16 18:40:39 | INFO     | main.py:147  | main() | Recent execution history:
+2025-06-16 18:40:39 | DEBUG    | fed_analysis_agent.py:314  | get_analysis_history() | Retrieving Fed analysis history (limit: 3)
+2025-06-16 18:40:39 | DEBUG    | fed_analysis_agent.py:337  | get_analysis_history() | Retrieved 3 Fed analysis records
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:316  | get_screener_history() | Retrieving screener execution history (limit: 3)
+2025-06-16 18:40:39 | DEBUG    | screener_analysis_agent.py:340  | get_screener_history() | Retrieved 3 screener execution records
+2025-06-16 18:40:39 | INFO     | main.py:151  | main() | Fed Analysis History:
+2025-06-16 18:40:39 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:40:05.683652: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:40:39 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:20:43.502089: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:40:39 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:11:47.878848: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:40:39 | INFO     | main.py:156  | main() | Screener Execution History:
+2025-06-16 18:40:39 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:40:39 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:40:39 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:40:39 | INFO     | main.py:189  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 18:40:39 | INFO     | main.py:190  | <module>() | ============================================================
+2025-06-16 18:53:58 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 18:53:58 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 18:53:58 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 18:53:58 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 18:53:58 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 18:53:58 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 18:53:58 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 18:54:06 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 18:54:06 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 18:54:06 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 18:54:06 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 18:54:06 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 18:54:06 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 18:54:06 | INFO     | main.py:114  | main() | Initializing Two-Agent Screener System
+2025-06-16 18:54:06 | INFO     | main.py:118  | main() | Setting up Fed Analysis Agent...
+2025-06-16 18:54:06 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 18:54:06 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:54:06 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 18:54:06 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:54:06 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 18:54:06 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:54:08 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 18:54:08 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:54:08 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:54:08 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:54:08 | INFO     | llm_provider.py:253  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 18:54:09 | INFO     | main.py:125  | main() | Setting up Screener Analysis Agent...
+2025-06-16 18:54:09 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 18:54:09 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 18:54:09 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 18:54:09 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 18:54:09 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 18:54:09 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 18:54:09 | INFO     | llm_provider.py:253  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 18:54:09 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 18:54:09 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 18:54:09 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 18:54:09 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 18:54:09 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 18:54:09 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 18:54:09 | INFO     | main.py:132  | main() | Both agents initialized successfully
+2025-06-16 18:54:09 | INFO     | main.py:135  | main() | Starting Fed analysis workflow...
+2025-06-16 18:54:09 | INFO     | main.py:32   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:54:09 | INFO     | main.py:33   | run_fed_analysis_workflow() | STARTING FED ANALYSIS WORKFLOW
+2025-06-16 18:54:09 | INFO     | main.py:34   | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:54:09 | INFO     | main.py:44   | run_fed_analysis_workflow() | STEP 1: Fed Data Analysis
+2025-06-16 18:54:09 | INFO     | main.py:45   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 18:54:09 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: aa1d0585-3ebf-4830-8f8b-f0aed9564609
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: aa1d0585-3ebf-4830-8f8b-f0aed9564609
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 18:54:09 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 18:54:09 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 18:54:09 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 18:54:10 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:54:11 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 18:54:11 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 18:54:11 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 18:54:11 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: f63d3833-0cdd-46e6-b99a-9cff1a9cbca0
+2025-06-16 18:54:11 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1523 tokens, $0.0002
+2025-06-16 18:54:11 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: 2b5c7fca-91cc-497e-bf55-8d395422e9b9
+2025-06-16 18:54:11 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 18:54:11 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data 2b5c7fca-91cc-497e-bf55-8d395422e9b9
+2025-06-16 18:54:11 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID 2b5c7fca-91cc-497e-bf55-8d395422e9b9, created 2 embeddings
+2025-06-16 18:54:11 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 18:54:12 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:54:22 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2054 tokens
+2025-06-16 18:54:22 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 18:54:22 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2053, completion=1, total=2054
+2025-06-16 18:54:22 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 207779a9-d910-4e95-af63-60f8f01826ff
+2025-06-16 18:54:22 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2054 tokens, $0.0003
+2025-06-16 18:54:22 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 18:54:22 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 18:54:22 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 18:54:22 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 18:54:22 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 18:54:22 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 18:54:22 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 18:54:22 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution aa1d0585-3ebf-4830-8f8b-f0aed9564609
+2025-06-16 18:54:22 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 18:54:22 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.0005
+2025-06-16 18:54:22 | INFO     | main.py:56   | run_fed_analysis_workflow() | ✅ Fed analysis completed successfully
+2025-06-16 18:54:22 | INFO     | main.py:57   | run_fed_analysis_workflow() | Execution ID: aa1d0585-3ebf-4830-8f8b-f0aed9564609
+2025-06-16 18:54:22 | INFO     | main.py:58   | run_fed_analysis_workflow() | Analysis result: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high_risk', 'sector_implications': {}, 'key_factors': [], 'raw_analysis': "### Federal Reserve Economic Analysis\n\n#### 1. Overall Market Environment Classification\nBased on the recent communications from the Federal Reserve, the current market environment can be classified as **Neutral**. The Fed's stance appears to be data-dependent, indicating a balanced approach to monetary policy without strong signals leaning towards either hawkish or dovish extremes.\n\n#### 2. Key Economic Factors Identified\n- **Interest Rate Direction and Policy Stance**: The Fed has maintained a cautious approach, suggesting that any future rate adjustments will be contingent on incoming economic data. This indicates a **neutral policy stance** with no immediate plans for aggressive rate hikes or cuts.\n  \n- **Inflation Trends**: Inflation remains a concern, but the Fed's language does not suggest immediate panic. The focus seems to be on monitoring inflationary pressures while ensuring economic stability.\n\n- **Economic Outlook and Growth Concerns**: The Fed's communications reflect a commitment to supporting economic growth while being vigilant about inflation. There are indications of moderate growth expectations, but concerns about potential slowdowns remain.\n\n- **Financial Stability Considerations**: The Fed emphasizes the importance of a stable financial system, which suggests ongoing monitoring of financial markets and potential risks.\n\n#### 3. Sector Impact Assessment\n- **Rate-Sensitive Sectors**: With the Fed's neutral stance, sectors such as utilities and real estate investment trusts (REITs) may experience stable performance, as they are sensitive to interest rate changes. However, any future rate hikes could impact their profitability.\n\n- **Growth vs. Value Rotation**: The current environment may favor **value stocks** as investors seek stability amidst uncertainty. Growth stocks may face headwinds if interest rates rise unexpectedly.\n\n- **Defensive vs. Cyclical Sector Preferences**: Given the mixed signals from the Fed, investors may lean towards **defensive sectors** (e.g., consumer staples, healthcare) while remaining cautious about cyclical sectors (e.g., industrials, consumer discretionary) that are more sensitive to economic fluctuations.\n\n#### 4. Risk Sentiment Evaluation\nThe overall risk sentiment appears to be **cautiously optimistic**. While there is a willingness to engage in riskier assets, the Fed's careful monitoring of inflation and economic growth suggests that investors are also preparing for potential volatility. The market is likely to remain sensitive to any shifts in Fed policy or economic data releases.\n\n### Conclusion\nIn summary, the Federal Reserve's current communications indicate a neutral policy stance with a focus on data dependency. The market environment reflects a cautious optimism, with implications for sector performance leaning towards defensive positioning. Investors should remain vigilant regarding inflation trends and economic indicators that could influence future Fed actions."}
+2025-06-16 18:54:22 | INFO     | main.py:59   | run_fed_analysis_workflow() | Screening needed: True
+2025-06-16 18:54:22 | INFO     | main.py:63   | run_fed_analysis_workflow() | STEP 2: Creating Screener Based on Fed Analysis
+2025-06-16 18:54:22 | INFO     | main.py:64   | run_fed_analysis_workflow() | ------------------------------
+2025-06-16 18:54:22 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 18:54:22 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 18:54:22 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: b45b32fa-c182-41ef-8ae9-ee087166c9ee
+2025-06-16 18:54:22 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: b45b32fa-c182-41ef-8ae9-ee087166c9ee
+2025-06-16 18:54:22 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 18:54:22 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 18:54:22 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 18:54:23 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:54:25 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 18:54:25 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 18:54:25 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 18:54:25 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 215e8d9b-a08d-4324-a112-b950c67845a6
+2025-06-16 18:54:25 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1618 tokens, $0.0002
+2025-06-16 18:54:25 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 4 filters
+2025-06-16 18:54:25 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 4 → 4 filters
+2025-06-16 18:54:25 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 4 final filter(s)
+2025-06-16 18:54:25 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: a9a297ba-3efa-4220-895f-dfb7e3cca70d
+2025-06-16 18:54:25 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 18:54:26 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: aad1b5de-377a-4dd4-b475-f6df874a27a1
+2025-06-16 18:54:26 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 328 total results, 50 returned, saved with IDs a9a297ba-3efa-4220-895f-dfb7e3cca70d/aad1b5de-377a-4dd4-b475-f6df874a27a1
+2025-06-16 18:54:26 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 18:54:26 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 18:54:35 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2796 tokens
+2025-06-16 18:54:35 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 18:54:35 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2795, completion=1, total=2796
+2025-06-16 18:54:35 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: dd471a11-1c8e-4edf-827e-b11b60607f6a
+2025-06-16 18:54:35 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2796 tokens, $0.0004
+2025-06-16 18:54:35 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 328 total stocks
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 18:54:35 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution b45b32fa-c182-41ef-8ae9-ee087166c9ee
+2025-06-16 18:54:35 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 18:54:35 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.0007
+2025-06-16 18:54:35 | INFO     | main.py:74   | run_fed_analysis_workflow() | ✅ Screener created successfully
+2025-06-16 18:54:35 | INFO     | main.py:75   | run_fed_analysis_workflow() | Execution ID: b45b32fa-c182-41ef-8ae9-ee087166c9ee
+2025-06-16 18:54:35 | INFO     | main.py:79   | run_fed_analysis_workflow() | Total stocks found: 328
+2025-06-16 18:54:35 | INFO     | main.py:80   | run_fed_analysis_workflow() | Stocks returned: 50
+2025-06-16 18:54:35 | INFO     | main.py:83   | run_fed_analysis_workflow() | Sample stocks:
+2025-06-16 18:54:35 | INFO     | main.py:88   | run_fed_analysis_workflow() |   1. CUBA: +0.0% change, 26,688 volume
+2025-06-16 18:54:35 | INFO     | main.py:88   | run_fed_analysis_workflow() |   2. SPMC: -4.0% change, 97,355 volume
+2025-06-16 18:54:35 | INFO     | main.py:88   | run_fed_analysis_workflow() |   3. CIB: +0.2% change, 385,804 volume
+2025-06-16 18:54:35 | INFO     | main.py:88   | run_fed_analysis_workflow() |   4. PDCC: -1.0% change, 937 volume
+2025-06-16 18:54:35 | INFO     | main.py:88   | run_fed_analysis_workflow() |   5. OPP: +0.2% change, 54,428 volume
+2025-06-16 18:54:35 | INFO     | main.py:102  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:54:35 | INFO     | main.py:103  | run_fed_analysis_workflow() | FED ANALYSIS WORKFLOW SUMMARY
+2025-06-16 18:54:35 | INFO     | main.py:104  | run_fed_analysis_workflow() | Total LLM Cost: $0.0012
+2025-06-16 18:54:35 | INFO     | main.py:105  | run_fed_analysis_workflow() | Workflow Success: True
+2025-06-16 18:54:35 | INFO     | main.py:106  | run_fed_analysis_workflow() | ============================================================
+2025-06-16 18:54:35 | INFO     | main.py:144  | main() | Fed Workflow: ✅ SUCCESS - Cost: $0.0012
+2025-06-16 18:54:35 | INFO     | main.py:147  | main() | Recent execution history:
+2025-06-16 18:54:35 | DEBUG    | fed_analysis_agent.py:318  | get_analysis_history() | Retrieving Fed analysis history (limit: 3)
+2025-06-16 18:54:35 | DEBUG    | fed_analysis_agent.py:341  | get_analysis_history() | Retrieved 3 Fed analysis records
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:319  | get_screener_history() | Retrieving screener execution history (limit: 3)
+2025-06-16 18:54:35 | DEBUG    | screener_analysis_agent.py:343  | get_screener_history() | Retrieved 3 screener execution records
+2025-06-16 18:54:35 | INFO     | main.py:151  | main() | Fed Analysis History:
+2025-06-16 18:54:35 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:54:09.454838: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:54:35 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:40:05.683652: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:54:35 | INFO     | main.py:154  | main() |   ✅ 2025-06-17T01:20:43.502089: Analyze Fed data from https://www.federalreserve.gov/newsevents/pressreleases.htm for FOMC interest ...
+2025-06-16 18:54:35 | INFO     | main.py:156  | main() | Screener Execution History:
+2025-06-16 18:54:35 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:54:35 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:54:35 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
+2025-06-16 18:54:35 | INFO     | main.py:189  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 18:54:35 | INFO     | main.py:190  | <module>() | ============================================================
