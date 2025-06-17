@@ -697,3 +697,971 @@
 2025-06-16 18:54:35 | INFO     | main.py:159  | main() |   ✅ fed_based_screener: Fed analysis: {'market_environment': 'risk_off', 'policy_stance': 'hawkish', 'risk_sentiment': 'high...
 2025-06-16 18:54:35 | INFO     | main.py:189  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
 2025-06-16 18:54:35 | INFO     | main.py:190  | <module>() | ============================================================
+2025-06-16 21:53:25 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 21:53:25 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 21:53:25 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 21:53:25 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 21:53:25 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 21:53:25 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 21:53:25 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 21:54:35 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 21:54:35 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 21:54:35 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 21:54:35 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 21:54:35 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 21:54:35 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 21:54:35 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 21:54:46 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 21:54:46 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 21:54:46 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 21:54:46 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 21:54:46 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 21:54:46 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 21:54:46 | INFO     | main.py:177  | main() | Initializing Two-Agent Screener System
+2025-06-16 21:54:46 | INFO     | main.py:127  | run_email_workflow() | 📧 RUNNING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 21:54:46 | INFO     | main.py:128  | run_email_workflow() | ================================================================================
+2025-06-16 21:54:46 | INFO     | email_workflow.py:31   | __init__() | Initializing Email-Enabled Workflow
+2025-06-16 21:54:46 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 21:54:46 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 21:54:46 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 21:54:46 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 21:54:46 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 21:54:46 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 21:54:46 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 21:54:48 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 21:54:48 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 21:54:48 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 21:54:48 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 21:54:48 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 21:54:49 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 21:54:49 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 21:54:49 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 21:54:49 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 21:54:49 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 21:54:49 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 21:54:49 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 21:54:49 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 21:54:49 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 21:54:49 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 21:54:49 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 21:54:49 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 21:54:49 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 21:54:49 | INFO     | email_workflow.py:56   | __init__() | Email-enabled workflow initialized successfully
+2025-06-16 21:54:49 | INFO     | email_workflow.py:76   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 21:54:49 | INFO     | email_workflow.py:77   | run_complete_workflow_with_email() | STARTING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 21:54:49 | INFO     | email_workflow.py:78   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 21:54:49 | INFO     | email_workflow.py:91   | run_complete_workflow_with_email() | STEP 1: Federal Reserve Data Analysis
+2025-06-16 21:54:49 | INFO     | email_workflow.py:92   | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 21:54:49 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 9048354f-03cc-400e-a52c-ed56cc15de9c
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: 9048354f-03cc-400e-a52c-ed56cc15de9c
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 21:54:49 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 21:54:49 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 21:54:49 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 21:54:50 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 21:54:51 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 21:54:51 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 21:54:51 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 21:54:51 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 10415cb0-242c-41b4-89f8-ddaa05fe053c
+2025-06-16 21:54:51 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1523 tokens, $0.0002
+2025-06-16 21:54:51 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: b53f4a12-80a8-47e7-a29d-678b916fe03b
+2025-06-16 21:54:51 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 21:54:51 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data b53f4a12-80a8-47e7-a29d-678b916fe03b
+2025-06-16 21:54:51 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID b53f4a12-80a8-47e7-a29d-678b916fe03b, created 2 embeddings
+2025-06-16 21:54:51 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 21:54:52 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 21:55:01 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2246 tokens
+2025-06-16 21:55:01 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 21:55:01 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2245, completion=1, total=2246
+2025-06-16 21:55:01 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 170300eb-28eb-44b7-8304-9f6b78186559
+2025-06-16 21:55:01 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2246 tokens, $0.0003
+2025-06-16 21:55:01 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 21:55:01 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 21:55:01 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 21:55:01 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 21:55:01 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 21:55:01 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 21:55:01 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 21:55:01 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 9048354f-03cc-400e-a52c-ed56cc15de9c
+2025-06-16 21:55:01 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 21:55:01 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.0006
+2025-06-16 21:55:01 | INFO     | email_workflow.py:106  | run_complete_workflow_with_email() | ✅ Fed analysis completed successfully
+2025-06-16 21:55:01 | INFO     | email_workflow.py:107  | run_complete_workflow_with_email() | Market environment: risk_off
+2025-06-16 21:55:01 | INFO     | email_workflow.py:108  | run_complete_workflow_with_email() | Policy stance: hawkish
+2025-06-16 21:55:01 | INFO     | email_workflow.py:112  | run_complete_workflow_with_email() | STEP 2: Creating Stock Screener
+2025-06-16 21:55:01 | INFO     | email_workflow.py:113  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 21:55:01 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 21:55:01 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 21:55:01 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 86bba6cb-c06d-4dde-9f35-5ad670dc6bd3
+2025-06-16 21:55:01 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: 86bba6cb-c06d-4dde-9f35-5ad670dc6bd3
+2025-06-16 21:55:01 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 21:55:01 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 21:55:01 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 21:55:01 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 21:55:03 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 21:55:03 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 21:55:03 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 21:55:03 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 0eb15438-c25b-47c8-bb40-96d844e498a3
+2025-06-16 21:55:03 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1618 tokens, $0.0002
+2025-06-16 21:55:03 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 5 filters
+2025-06-16 21:55:03 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 5 → 5 filters
+2025-06-16 21:55:03 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 5 final filter(s)
+2025-06-16 21:55:03 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: 70510472-861a-4aef-b18c-daf62654a936
+2025-06-16 21:55:03 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 21:55:04 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: 0d7bbe85-cdcd-4ad2-8a6f-fcf29e133f6b
+2025-06-16 21:55:04 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 98 total results, 50 returned, saved with IDs 70510472-861a-4aef-b18c-daf62654a936/0d7bbe85-cdcd-4ad2-8a6f-fcf29e133f6b
+2025-06-16 21:55:04 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 21:55:04 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 21:55:12 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2735 tokens
+2025-06-16 21:55:12 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 21:55:12 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2734, completion=1, total=2735
+2025-06-16 21:55:12 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 44c278c8-c25f-4688-ab49-166a6e9ac110
+2025-06-16 21:55:12 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2735 tokens, $0.0004
+2025-06-16 21:55:12 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 21:55:12 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 21:55:12 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 21:55:12 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 98 total stocks
+2025-06-16 21:55:12 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 21:55:12 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 21:55:12 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 86bba6cb-c06d-4dde-9f35-5ad670dc6bd3
+2025-06-16 21:55:12 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 21:55:12 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.0007
+2025-06-16 21:55:12 | INFO     | email_workflow.py:126  | run_complete_workflow_with_email() | ✅ Screener completed successfully
+2025-06-16 21:55:12 | INFO     | email_workflow.py:136  | run_complete_workflow_with_email() | Total stocks found: 98
+2025-06-16 21:55:12 | INFO     | email_workflow.py:137  | run_complete_workflow_with_email() | Stocks returned: 50
+2025-06-16 21:55:12 | INFO     | email_workflow.py:141  | run_complete_workflow_with_email() | STEP 3: Sending Email Report
+2025-06-16 21:55:12 | INFO     | email_workflow.py:142  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 21:55:12 | INFO     | email_agent.py:393  | send_screener_email() | Sending screener email for result ID: 0d7bbe85-cdcd-4ad2-8a6f-fcf29e133f6b
+2025-06-16 21:55:14 | ERROR    | email_agent.py:117  | _run() | Email sending error: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-313c1bcbc6esm9667174a91.5 - gsmtp')
+2025-06-16 21:55:14 | ERROR    | email_agent.py:411  | send_screener_email() | Email sending failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-313c1bcbc6esm9667174a91.5 - gsmtp')
+2025-06-16 21:55:14 | ERROR    | email_workflow.py:157  | run_complete_workflow_with_email() | ❌ Email sending failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-313c1bcbc6esm9667174a91.5 - gsmtp')
+2025-06-16 21:55:14 | INFO     | email_workflow.py:175  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 21:55:14 | INFO     | email_workflow.py:176  | run_complete_workflow_with_email() | WORKFLOW SUMMARY
+2025-06-16 21:55:14 | INFO     | email_workflow.py:177  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 21:55:14 | INFO     | email_workflow.py:178  | run_complete_workflow_with_email() | Fed Analysis: ✅ SUCCESS
+2025-06-16 21:55:14 | INFO     | email_workflow.py:180  | run_complete_workflow_with_email() | Screener: ✅ SUCCESS
+2025-06-16 21:55:14 | INFO     | email_workflow.py:182  | run_complete_workflow_with_email() | Email: 📧 SKIPPED
+2025-06-16 21:55:14 | INFO     | email_workflow.py:184  | run_complete_workflow_with_email() | Total LLM Cost: $0.0012
+2025-06-16 21:55:14 | INFO     | email_workflow.py:185  | run_complete_workflow_with_email() | Overall Success: ✅ YES
+2025-06-16 21:55:14 | INFO     | email_workflow.py:186  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 21:55:14 | INFO     | main.py:210  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 21:55:14 | INFO     | main.py:211  | <module>() | ============================================================
+2025-06-16 22:01:38 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 22:01:38 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 22:01:38 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 22:01:38 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 22:01:38 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 22:01:38 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 22:01:38 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 22:01:50 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 22:01:50 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 22:01:50 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 22:01:50 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 22:01:50 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 22:01:50 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 22:01:50 | INFO     | main.py:177  | main() | Initializing Two-Agent Screener System
+2025-06-16 22:01:50 | INFO     | main.py:127  | run_email_workflow() | 📧 RUNNING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:01:50 | INFO     | main.py:128  | run_email_workflow() | ================================================================================
+2025-06-16 22:01:50 | INFO     | email_workflow.py:31   | __init__() | Initializing Email-Enabled Workflow
+2025-06-16 22:01:50 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:01:50 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 22:01:50 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 22:01:50 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:01:50 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:01:50 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 22:01:50 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:01:53 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:01:53 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:01:53 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:01:53 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 22:01:53 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 22:01:54 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 22:01:54 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 22:01:54 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:01:54 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:01:54 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:01:54 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 22:01:54 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 22:01:54 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:01:54 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 22:01:54 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 22:01:54 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 22:01:54 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 22:01:54 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 22:01:54 | INFO     | email_workflow.py:56   | __init__() | Email-enabled workflow initialized successfully
+2025-06-16 22:01:54 | INFO     | email_workflow.py:76   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:01:54 | INFO     | email_workflow.py:77   | run_complete_workflow_with_email() | STARTING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:01:54 | INFO     | email_workflow.py:78   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:01:54 | INFO     | email_workflow.py:91   | run_complete_workflow_with_email() | STEP 1: Federal Reserve Data Analysis
+2025-06-16 22:01:54 | INFO     | email_workflow.py:92   | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 22:01:54 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 8cebaa8e-57da-4971-b6b5-0d0da9e4c579
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: 8cebaa8e-57da-4971-b6b5-0d0da9e4c579
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 22:01:54 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 22:01:54 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 22:01:54 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:01:56 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:01:56 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 22:01:56 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:01:56 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 22:01:56 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 279b5301-2487-4ca5-851b-6bdb76d2afb0
+2025-06-16 22:01:56 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1523 tokens, $0.0002
+2025-06-16 22:01:57 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: c22ff9f2-5ea3-45c4-a6ab-df4d1763b966
+2025-06-16 22:01:57 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 22:01:57 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data c22ff9f2-5ea3-45c4-a6ab-df4d1763b966
+2025-06-16 22:01:57 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID c22ff9f2-5ea3-45c4-a6ab-df4d1763b966, created 2 embeddings
+2025-06-16 22:01:57 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:01:58 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:02:13 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2246 tokens
+2025-06-16 22:02:13 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:02:13 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2245, completion=1, total=2246
+2025-06-16 22:02:13 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: e09e8b01-c093-41e7-87dd-36b65ecae5d4
+2025-06-16 22:02:13 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2246 tokens, $0.0003
+2025-06-16 22:02:13 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 22:02:13 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 22:02:13 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 22:02:13 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 22:02:13 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 22:02:13 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 22:02:13 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 22:02:13 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 8cebaa8e-57da-4971-b6b5-0d0da9e4c579
+2025-06-16 22:02:13 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 22:02:13 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.0006
+2025-06-16 22:02:13 | INFO     | email_workflow.py:106  | run_complete_workflow_with_email() | ✅ Fed analysis completed successfully
+2025-06-16 22:02:13 | INFO     | email_workflow.py:107  | run_complete_workflow_with_email() | Market environment: risk_off
+2025-06-16 22:02:13 | INFO     | email_workflow.py:108  | run_complete_workflow_with_email() | Policy stance: hawkish
+2025-06-16 22:02:13 | INFO     | email_workflow.py:112  | run_complete_workflow_with_email() | STEP 2: Creating Stock Screener
+2025-06-16 22:02:13 | INFO     | email_workflow.py:113  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:02:13 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 22:02:13 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 22:02:13 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 051e501a-9965-421f-87e7-5768f8500092
+2025-06-16 22:02:13 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: 051e501a-9965-421f-87e7-5768f8500092
+2025-06-16 22:02:13 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 22:02:13 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 22:02:13 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:02:14 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:02:17 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 22:02:17 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:02:17 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 22:02:17 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: ddf15d5d-dcc2-4199-ab0e-6d5854ecdc24
+2025-06-16 22:02:17 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1618 tokens, $0.0002
+2025-06-16 22:02:17 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 5 filters
+2025-06-16 22:02:17 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 5 → 5 filters
+2025-06-16 22:02:17 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 5 final filter(s)
+2025-06-16 22:02:17 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: 91c52526-92d5-48d4-aa38-f1da78345153
+2025-06-16 22:02:17 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 22:02:17 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: 9a182d59-8312-4af1-849d-d309665c0193
+2025-06-16 22:02:17 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 117 total results, 50 returned, saved with IDs 91c52526-92d5-48d4-aa38-f1da78345153/9a182d59-8312-4af1-849d-d309665c0193
+2025-06-16 22:02:17 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:02:18 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:02:26 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2845 tokens
+2025-06-16 22:02:26 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:02:26 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2844, completion=1, total=2845
+2025-06-16 22:02:26 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: c905e93a-869d-4a4f-b253-b6906b629323
+2025-06-16 22:02:26 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2845 tokens, $0.0004
+2025-06-16 22:02:26 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 22:02:26 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 22:02:26 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 22:02:26 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 117 total stocks
+2025-06-16 22:02:26 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 22:02:26 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 22:02:26 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 051e501a-9965-421f-87e7-5768f8500092
+2025-06-16 22:02:26 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 22:02:26 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.0007
+2025-06-16 22:02:26 | INFO     | email_workflow.py:126  | run_complete_workflow_with_email() | ✅ Screener completed successfully
+2025-06-16 22:02:26 | INFO     | email_workflow.py:136  | run_complete_workflow_with_email() | Total stocks found: 117
+2025-06-16 22:02:26 | INFO     | email_workflow.py:137  | run_complete_workflow_with_email() | Stocks returned: 50
+2025-06-16 22:02:26 | INFO     | email_workflow.py:141  | run_complete_workflow_with_email() | STEP 3: Sending Email Report
+2025-06-16 22:02:26 | INFO     | email_workflow.py:142  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:02:26 | INFO     | email_agent.py:393  | send_screener_email() | Sending screener email for result ID: 9a182d59-8312-4af1-849d-d309665c0193
+2025-06-16 22:02:28 | ERROR    | email_agent.py:117  | _run() | Email sending error: (550, b'5.7.1 This message is not RFC 5322 compliant. There are multiple To headers.\n5.7.1 To reduce the amount of spam sent to Gmail, this message has been\n5.7.1 blocked. For more information, go to\n5.7.1  https://support.google.com/mail/?p=RfcMessageNonCompliant and review\n5.7.1 RFC 5322 specifications. d2e1a72fcca58-74890084008sm8106026b3a.90 - gsmtp')
+2025-06-16 22:02:28 | ERROR    | email_agent.py:411  | send_screener_email() | Email sending failed: (550, b'5.7.1 This message is not RFC 5322 compliant. There are multiple To headers.\n5.7.1 To reduce the amount of spam sent to Gmail, this message has been\n5.7.1 blocked. For more information, go to\n5.7.1  https://support.google.com/mail/?p=RfcMessageNonCompliant and review\n5.7.1 RFC 5322 specifications. d2e1a72fcca58-74890084008sm8106026b3a.90 - gsmtp')
+2025-06-16 22:02:28 | ERROR    | email_workflow.py:157  | run_complete_workflow_with_email() | ❌ Email sending failed: (550, b'5.7.1 This message is not RFC 5322 compliant. There are multiple To headers.\n5.7.1 To reduce the amount of spam sent to Gmail, this message has been\n5.7.1 blocked. For more information, go to\n5.7.1  https://support.google.com/mail/?p=RfcMessageNonCompliant and review\n5.7.1 RFC 5322 specifications. d2e1a72fcca58-74890084008sm8106026b3a.90 - gsmtp')
+2025-06-16 22:02:28 | INFO     | email_workflow.py:175  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:02:28 | INFO     | email_workflow.py:176  | run_complete_workflow_with_email() | WORKFLOW SUMMARY
+2025-06-16 22:02:28 | INFO     | email_workflow.py:177  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:02:28 | INFO     | email_workflow.py:178  | run_complete_workflow_with_email() | Fed Analysis: ✅ SUCCESS
+2025-06-16 22:02:28 | INFO     | email_workflow.py:180  | run_complete_workflow_with_email() | Screener: ✅ SUCCESS
+2025-06-16 22:02:28 | INFO     | email_workflow.py:182  | run_complete_workflow_with_email() | Email: 📧 SKIPPED
+2025-06-16 22:02:28 | INFO     | email_workflow.py:184  | run_complete_workflow_with_email() | Total LLM Cost: $0.0012
+2025-06-16 22:02:28 | INFO     | email_workflow.py:185  | run_complete_workflow_with_email() | Overall Success: ✅ YES
+2025-06-16 22:02:28 | INFO     | email_workflow.py:186  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:02:28 | INFO     | main.py:210  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 22:02:28 | INFO     | main.py:211  | <module>() | ============================================================
+2025-06-16 22:05:34 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 22:05:34 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 22:05:34 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 22:05:34 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 22:05:34 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 22:05:34 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 22:05:34 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 22:05:44 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 22:05:44 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 22:05:44 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 22:05:44 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 22:05:44 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 22:05:44 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 22:05:44 | INFO     | main.py:177  | main() | Initializing Two-Agent Screener System
+2025-06-16 22:05:44 | INFO     | main.py:127  | run_email_workflow() | 📧 RUNNING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:05:44 | INFO     | main.py:128  | run_email_workflow() | ================================================================================
+2025-06-16 22:05:44 | INFO     | email_workflow.py:31   | __init__() | Initializing Email-Enabled Workflow
+2025-06-16 22:05:44 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:05:44 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 22:05:44 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 22:05:44 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:05:44 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:05:44 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 22:05:44 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:05:47 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:05:47 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:05:47 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:05:47 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 22:05:47 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 22:05:48 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 22:05:48 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4o-mini, temperature=0
+2025-06-16 22:05:48 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:05:48 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:05:48 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:05:48 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4o-mini
+2025-06-16 22:05:48 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4o-mini
+2025-06-16 22:05:48 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:05:48 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 22:05:48 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 22:05:48 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 22:05:48 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 22:05:48 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 22:05:48 | INFO     | email_workflow.py:56   | __init__() | Email-enabled workflow initialized successfully
+2025-06-16 22:05:48 | INFO     | email_workflow.py:76   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:05:48 | INFO     | email_workflow.py:77   | run_complete_workflow_with_email() | STARTING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:05:48 | INFO     | email_workflow.py:78   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:05:48 | INFO     | email_workflow.py:91   | run_complete_workflow_with_email() | STEP 1: Federal Reserve Data Analysis
+2025-06-16 22:05:48 | INFO     | email_workflow.py:92   | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 22:05:48 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: bbe1a125-d3d9-49db-9bac-f86e0be55508
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: bbe1a125-d3d9-49db-9bac-f86e0be55508
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 22:05:48 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 22:05:48 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 22:05:48 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:05:49 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:05:49 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 22:05:49 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:05:49 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 22:05:49 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 8790cc1d-4ce8-4708-a420-e714e6a7c87a
+2025-06-16 22:05:49 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1523 tokens, $0.0002
+2025-06-16 22:05:50 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: 361358e6-c5fe-4e54-bd15-7eca317bc9b3
+2025-06-16 22:05:50 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 22:05:50 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data 361358e6-c5fe-4e54-bd15-7eca317bc9b3
+2025-06-16 22:05:50 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID 361358e6-c5fe-4e54-bd15-7eca317bc9b3, created 2 embeddings
+2025-06-16 22:05:50 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:05:50 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:06:03 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2108 tokens
+2025-06-16 22:06:03 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:06:03 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2107, completion=1, total=2108
+2025-06-16 22:06:03 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 3ace03d3-c226-43aa-9d5e-e99271f8458d
+2025-06-16 22:06:03 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2108 tokens, $0.0003
+2025-06-16 22:06:03 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 22:06:03 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 22:06:03 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 22:06:03 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 22:06:03 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 22:06:03 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 22:06:03 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 22:06:03 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution bbe1a125-d3d9-49db-9bac-f86e0be55508
+2025-06-16 22:06:03 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 22:06:03 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.0005
+2025-06-16 22:06:03 | INFO     | email_workflow.py:106  | run_complete_workflow_with_email() | ✅ Fed analysis completed successfully
+2025-06-16 22:06:03 | INFO     | email_workflow.py:107  | run_complete_workflow_with_email() | Market environment: risk_off
+2025-06-16 22:06:03 | INFO     | email_workflow.py:108  | run_complete_workflow_with_email() | Policy stance: hawkish
+2025-06-16 22:06:03 | INFO     | email_workflow.py:112  | run_complete_workflow_with_email() | STEP 2: Creating Stock Screener
+2025-06-16 22:06:03 | INFO     | email_workflow.py:113  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:06:03 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 22:06:03 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 22:06:03 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 383b4637-444d-4796-af59-cd61f6bb0852
+2025-06-16 22:06:03 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: 383b4637-444d-4796-af59-cd61f6bb0852
+2025-06-16 22:06:03 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 22:06:03 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 22:06:03 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:06:03 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:06:06 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 22:06:06 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:06:06 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 22:06:06 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 1be408c0-8a3d-4fd4-824b-d5db658c519c
+2025-06-16 22:06:06 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 1618 tokens, $0.0002
+2025-06-16 22:06:06 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 5 filters
+2025-06-16 22:06:06 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 5 → 5 filters
+2025-06-16 22:06:06 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 5 final filter(s)
+2025-06-16 22:06:06 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: bd9b4613-68ca-4012-910e-eac3807c6e00
+2025-06-16 22:06:06 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 22:06:07 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: f625d65e-721c-4160-8373-eba1ba62a842
+2025-06-16 22:06:07 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 143 total results, 50 returned, saved with IDs bd9b4613-68ca-4012-910e-eac3807c6e00/f625d65e-721c-4160-8373-eba1ba62a842
+2025-06-16 22:06:07 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4o-mini
+2025-06-16 22:06:08 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:06:17 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2845 tokens
+2025-06-16 22:06:17 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:06:17 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2844, completion=1, total=2845
+2025-06-16 22:06:17 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 72b9a73d-8721-45e2-b577-7e5780db5955
+2025-06-16 22:06:17 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4o-mini - 2845 tokens, $0.0004
+2025-06-16 22:06:17 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 22:06:17 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 22:06:17 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 22:06:17 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 143 total stocks
+2025-06-16 22:06:17 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 22:06:17 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 22:06:17 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 383b4637-444d-4796-af59-cd61f6bb0852
+2025-06-16 22:06:17 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 22:06:17 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.0007
+2025-06-16 22:06:17 | INFO     | email_workflow.py:126  | run_complete_workflow_with_email() | ✅ Screener completed successfully
+2025-06-16 22:06:17 | INFO     | email_workflow.py:136  | run_complete_workflow_with_email() | Total stocks found: 143
+2025-06-16 22:06:17 | INFO     | email_workflow.py:137  | run_complete_workflow_with_email() | Stocks returned: 50
+2025-06-16 22:06:17 | INFO     | email_workflow.py:141  | run_complete_workflow_with_email() | STEP 3: Sending Email Report
+2025-06-16 22:06:17 | INFO     | email_workflow.py:142  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:06:17 | INFO     | email_agent.py:391  | send_screener_email() | Sending screener email for result ID: f625d65e-721c-4160-8373-eba1ba62a842
+2025-06-16 22:06:18 | ERROR    | email_agent.py:115  | _run() | Email sending error: {}
+2025-06-16 22:06:18 | ERROR    | email_agent.py:409  | send_screener_email() | Email sending failed: {}
+2025-06-16 22:06:18 | ERROR    | email_workflow.py:157  | run_complete_workflow_with_email() | ❌ Email sending failed: {}
+2025-06-16 22:06:18 | INFO     | email_workflow.py:175  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:06:18 | INFO     | email_workflow.py:176  | run_complete_workflow_with_email() | WORKFLOW SUMMARY
+2025-06-16 22:06:18 | INFO     | email_workflow.py:177  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:06:18 | INFO     | email_workflow.py:178  | run_complete_workflow_with_email() | Fed Analysis: ✅ SUCCESS
+2025-06-16 22:06:18 | INFO     | email_workflow.py:180  | run_complete_workflow_with_email() | Screener: ✅ SUCCESS
+2025-06-16 22:06:18 | INFO     | email_workflow.py:182  | run_complete_workflow_with_email() | Email: 📧 SKIPPED
+2025-06-16 22:06:18 | INFO     | email_workflow.py:184  | run_complete_workflow_with_email() | Total LLM Cost: $0.0012
+2025-06-16 22:06:18 | INFO     | email_workflow.py:185  | run_complete_workflow_with_email() | Overall Success: ✅ YES
+2025-06-16 22:06:18 | INFO     | email_workflow.py:186  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:06:18 | INFO     | main.py:210  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 22:06:18 | INFO     | main.py:211  | <module>() | ============================================================
+2025-06-16 22:08:14 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 22:08:14 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 22:08:14 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 22:08:14 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 22:08:14 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 22:08:14 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 22:08:14 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 22:08:27 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 22:08:27 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 22:08:28 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 22:08:28 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 22:08:28 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 22:08:28 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 22:08:28 | INFO     | main.py:177  | main() | Initializing Two-Agent Screener System
+2025-06-16 22:08:28 | INFO     | main.py:127  | run_email_workflow() | 📧 RUNNING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:08:28 | INFO     | main.py:128  | run_email_workflow() | ================================================================================
+2025-06-16 22:08:28 | INFO     | email_workflow.py:31   | __init__() | Initializing Email-Enabled Workflow
+2025-06-16 22:08:28 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:08:28 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 22:08:28 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4.1-mini, temperature=0
+2025-06-16 22:08:28 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:08:28 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:08:28 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 22:08:28 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:08:32 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:08:32 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:08:32 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:08:32 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4.1-mini
+2025-06-16 22:08:32 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4.1-mini
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 22:08:33 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 22:08:33 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4.1-mini, temperature=0
+2025-06-16 22:08:33 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:08:33 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:08:33 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:08:33 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4.1-mini
+2025-06-16 22:08:33 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4.1-mini
+2025-06-16 22:08:33 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:08:33 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 22:08:33 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 22:08:33 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 22:08:33 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 22:08:33 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 22:08:33 | INFO     | email_workflow.py:56   | __init__() | Email-enabled workflow initialized successfully
+2025-06-16 22:08:33 | INFO     | email_workflow.py:76   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:08:33 | INFO     | email_workflow.py:77   | run_complete_workflow_with_email() | STARTING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:08:33 | INFO     | email_workflow.py:78   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:08:33 | INFO     | email_workflow.py:91   | run_complete_workflow_with_email() | STEP 1: Federal Reserve Data Analysis
+2025-06-16 22:08:33 | INFO     | email_workflow.py:92   | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 22:08:33 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: bc0f9ce6-30f4-4bfd-a36b-9e99e16a75c8
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: bc0f9ce6-30f4-4bfd-a36b-9e99e16a75c8
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 22:08:33 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 22:08:33 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 22:08:33 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:08:34 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:08:35 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 22:08:35 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:08:35 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 22:08:35 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 4123b70b-dc22-4da7-805d-edf7b4a42580
+2025-06-16 22:08:35 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 1523 tokens, $0.0457
+2025-06-16 22:08:35 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: 9cebe197-0e0d-46dc-bc57-b6c687aa62a1
+2025-06-16 22:08:35 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 22:08:35 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data 9cebe197-0e0d-46dc-bc57-b6c687aa62a1
+2025-06-16 22:08:35 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID 9cebe197-0e0d-46dc-bc57-b6c687aa62a1, created 2 embeddings
+2025-06-16 22:08:35 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:08:36 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:08:43 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2054 tokens
+2025-06-16 22:08:43 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:08:43 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2053, completion=1, total=2054
+2025-06-16 22:08:43 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: fc24fb77-463b-42a5-96e7-70b2b846b6a2
+2025-06-16 22:08:43 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 2054 tokens, $0.0616
+2025-06-16 22:08:43 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 22:08:43 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 22:08:43 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 22:08:43 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 22:08:43 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 22:08:43 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 22:08:43 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 22:08:43 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution bc0f9ce6-30f4-4bfd-a36b-9e99e16a75c8
+2025-06-16 22:08:43 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 22:08:43 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.1074
+2025-06-16 22:08:43 | INFO     | email_workflow.py:106  | run_complete_workflow_with_email() | ✅ Fed analysis completed successfully
+2025-06-16 22:08:43 | INFO     | email_workflow.py:107  | run_complete_workflow_with_email() | Market environment: risk_off
+2025-06-16 22:08:43 | INFO     | email_workflow.py:108  | run_complete_workflow_with_email() | Policy stance: hawkish
+2025-06-16 22:08:43 | INFO     | email_workflow.py:112  | run_complete_workflow_with_email() | STEP 2: Creating Stock Screener
+2025-06-16 22:08:43 | INFO     | email_workflow.py:113  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:08:43 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 22:08:43 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 22:08:43 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 1c09f4dd-8b49-4355-b5b2-43cdab7e99c5
+2025-06-16 22:08:43 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: 1c09f4dd-8b49-4355-b5b2-43cdab7e99c5
+2025-06-16 22:08:43 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 22:08:43 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 22:08:43 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:08:43 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:08:48 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 22:08:48 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:08:48 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 22:08:48 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 044a83b7-4ba6-444f-806b-080dd7efef6d
+2025-06-16 22:08:48 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 1618 tokens, $0.0486
+2025-06-16 22:08:48 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 6 filters
+2025-06-16 22:08:48 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 6 → 6 filters
+2025-06-16 22:08:48 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 6 final filter(s)
+2025-06-16 22:08:48 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: 9a5e79c0-c162-4aa4-b66d-92ae56f146c2
+2025-06-16 22:08:48 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 22:08:48 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: 52104e2f-b3a3-43f0-ada9-8c4f83a19697
+2025-06-16 22:08:48 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 0 total results, 0 returned, saved with IDs 9a5e79c0-c162-4aa4-b66d-92ae56f146c2/52104e2f-b3a3-43f0-ada9-8c4f83a19697
+2025-06-16 22:08:48 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:08:48 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:08:50 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2004 tokens
+2025-06-16 22:08:50 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:08:50 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2003, completion=1, total=2004
+2025-06-16 22:08:50 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: da77ff83-6c87-49c3-867a-3f3122aaac53
+2025-06-16 22:08:50 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 2004 tokens, $0.0602
+2025-06-16 22:08:50 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 22:08:50 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 22:08:50 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 22:08:50 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 0 total stocks
+2025-06-16 22:08:50 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 22:08:50 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 22:08:50 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 1c09f4dd-8b49-4355-b5b2-43cdab7e99c5
+2025-06-16 22:08:50 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 22:08:50 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.1087
+2025-06-16 22:08:50 | INFO     | email_workflow.py:126  | run_complete_workflow_with_email() | ✅ Screener completed successfully
+2025-06-16 22:08:50 | INFO     | email_workflow.py:136  | run_complete_workflow_with_email() | Total stocks found: 0
+2025-06-16 22:08:50 | INFO     | email_workflow.py:137  | run_complete_workflow_with_email() | Stocks returned: 0
+2025-06-16 22:08:50 | INFO     | email_workflow.py:141  | run_complete_workflow_with_email() | STEP 3: Sending Email Report
+2025-06-16 22:08:50 | INFO     | email_workflow.py:142  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:08:50 | INFO     | email_agent.py:393  | send_screener_email() | Sending screener email for result ID: 52104e2f-b3a3-43f0-ada9-8c4f83a19697
+2025-06-16 22:08:51 | INFO     | email_agent.py:367  | _log_email_sent() | Email sent - Result ID: 52104e2f-b3a3-43f0-ada9-8c4f83a19697, Recipients: 1, Stocks: 0
+2025-06-16 22:08:51 | INFO     | email_agent.py:105  | _run() | Email sent successfully to 1 recipients
+2025-06-16 22:08:51 | INFO     | email_agent.py:409  | send_screener_email() | Email sent successfully to 1 recipients
+2025-06-16 22:08:51 | INFO     | email_workflow.py:154  | run_complete_workflow_with_email() | ✅ Email sent successfully to 1 recipients
+2025-06-16 22:08:51 | INFO     | email_workflow.py:175  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:08:51 | INFO     | email_workflow.py:176  | run_complete_workflow_with_email() | WORKFLOW SUMMARY
+2025-06-16 22:08:51 | INFO     | email_workflow.py:177  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:08:51 | INFO     | email_workflow.py:178  | run_complete_workflow_with_email() | Fed Analysis: ✅ SUCCESS
+2025-06-16 22:08:51 | INFO     | email_workflow.py:180  | run_complete_workflow_with_email() | Screener: ✅ SUCCESS
+2025-06-16 22:08:51 | INFO     | email_workflow.py:182  | run_complete_workflow_with_email() | Email: ✅ SUCCESS
+2025-06-16 22:08:51 | INFO     | email_workflow.py:184  | run_complete_workflow_with_email() | Total LLM Cost: $0.2161
+2025-06-16 22:08:51 | INFO     | email_workflow.py:185  | run_complete_workflow_with_email() | Overall Success: ✅ YES
+2025-06-16 22:08:51 | INFO     | email_workflow.py:186  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:08:51 | INFO     | main.py:210  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 22:08:51 | INFO     | main.py:211  | <module>() | ============================================================
+2025-06-16 22:13:58 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 22:13:58 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 22:13:58 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 22:13:58 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 22:13:58 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 22:13:58 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 22:13:58 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 22:14:13 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 22:14:13 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 22:14:13 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 22:14:13 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 22:14:13 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 22:14:13 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 22:14:13 | INFO     | main.py:177  | main() | Initializing Two-Agent Screener System
+2025-06-16 22:14:13 | INFO     | main.py:127  | run_email_workflow() | 📧 RUNNING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:14:13 | INFO     | main.py:128  | run_email_workflow() | ================================================================================
+2025-06-16 22:14:13 | INFO     | email_workflow.py:31   | __init__() | Initializing Email-Enabled Workflow
+2025-06-16 22:14:13 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:14:13 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 22:14:13 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4.1-mini, temperature=0
+2025-06-16 22:14:13 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:14:13 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:14:13 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 22:14:13 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:14:16 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:14:16 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:14:16 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:14:16 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4.1-mini
+2025-06-16 22:14:16 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4.1-mini
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 22:14:17 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 22:14:17 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4.1-mini, temperature=0
+2025-06-16 22:14:17 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:14:17 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:14:17 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:14:17 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4.1-mini
+2025-06-16 22:14:17 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4.1-mini
+2025-06-16 22:14:17 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:14:17 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 22:14:17 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 22:14:17 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 22:14:17 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 22:14:17 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 22:14:17 | INFO     | email_workflow.py:56   | __init__() | Email-enabled workflow initialized successfully
+2025-06-16 22:14:17 | INFO     | email_workflow.py:76   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:14:17 | INFO     | email_workflow.py:77   | run_complete_workflow_with_email() | STARTING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:14:17 | INFO     | email_workflow.py:78   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:14:17 | INFO     | email_workflow.py:91   | run_complete_workflow_with_email() | STEP 1: Federal Reserve Data Analysis
+2025-06-16 22:14:17 | INFO     | email_workflow.py:92   | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 22:14:17 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: 8706dbb9-6472-4de8-bc47-95594618dfa8
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: 8706dbb9-6472-4de8-bc47-95594618dfa8
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 22:14:17 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 22:14:17 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 22:14:17 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:14:18 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:14:18 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 22:14:18 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:14:18 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 22:14:18 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 5fa0a846-743a-4091-9406-5da906325151
+2025-06-16 22:14:18 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 1523 tokens, $0.0457
+2025-06-16 22:14:18 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: 5acd17f4-2427-4e9c-9a5d-37bda70c6c1f
+2025-06-16 22:14:18 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 22:14:18 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data 5acd17f4-2427-4e9c-9a5d-37bda70c6c1f
+2025-06-16 22:14:18 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID 5acd17f4-2427-4e9c-9a5d-37bda70c6c1f, created 2 embeddings
+2025-06-16 22:14:18 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:14:19 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:14:27 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2202 tokens
+2025-06-16 22:14:27 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:14:27 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2201, completion=1, total=2202
+2025-06-16 22:14:27 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 675dde61-29f7-4f1e-bb56-3bff85bd4ab3
+2025-06-16 22:14:27 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 2202 tokens, $0.0661
+2025-06-16 22:14:27 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 22:14:27 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 22:14:27 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 22:14:27 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 22:14:27 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 22:14:27 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 22:14:27 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 22:14:27 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution 8706dbb9-6472-4de8-bc47-95594618dfa8
+2025-06-16 22:14:27 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 22:14:27 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.1118
+2025-06-16 22:14:27 | INFO     | email_workflow.py:106  | run_complete_workflow_with_email() | ✅ Fed analysis completed successfully
+2025-06-16 22:14:27 | INFO     | email_workflow.py:107  | run_complete_workflow_with_email() | Market environment: risk_off
+2025-06-16 22:14:27 | INFO     | email_workflow.py:108  | run_complete_workflow_with_email() | Policy stance: hawkish
+2025-06-16 22:14:27 | INFO     | email_workflow.py:112  | run_complete_workflow_with_email() | STEP 2: Creating Stock Screener
+2025-06-16 22:14:27 | INFO     | email_workflow.py:113  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:14:27 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 22:14:27 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 22:14:27 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: cfc0d5e3-e7b3-4c09-8c83-d8e888f5dfe8
+2025-06-16 22:14:27 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: cfc0d5e3-e7b3-4c09-8c83-d8e888f5dfe8
+2025-06-16 22:14:27 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 22:14:27 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 22:14:27 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:14:27 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:14:32 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 22:14:32 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:14:32 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 22:14:32 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 0f9c3336-e5f0-403b-a8db-ef1a4df36fbc
+2025-06-16 22:14:32 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 1618 tokens, $0.0486
+2025-06-16 22:14:32 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 6 filters
+2025-06-16 22:14:32 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 6 → 6 filters
+2025-06-16 22:14:32 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 6 final filter(s)
+2025-06-16 22:14:32 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: a7fc3568-cc87-4fc3-8ef5-65a0081e470e
+2025-06-16 22:14:32 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 22:14:32 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: ba238871-47eb-4d17-9fbd-99682944b82a
+2025-06-16 22:14:32 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 154 total results, 50 returned, saved with IDs a7fc3568-cc87-4fc3-8ef5-65a0081e470e/ba238871-47eb-4d17-9fbd-99682944b82a
+2025-06-16 22:14:32 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:14:32 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:14:35 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2891 tokens
+2025-06-16 22:14:35 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:14:35 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2890, completion=1, total=2891
+2025-06-16 22:14:35 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: f03e384e-c653-402a-8eb7-b4711f30a806
+2025-06-16 22:14:35 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 2891 tokens, $0.0868
+2025-06-16 22:14:35 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 22:14:35 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 22:14:35 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 22:14:35 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 154 total stocks
+2025-06-16 22:14:35 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 22:14:35 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 22:14:35 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution cfc0d5e3-e7b3-4c09-8c83-d8e888f5dfe8
+2025-06-16 22:14:35 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 22:14:35 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.1353
+2025-06-16 22:14:35 | INFO     | email_workflow.py:126  | run_complete_workflow_with_email() | ✅ Screener completed successfully
+2025-06-16 22:14:35 | INFO     | email_workflow.py:136  | run_complete_workflow_with_email() | Total stocks found: 154
+2025-06-16 22:14:35 | INFO     | email_workflow.py:137  | run_complete_workflow_with_email() | Stocks returned: 50
+2025-06-16 22:14:35 | INFO     | email_workflow.py:141  | run_complete_workflow_with_email() | STEP 3: Sending Email Report
+2025-06-16 22:14:35 | INFO     | email_workflow.py:142  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:14:35 | INFO     | email_agent.py:394  | send_screener_email() | Sending screener email for result ID: ba238871-47eb-4d17-9fbd-99682944b82a
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:35 | WARNING  | email_agent.py:272  | _generate_html_report() | stock
+2025-06-16 22:14:37 | INFO     | email_agent.py:368  | _log_email_sent() | Email sent - Result ID: ba238871-47eb-4d17-9fbd-99682944b82a, Recipients: 1, Stocks: 50
+2025-06-16 22:14:37 | INFO     | email_agent.py:105  | _run() | Email sent successfully to 1 recipients
+2025-06-16 22:14:37 | INFO     | email_agent.py:410  | send_screener_email() | Email sent successfully to 1 recipients
+2025-06-16 22:14:37 | INFO     | email_workflow.py:154  | run_complete_workflow_with_email() | ✅ Email sent successfully to 1 recipients
+2025-06-16 22:14:37 | INFO     | email_workflow.py:175  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:14:37 | INFO     | email_workflow.py:176  | run_complete_workflow_with_email() | WORKFLOW SUMMARY
+2025-06-16 22:14:37 | INFO     | email_workflow.py:177  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:14:37 | INFO     | email_workflow.py:178  | run_complete_workflow_with_email() | Fed Analysis: ✅ SUCCESS
+2025-06-16 22:14:37 | INFO     | email_workflow.py:180  | run_complete_workflow_with_email() | Screener: ✅ SUCCESS
+2025-06-16 22:14:37 | INFO     | email_workflow.py:182  | run_complete_workflow_with_email() | Email: ✅ SUCCESS
+2025-06-16 22:14:37 | INFO     | email_workflow.py:184  | run_complete_workflow_with_email() | Total LLM Cost: $0.2471
+2025-06-16 22:14:37 | INFO     | email_workflow.py:185  | run_complete_workflow_with_email() | Overall Success: ✅ YES
+2025-06-16 22:14:37 | INFO     | email_workflow.py:186  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:14:37 | INFO     | main.py:210  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 22:14:37 | INFO     | main.py:211  | <module>() | ============================================================
+2025-06-16 22:15:00 | INFO     | logging_config.py:93   | initialize() | ============================================================
+2025-06-16 22:15:00 | INFO     | logging_config.py:94   | initialize() | UNIFIED SCREENER SYSTEM STARTING
+2025-06-16 22:15:00 | INFO     | logging_config.py:95   | initialize() | Log Level: INFO
+2025-06-16 22:15:00 | INFO     | logging_config.py:96   | initialize() | Log File: logs\unified_20250616.log
+2025-06-16 22:15:00 | INFO     | logging_config.py:97   | initialize() | Console Output: True
+2025-06-16 22:15:00 | INFO     | logging_config.py:98   | initialize() | All modules will log to this unified logger
+2025-06-16 22:15:00 | INFO     | logging_config.py:99   | initialize() | ============================================================
+2025-06-16 22:15:11 | INFO     | logging_config.py:139  | log_system_info() | SYSTEM INFORMATION:
+2025-06-16 22:15:11 | INFO     | logging_config.py:140  | log_system_info() |   Python Version: 3.13.4
+2025-06-16 22:15:11 | INFO     | logging_config.py:141  | log_system_info() |   Platform: Windows-11-10.0.22631-SP0
+2025-06-16 22:15:11 | INFO     | logging_config.py:142  | log_system_info() |   CPU Count: 8
+2025-06-16 22:15:11 | INFO     | logging_config.py:143  | log_system_info() |   Memory: 15.8 GB
+2025-06-16 22:15:11 | INFO     | logging_config.py:144  | log_system_info() |   Disk Space: 337.2 GB
+2025-06-16 22:15:11 | INFO     | main.py:177  | main() | Initializing Two-Agent Screener System
+2025-06-16 22:15:11 | INFO     | main.py:127  | run_email_workflow() | 📧 RUNNING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:15:11 | INFO     | main.py:128  | run_email_workflow() | ================================================================================
+2025-06-16 22:15:11 | INFO     | email_workflow.py:31   | __init__() | Initializing Email-Enabled Workflow
+2025-06-16 22:15:11 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:15:11 | INFO     | fed_analysis_agent.py:30   | __init__() | Initializing FedAnalysisAgent
+2025-06-16 22:15:11 | DEBUG    | fed_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4.1-mini, temperature=0
+2025-06-16 22:15:11 | INFO     | fed_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:15:11 | INFO     | fed_analysis_agent.py:37   | __init__() | Setting up embedding manager with model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:15:11 | INFO     | SentenceTransformer.py:211  | __init__() | Use pytorch device_name: cpu
+2025-06-16 22:15:11 | INFO     | SentenceTransformer.py:219  | __init__() | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:15:13 | INFO     | embeddings.py:16   | __init__() | Initialized embedding model: sentence-transformers/all-MiniLM-L6-v2
+2025-06-16 22:15:13 | DEBUG    | fed_analysis_agent.py:41   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:15:13 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:15:13 | INFO     | fed_analysis_agent.py:45   | __init__() | Initializing LLM with model: gpt-4.1-mini
+2025-06-16 22:15:13 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4.1-mini
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:52   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:55   | __init__() | Setting up Fed analysis tools
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:62   | __init__() | Initialized 1 tools for Fed analysis
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:65   | __init__() | Creating Fed analysis agent
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:73   | __init__() | Creating Fed analysis agent executor
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:82   | __init__() | FedAnalysisAgent initialization completed successfully
+2025-06-16 22:15:14 | INFO     | screener_analysis_agent.py:30   | __init__() | Initializing ScreenerAnalysisAgent
+2025-06-16 22:15:14 | DEBUG    | screener_analysis_agent.py:31   | __init__() | Configuration: model=gpt-4.1-mini, temperature=0
+2025-06-16 22:15:14 | INFO     | screener_analysis_agent.py:34   | __init__() | Setting up database manager
+2025-06-16 22:15:14 | DEBUG    | screener_analysis_agent.py:38   | __init__() | Creating database tables if they don't exist
+2025-06-16 22:15:14 | INFO     | database.py:24   | create_tables() | Database tables created successfully
+2025-06-16 22:15:14 | INFO     | screener_analysis_agent.py:42   | __init__() | Initializing LLM with model: gpt-4.1-mini
+2025-06-16 22:15:14 | INFO     | llm_provider.py:252  | create_llm() | Creating LLM: openai/gpt-4.1-mini
+2025-06-16 22:15:14 | INFO     | screener_analysis_agent.py:48   | __init__() | LLM created successfully: ChatOpenAI
+2025-06-16 22:15:14 | INFO     | screener_analysis_agent.py:51   | __init__() | Setting up screener execution tools
+2025-06-16 22:15:14 | DEBUG    | screener_analysis_agent.py:58   | __init__() | Initialized 1 tools for screener execution
+2025-06-16 22:15:14 | DEBUG    | screener_analysis_agent.py:61   | __init__() | Creating screener analysis agent
+2025-06-16 22:15:14 | DEBUG    | screener_analysis_agent.py:69   | __init__() | Creating screener analysis agent executor
+2025-06-16 22:15:14 | INFO     | screener_analysis_agent.py:78   | __init__() | ScreenerAnalysisAgent initialization completed successfully
+2025-06-16 22:15:14 | INFO     | email_workflow.py:56   | __init__() | Email-enabled workflow initialized successfully
+2025-06-16 22:15:14 | INFO     | email_workflow.py:76   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:15:14 | INFO     | email_workflow.py:77   | run_complete_workflow_with_email() | STARTING COMPLETE WORKFLOW WITH EMAIL
+2025-06-16 22:15:14 | INFO     | email_workflow.py:78   | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:15:14 | INFO     | email_workflow.py:91   | run_complete_workflow_with_email() | STEP 1: Federal Reserve Data Analysis
+2025-06-16 22:15:14 | INFO     | email_workflow.py:92   | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:100  | analyze_fed_data() | Starting Fed data analysis for URL: https://www.federalreserve.gov/newsevents/pressreleases.htm
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:101  | analyze_fed_data() | Target content: FOMC interest rates monetary policy
+2025-06-16 22:15:14 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: e5530b14-29f0-427c-9d8a-3a8751116976
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:110  | analyze_fed_data() | Started Fed analysis execution tracking with ID: e5530b14-29f0-427c-9d8a-3a8751116976
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:121  | analyze_fed_data() | Searching for similar past analyses
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:291  | _find_similar_past_analyses() | Searching for similar analyses with target content: FOMC interest rates monetary policy
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:298  | _find_similar_past_analyses() | Query embedding created successfully
+2025-06-16 22:15:14 | DEBUG    | fed_analysis_agent.py:306  | _find_similar_past_analyses() | Found 3 similar content items
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:125  | analyze_fed_data() | Found 3 similar past analyses
+2025-06-16 22:15:14 | INFO     | fed_analysis_agent.py:159  | analyze_fed_data() | Executing Fed analysis agent
+2025-06-16 22:15:14 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:15:15 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:15:15 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1523 tokens
+2025-06-16 22:15:15 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:15:15 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1522, completion=1, total=1523
+2025-06-16 22:15:15 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: f60cd7de-b0ef-4ca6-8caf-da3589b728ee
+2025-06-16 22:15:15 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 1523 tokens, $0.0457
+2025-06-16 22:15:16 | INFO     | database.py:129  | save_scraped_data() | Saved scraped data with ID: 85779e7a-b8d1-4002-a7ce-f8c1364bd023
+2025-06-16 22:15:16 | INFO     | embeddings.py:40   | create_embeddings() | Created 2 embeddings for text of length 1820
+2025-06-16 22:15:16 | INFO     | database.py:144  | save_embeddings() | Saved 2 embeddings for scraped data 85779e7a-b8d1-4002-a7ce-f8c1364bd023
+2025-06-16 22:15:16 | INFO     | fed_scraper.py:98   | _run() | Fed scraper: saved data with ID 85779e7a-b8d1-4002-a7ce-f8c1364bd023, created 2 embeddings
+2025-06-16 22:15:16 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:15:16 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:15:30 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2246 tokens
+2025-06-16 22:15:30 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:15:30 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2245, completion=1, total=2246
+2025-06-16 22:15:30 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 481067b2-cf91-4949-a38a-caa568b05060
+2025-06-16 22:15:30 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 2246 tokens, $0.0674
+2025-06-16 22:15:30 | INFO     | fed_analysis_agent.py:164  | analyze_fed_data() | Fed analysis agent execution completed successfully
+2025-06-16 22:15:30 | DEBUG    | fed_analysis_agent.py:230  | _parse_fed_analysis() | Parsing Fed analysis output
+2025-06-16 22:15:30 | DEBUG    | fed_analysis_agent.py:264  | _parse_fed_analysis() | Parsed analysis: risk_off, hawkish
+2025-06-16 22:15:30 | DEBUG    | fed_analysis_agent.py:170  | analyze_fed_data() | Retrieving LLM usage statistics
+2025-06-16 22:15:30 | DEBUG    | fed_analysis_agent.py:275  | _should_create_screener() | Evaluating screening need decision
+2025-06-16 22:15:30 | INFO     | fed_analysis_agent.py:285  | _should_create_screener() | Screening decision: True (pass-through logic)
+2025-06-16 22:15:30 | DEBUG    | fed_analysis_agent.py:178  | analyze_fed_data() | Completing Fed analysis execution tracking
+2025-06-16 22:15:30 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution e5530b14-29f0-427c-9d8a-3a8751116976
+2025-06-16 22:15:30 | INFO     | fed_analysis_agent.py:185  | analyze_fed_data() | Fed analysis completed successfully. Screening needed: True
+2025-06-16 22:15:30 | INFO     | fed_analysis_agent.py:186  | analyze_fed_data() | LLM cost: $0.1131
+2025-06-16 22:15:30 | INFO     | email_workflow.py:106  | run_complete_workflow_with_email() | ✅ Fed analysis completed successfully
+2025-06-16 22:15:30 | INFO     | email_workflow.py:107  | run_complete_workflow_with_email() | Market environment: risk_off
+2025-06-16 22:15:30 | INFO     | email_workflow.py:108  | run_complete_workflow_with_email() | Policy stance: hawkish
+2025-06-16 22:15:30 | INFO     | email_workflow.py:112  | run_complete_workflow_with_email() | STEP 2: Creating Stock Screener
+2025-06-16 22:15:30 | INFO     | email_workflow.py:113  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:15:30 | INFO     | screener_analysis_agent.py:98   | create_screener_from_analysis() | Starting screener creation and execution
+2025-06-16 22:15:30 | INFO     | screener_analysis_agent.py:108  | create_screener_from_analysis() | Using Fed analysis for screener creation
+2025-06-16 22:15:30 | INFO     | database.py:160  | start_agent_execution() | Started agent execution with ID: cab2d1e6-630e-4af3-a633-40d037464c51
+2025-06-16 22:15:30 | INFO     | screener_analysis_agent.py:120  | create_screener_from_analysis() | Started screener execution tracking with ID: cab2d1e6-630e-4af3-a633-40d037464c51
+2025-06-16 22:15:30 | DEBUG    | screener_analysis_agent.py:201  | _create_fed_based_screener_prompt() | Creating Fed-based screener prompt
+2025-06-16 22:15:30 | INFO     | screener_analysis_agent.py:137  | create_screener_from_analysis() | Executing screener analysis agent
+2025-06-16 22:15:30 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:15:30 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:15:34 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~1618 tokens
+2025-06-16 22:15:34 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:15:34 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=1617, completion=1, total=1618
+2025-06-16 22:15:34 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 2b8ff54f-a9a7-494a-92ba-a662f3e70aed
+2025-06-16 22:15:34 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 1618 tokens, $0.0486
+2025-06-16 22:15:34 | DEBUG    | filter_validation.py:26   | validate_and_fix_filters() | Validating 6 filters
+2025-06-16 22:15:34 | INFO     | filter_validation.py:55   | validate_and_fix_filters() | Filter validation: 6 → 6 filters
+2025-06-16 22:15:34 | INFO     | tradingview_query.py:68   | _run() | Filter validation completed: 6 final filter(s)
+2025-06-16 22:15:34 | INFO     | database.py:205  | save_screener_input() | Saved screener input with ID: dc82f6c1-de4a-415a-97b7-5b46351f7cc6
+2025-06-16 22:15:34 | WARNING  | tradingview_query.py:141  | _run() | Unknown filter type: in
+2025-06-16 22:15:35 | INFO     | database.py:227  | save_screener_result() | Saved screener result with ID: b7310334-35a4-48da-8568-0c41b6c7f576
+2025-06-16 22:15:35 | INFO     | tradingview_query.py:181  | _run() | TradingView query executed: 85 total results, 50 returned, saved with IDs dc82f6c1-de4a-415a-97b7-5b46351f7cc6/b7310334-35a4-48da-8568-0c41b6c7f576
+2025-06-16 22:15:35 | DEBUG    | llm_callback.py:32   | on_llm_start() | LLM call started: openai/gpt-4.1-mini
+2025-06-16 22:15:35 | INFO     | _client.py:1025 | _send_single_request() | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-16 22:15:38 | WARNING  | llm_callback.py:247  | _strategy_estimate_fallback() | Using token estimation fallback: ~2885 tokens
+2025-06-16 22:15:38 | DEBUG    | llm_callback.py:164  | _extract_token_usage_universal() | Token extraction successful using _strategy_estimate_fallback
+2025-06-16 22:15:38 | DEBUG    | llm_callback.py:47   | on_llm_end() | Token usage: prompt=2884, completion=1, total=2885
+2025-06-16 22:15:38 | INFO     | database.py:60   | save_llm_usage() | Saved LLM usage with ID: 1e815752-3a96-4bb2-ab19-80e725bc7305
+2025-06-16 22:15:38 | INFO     | llm_callback.py:66   | on_llm_end() | LLM call completed: openai/gpt-4.1-mini - 2885 tokens, $0.0866
+2025-06-16 22:15:38 | INFO     | screener_analysis_agent.py:142  | create_screener_from_analysis() | Screener analysis agent execution completed successfully
+2025-06-16 22:15:38 | DEBUG    | screener_analysis_agent.py:272  | _extract_screener_results() | Extracting screener results from agent output
+2025-06-16 22:15:38 | DEBUG    | screener_analysis_agent.py:293  | _extract_screener_results() | Found TradingView tool execution in intermediate steps
+2025-06-16 22:15:38 | DEBUG    | screener_analysis_agent.py:306  | _extract_screener_results() | Extracted screener results: 85 total stocks
+2025-06-16 22:15:38 | DEBUG    | screener_analysis_agent.py:148  | create_screener_from_analysis() | Retrieving LLM usage statistics
+2025-06-16 22:15:38 | DEBUG    | screener_analysis_agent.py:152  | create_screener_from_analysis() | Completing screener execution tracking
+2025-06-16 22:15:38 | INFO     | database.py:173  | complete_agent_execution() | Completed agent execution cab2d1e6-630e-4af3-a633-40d037464c51
+2025-06-16 22:15:38 | INFO     | screener_analysis_agent.py:159  | create_screener_from_analysis() | Screener creation completed successfully
+2025-06-16 22:15:38 | INFO     | screener_analysis_agent.py:160  | create_screener_from_analysis() | LLM cost: $0.1351
+2025-06-16 22:15:38 | INFO     | email_workflow.py:126  | run_complete_workflow_with_email() | ✅ Screener completed successfully
+2025-06-16 22:15:38 | INFO     | email_workflow.py:136  | run_complete_workflow_with_email() | Total stocks found: 85
+2025-06-16 22:15:38 | INFO     | email_workflow.py:137  | run_complete_workflow_with_email() | Stocks returned: 50
+2025-06-16 22:15:38 | INFO     | email_workflow.py:141  | run_complete_workflow_with_email() | STEP 3: Sending Email Report
+2025-06-16 22:15:38 | INFO     | email_workflow.py:142  | run_complete_workflow_with_email() | --------------------------------------------------
+2025-06-16 22:15:38 | INFO     | email_agent.py:394  | send_screener_email() | Sending screener email for result ID: b7310334-35a4-48da-8568-0c41b6c7f576
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:MNR', 'name': 'MNR', 'close': 14.7, 'change': 0.06807351940095158, 'volume': 1360449, 'market_cap_basic': 1739544511.6133423, 'sector': 'Energy Minerals', 'price_earnings_ttm': 9.218034740076503, 'dividend_yield_recent': 18.992512, 'debt_to_equity': 0.343732157250532}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'AMEX:CLM', 'name': 'CLM', 'close': 7.87, 'change': -1.1306532663316566, 'volume': 1912927, 'market_cap_basic': 2011945720.0, 'sector': 'Miscellaneous', 'price_earnings_ttm': 5.044871794871795, 'dividend_yield_recent': 18.454773, 'debt_to_equity': 0.0}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:HAFN', 'name': 'HAFN', 'close': 5.42, 'change': -2.1660649819494604, 'volume': 1621607, 'market_cap_basic': 2739684488.1147904, 'sector': 'Transportation', 'price_earnings_ttm': 4.392983816250458, 'dividend_yield_recent': 16.709066, 'debt_to_equity': 0.468097414191138}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:GOF', 'name': 'GOF', 'close': 14.55, 'change': -0.5468215994531789, 'volume': 891783, 'market_cap_basic': 2375999780.0, 'sector': 'Miscellaneous', 'price_earnings_ttm': 9.146341463414634, 'dividend_yield_recent': 14.935064, 'debt_to_equity': 0.211862537409068}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NASDAQ:CALM', 'name': 'CALM', 'close': 100.21, 'change': 3.973853496576051, 'volume': 884476, 'market_cap_basic': 5340599562.992738, 'sector': 'Process Industries', 'price_earnings_ttm': 4.951453912098229, 'dividend_yield_recent': 14.505084, 'debt_to_equity': 0.0}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:PDI', 'name': 'PDI', 'close': 18.7, 'change': -0.16017084890550526, 'volume': 1259895, 'market_cap_basic': 7089717060.0, 'sector': 'Miscellaneous', 'price_earnings_ttm': 8.461538461538462, 'dividend_yield_recent': 14.1270685, 'debt_to_equity': 0.482407192798995}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:BSM', 'name': 'BSM', 'close': 13.48, 'change': -3.160919540229881, 'volume': 773846, 'market_cap_basic': 2852859076.787356, 'sector': 'Miscellaneous', 'price_earnings_ttm': 14.730630532182275, 'dividend_yield_recent': 10.775862, 'debt_to_equity': 0.059156873700074705}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:GAB', 'name': 'GAB', 'close': 5.61, 'change': 0.7181328545780976, 'volume': 540343, 'market_cap_basic': 1711354650.0, 'sector': 'Miscellaneous', 'price_earnings_ttm': 9.14574502771438, 'dividend_yield_recent': 10.771993, 'debt_to_equity': 0.0526949343896071}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:USA', 'name': 'USA', 'close': 6.71, 'change': 0.2989536621823553, 'volume': 621308, 'market_cap_basic': 1890553860.0, 'sector': 'Miscellaneous', 'price_earnings_ttm': 7.427496125747178, 'dividend_yield_recent': 10.164425, 'debt_to_equity': 0.00487726407931615}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:EXG', 'name': 'EXG', 'close': 8.65, 'change': -0.3456221198156609, 'volume': 596079, 'market_cap_basic': 2658562480.0, 'sector': 'Miscellaneous', 'price_earnings_ttm': 4.471439648487982, 'dividend_yield_recent': 9.078341, 'debt_to_equity': 0.00027411699755813}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:STLA', 'name': 'STLA', 'close': 9.87, 'change': 1.7525773195876282, 'volume': 17929642, 'market_cap_basic': 36981930792.60757, 'sector': 'Consumer Durables', 'price_earnings_ttm': 5.275094218046296, 'dividend_yield_recent': 8.016032, 'debt_to_equity': 0.45569945649512805}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:VALE', 'name': 'VALE', 'close': 9.82, 'change': 3.8054968287526365, 'volume': 46647647, 'market_cap_basic': 40055660005.86, 'sector': 'Non-Energy Minerals', 'price_earnings_ttm': 7.232820210650365, 'dividend_yield_recent': 7.928118, 'debt_to_equity': 0.460179531081443}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:AUB', 'name': 'AUB', 'close': 30.5, 'change': -0.8130081300813009, 'volume': 1512884, 'market_cap_basic': 4345288963.349593, 'sector': 'Finance', 'price_earnings_ttm': 13.962644204358176, 'dividend_yield_recent': 7.2573843, 'debt_to_equity': 0.173737040125379}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:WDS', 'name': 'WDS', 'close': 16.61, 'change': 1.9018404907975381, 'volume': 1862387, 'market_cap_basic': 31013310535.787395, 'sector': 'Energy Minerals', 'price_earnings_ttm': 8.89662560257097, 'dividend_yield_recent': 7.2392635, 'debt_to_equity': 0.328257860391536}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:RIO', 'name': 'RIO', 'close': 58.31, 'change': 0.5344827586206935, 'volume': 3409451, 'market_cap_basic': 98564124727.095, 'sector': 'Non-Energy Minerals', 'price_earnings_ttm': 8.286201506323717, 'dividend_yield_recent': 6.887931, 'debt_to_equity': 0.250787387322159}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:NE', 'name': 'NE', 'close': 29.24, 'change': 0.446581930608035, 'volume': 2831329, 'market_cap_basic': 4642828987.543799, 'sector': 'Industrial Services', 'price_earnings_ttm': 9.753819467609581, 'dividend_yield_recent': 6.870491, 'debt_to_equity': 0.424819591795374}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NYSE:DHT', 'name': 'DHT', 'close': 11.92, 'change': -1.8930041152263408, 'volume': 2834064, 'market_cap_basic': 1913851101.9786007, 'sector': 'Transportation', 'price_earnings_ttm': 10.760064993681171, 'dividend_yield_recent': 6.666667, 'debt_to_equity': 0.34443800064900504}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NASDAQ:NWBI', 'name': 'NWBI', 'close': 12.17, 'change': -0.8149959250203721, 'volume': 675538, 'market_cap_basic': 1554747455.8549306, 'sector': 'Finance', 'price_earnings_ttm': 13.597765363128492, 'dividend_yield_recent': 6.519967, 'debt_to_equity': 0.27121313971227}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NASDAQ:PPBI', 'name': 'PPBI', 'close': 20.56, 'change': -0.14570179698883506, 'volume': 816280, 'market_cap_basic': 1995523603.7688196, 'sector': 'Finance', 'price_earnings_ttm': 13.43176324557392, 'dividend_yield_recent': 6.4108796, 'debt_to_equity': 0.112022928870688}
+2025-06-16 22:15:38 | WARNING  | email_agent.py:272  | _generate_html_report() | {'ticker': 'NASDAQ:KHC', 'name': 'KHC', 'close': 25.79, 'change': -1.1119631901840459, 'volume': 13461246, 'market_cap_basic': 30523551037.86426, 'sector': 'Consumer Non-Durables', 'price_earnings_ttm': 11.690313222428719, 'dividend_yield_recent': 6.134969, 'debt_to_equity': 0.436777193691872}
+2025-06-16 22:15:40 | INFO     | email_agent.py:368  | _log_email_sent() | Email sent - Result ID: b7310334-35a4-48da-8568-0c41b6c7f576, Recipients: 1, Stocks: 50
+2025-06-16 22:15:40 | INFO     | email_agent.py:105  | _run() | Email sent successfully to 1 recipients
+2025-06-16 22:15:40 | INFO     | email_agent.py:410  | send_screener_email() | Email sent successfully to 1 recipients
+2025-06-16 22:15:40 | INFO     | email_workflow.py:154  | run_complete_workflow_with_email() | ✅ Email sent successfully to 1 recipients
+2025-06-16 22:15:40 | INFO     | email_workflow.py:175  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:15:40 | INFO     | email_workflow.py:176  | run_complete_workflow_with_email() | WORKFLOW SUMMARY
+2025-06-16 22:15:40 | INFO     | email_workflow.py:177  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:15:40 | INFO     | email_workflow.py:178  | run_complete_workflow_with_email() | Fed Analysis: ✅ SUCCESS
+2025-06-16 22:15:40 | INFO     | email_workflow.py:180  | run_complete_workflow_with_email() | Screener: ✅ SUCCESS
+2025-06-16 22:15:40 | INFO     | email_workflow.py:182  | run_complete_workflow_with_email() | Email: ✅ SUCCESS
+2025-06-16 22:15:40 | INFO     | email_workflow.py:184  | run_complete_workflow_with_email() | Total LLM Cost: $0.2483
+2025-06-16 22:15:40 | INFO     | email_workflow.py:185  | run_complete_workflow_with_email() | Overall Success: ✅ YES
+2025-06-16 22:15:40 | INFO     | email_workflow.py:186  | run_complete_workflow_with_email() | ================================================================================
+2025-06-16 22:15:40 | INFO     | main.py:210  | <module>() | SCREENER SYSTEM COMPLETED SUCCESSFULLY
+2025-06-16 22:15:40 | INFO     | main.py:211  | <module>() | ============================================================

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, ForeignKey, Index
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.sqlite import TEXT
@@ -8,23 +8,23 @@ import uuid
 Base = declarative_base()
 
 
-class ScrapedData(Base):
-    """Store scraped data from various sources"""
-    __tablename__ = "scraped_data"
-
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    source = Column(String(100), nullable=False)  # 'fed_website', 'twitter', etc.
-    url = Column(TEXT, nullable=True)
-    target_content = Column(String(500), nullable=True)
-    raw_content = Column(TEXT, nullable=False)
-    processed_content = Column(TEXT, nullable=True)
-    extra_metadata = Column(TEXT, nullable=True)  # Changed from 'metadata' to 'extra_metadata'
-    scraped_at = Column(DateTime, default=datetime.utcnow)
-    created_at = Column(DateTime, default=datetime.utcnow)
-
-    # Relationships
-    embeddings = relationship("DataEmbedding", back_populates="scraped_data")
-    agent_executions = relationship("AgentExecution", back_populates="scraped_data")
+# class ScrapedData(Base):
+#     """Store scraped data from various sources"""
+#     __tablename__ = "scraped_data"
+#
+#     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+#     source = Column(String(100), nullable=False)  # 'fed_website', 'twitter', etc.
+#     url = Column(TEXT, nullable=True)
+#     target_content = Column(String(500), nullable=True)
+#     raw_content = Column(TEXT, nullable=False)
+#     processed_content = Column(TEXT, nullable=True)
+#     extra_metadata = Column(TEXT, nullable=True)  # Changed from 'metadata' to 'extra_metadata'
+#     scraped_at = Column(DateTime, default=datetime.utcnow)
+#     created_at = Column(DateTime, default=datetime.utcnow)
+#
+#     # Relationships
+#     embeddings = relationship("DataEmbedding", back_populates="scraped_data")
+#     agent_executions = relationship("AgentExecution", back_populates="scraped_data")
 
 
 class DataEmbedding(Base):
@@ -120,3 +120,84 @@ class LLMUsage(Base):
 
     # Relationships
     agent_execution = relationship("AgentExecution", back_populates="llm_usage")
+
+
+class ScraperState(Base):
+    """Track scraper execution state and last check times"""
+    __tablename__ = "scraper_states"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    scraper_name = Column(String(100), nullable=False, unique=True)
+    last_check_time = Column(DateTime, nullable=True)
+    last_run_metadata = Column(TEXT, nullable=True)  # JSON metadata about last run
+    total_runs = Column(Integer, default=0)
+    successful_runs = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+# Update existing ScrapedData model to include external_id and improve indexing
+class ScrapedData(Base):
+    """Store scraped data from various sources - UPDATED"""
+    __tablename__ = "scraped_data"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    external_id = Column(String(100), nullable=True, index=True)  # NEW: External source ID
+    source = Column(String(100), nullable=False, index=True)  # 'fed_reserve', 'reddit_wsb', etc.
+    url = Column(TEXT, nullable=True)
+    target_content = Column(String(500), nullable=True)
+    raw_content = Column(TEXT, nullable=False)
+    processed_content = Column(TEXT, nullable=True)
+    extra_metadata = Column(TEXT, nullable=True)  # JSON metadata
+    content_hash = Column(String(32), nullable=True, index=True)  # NEW: For change detection
+    scraped_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # Relationships
+    embeddings = relationship("DataEmbedding", back_populates="scraped_data")
+    agent_executions = relationship("AgentExecution", back_populates="scraped_data")
+
+    # Add unique constraint for external_id + source
+    __table_args__ = (
+        Index('idx_source_external_id', 'source', 'external_id'),
+        Index('idx_source_created', 'source', 'created_at'),
+        {'extend_existing': True}
+    )
+
+
+class ScrapedContentAnalysis(Base):
+    """Store analysis results for scraped content"""
+    __tablename__ = "scraped_content_analysis"
+
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=False)
+    analysis_type = Column(String(50), nullable=False)  # 'sentiment', 'relevance', 'entities'
+    analysis_result = Column(TEXT, nullable=False)  # JSON analysis results
+    confidence_score = Column(Float, nullable=True)
+    analyzed_at = Column(DateTime, default=datetime.utcnow)
+    analyzer_version = Column(String(50), nullable=True)
+
+    # Relationships
+    scraped_data = relationship("ScrapedData")
+
+
+class TrendingTicker(Base):
+    """Track trending tickers from social media"""
+    __tablename__ = "trending_tickers"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    ticker = Column(String(10), nullable=False, index=True)
+    source = Column(String(50), nullable=False)  # 'reddit_wsb', 'twitter', etc.
+    mention_count = Column(Integer, default=1)
+    total_engagement = Column(Integer, default=0)  # Total upvotes/likes
+    sentiment_score = Column(Float, nullable=True)
+    trend_date = Column(DateTime, default=datetime.utcnow, index=True)
+    extra_metadata = Column(TEXT, nullable=True)  # JSON with additional data
+
+    # Unique constraint for ticker + source + date
+    __table_args__ = (
+        Index('idx_ticker_source_date', 'ticker', 'source', 'trend_date'),
+        {'extend_existing': True}
+    )

@@ -1,5 +1,4 @@
-import os
-from dotenv import load_dotenv
+
 
 # Initialize logging FIRST, before any other imports
 from utils.logging_config import initialize_logging, ScreenerLogger
@@ -10,6 +9,9 @@ logger = initialize_logging(
     console_output=True,
     log_dir="logs"
 )
+import os
+from dotenv import load_dotenv
+from workflow.email_workflow import EmailEnabledWorkflow
 
 # Now import the separate agents
 from agents.fed_analysis_agent import FedAnalysisAgent
@@ -17,6 +19,17 @@ from agents.screener_analysis_agent import ScreenerAnalysisAgent
 from database import DatabaseManager
 
 load_dotenv()
+
+def get_smtp_config() -> dict:
+    """Get SMTP configuration from environment variables"""
+    return {
+        'smtp_server': os.getenv('SMTP_SERVER', 'smtp.gmail.com'),
+        'smtp_port': int(os.getenv('SMTP_PORT', '587')),
+        'sender_email': os.getenv('SENDER_EMAIL'),
+        'sender_password': os.getenv('SENDER_PASSWORD'),
+        'sender_name': os.getenv('SENDER_NAME', 'TradingView Screener Agent')
+    }
+
 
 
 def run_fed_analysis_workflow(fed_agent: FedAnalysisAgent,
@@ -108,6 +121,56 @@ def run_fed_analysis_workflow(fed_agent: FedAnalysisAgent,
     return workflow_results
 
 
+def run_email_workflow():
+    """Run the complete workflow with email integration"""
+
+    logger.info("📧 RUNNING COMPLETE WORKFLOW WITH EMAIL")
+    logger.info("=" * 80)
+
+    # Check for email configuration
+    smtp_config = get_smtp_config()
+
+    if not smtp_config['sender_email'] or not smtp_config['sender_password']:
+        logger.warning("⚠️ SMTP configuration incomplete - email functionality disabled")
+        logger.warning("To enable email, set SENDER_EMAIL and SENDER_PASSWORD environment variables")
+
+    # Get recipient emails from environment or use default
+    recipient_emails_str = os.getenv('RECIPIENT_EMAILS', '')
+    if recipient_emails_str:
+        recipient_emails = [email.strip() for email in recipient_emails_str.split(',')]
+    else:
+        logger.warning("⚠️ No RECIPIENT_EMAILS set in environment - using demo email")
+        recipient_emails = ["demo@example.com"]  # Replace with actual email for testing
+
+    try:
+        # Initialize email-enabled workflow
+        workflow = EmailEnabledWorkflow(
+            database_url="sqlite:///screener_data.db",
+            model="gpt-4.1-mini",
+            smtp_config=smtp_config
+        )
+
+        # Custom email message
+        custom_message = (
+            "This automated report contains stock screening results based on the latest "
+            "Federal Reserve communications. The screening criteria have been optimized "
+            "for the current market environment and policy stance."
+        )
+
+        # Run complete workflow
+        result = workflow.run_complete_workflow_with_email(
+            fed_url="https://www.federalreserve.gov/newsevents/pressreleases.htm",
+            target_content="FOMC interest rates monetary policy",
+            recipient_emails=recipient_emails,
+            custom_email_message=custom_message
+        )
+
+        return result['workflow_success']
+
+    except Exception as e:
+        logger.error(f"Email workflow failed: {e}", exc_info=True)
+        return False
+
 def main():
     """Refactored main function with clear two-agent workflow"""
 
@@ -115,49 +178,7 @@ def main():
 
     try:
         # Initialize separate agents
-        logger.info("Setting up Fed Analysis Agent...")
-        fed_agent = FedAnalysisAgent(
-            database_url="sqlite:///screener_data.db",
-            model="gpt-4o-mini",
-            temperature=0
-        )
-
-        logger.info("Setting up Screener Analysis Agent...")
-        screener_agent = ScreenerAnalysisAgent(
-            database_url="sqlite:///screener_data.db",
-            model="gpt-4o-mini",
-            temperature=0
-        )
-
-        logger.info("Both agents initialized successfully")
-
-        # Workflow 1: Fed Analysis → Conditional Screening
-        logger.info("Starting Fed analysis workflow...")
-        fed_workflow_result = run_fed_analysis_workflow(
-            fed_agent=fed_agent,
-            screener_agent=screener_agent,
-            fed_url="https://www.federalreserve.gov/newsevents/pressreleases.htm",
-            target_content="FOMC interest rates monetary policy"
-        )
-        fed_success = fed_workflow_result.get('workflow_success', False)
-        fed_cost = fed_workflow_result.get('total_llm_cost', 0.0)
-        logger.info(f"Fed Workflow: {'✅ SUCCESS' if fed_success else '❌ FAILED'} - Cost: ${fed_cost:.4f}")
-
-        # Execution history
-        logger.info("Recent execution history:")
-        fed_history = fed_agent.get_analysis_history(limit=3)
-        screener_history = screener_agent.get_screener_history(limit=3)
-
-        logger.info("Fed Analysis History:")
-        for exec in fed_history:
-            status = "✅" if exec['success'] else "❌"
-            logger.info(f"  {status} {exec['started_at']}: {exec['user_prompt'][:100]}...")
-
-        logger.info("Screener Execution History:")
-        for exec in screener_history:
-            status = "✅" if exec['success'] else "❌"
-            logger.info(f"  {status} {exec['execution_type']}: {exec['user_prompt'][:100]}...")
-
+        run_email_workflow()
 
     except Exception as e:
         logger.critical(f"System failed with critical error: {str(e)}", exc_info=True)

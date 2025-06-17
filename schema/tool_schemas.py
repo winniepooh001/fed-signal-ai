@@ -92,3 +92,49 @@ class EmailAgentInput(BaseModel):
     subject_prefix: str = Field(default="TradingView Screener Results", description="Email subject prefix")
     include_csv: bool = Field(default=True, description="Include CSV attachment")
     custom_message: Optional[str] = Field(None, description="Custom message to include in email")
+
+    @validator('recipient_emails')
+    def validate_emails(cls, v):
+        """Basic email validation"""
+        import re
+        email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+
+        for email in v:
+            if not re.match(email_pattern, email):
+                raise ValueError(f"Invalid email address: {email}")
+
+        if len(v) == 0:
+            raise ValueError("At least one recipient email is required")
+
+        return v
+
+    @validator('screener_result_id')
+    def validate_result_id(cls, v):
+        """Ensure result ID is provided"""
+        if not v or len(v.strip()) == 0:
+            raise ValueError("Screener result ID cannot be empty")
+        return v.strip()
+
+
+class WorkflowConfig(BaseModel):
+    """Configuration for email-enabled workflow"""
+    fed_url: str = Field(default="https://www.federalreserve.gov/newsevents/pressreleases.htm",
+                         description="Fed website URL to analyze")
+    target_content: str = Field(default="FOMC interest rates monetary policy",
+                                description="Content to search for in Fed data")
+    recipient_emails: List[str] = Field(description="Email addresses to send results to")
+    custom_email_message: Optional[str] = Field(None, description="Custom message for email report")
+    model: str = Field(default="gpt-4o-mini", description="LLM model to use")
+    include_csv_attachment: bool = Field(default=True, description="Include CSV attachment in email")
+
+    @validator('recipient_emails')
+    def validate_workflow_emails(cls, v):
+        """Validate email addresses for workflow"""
+        import re
+        email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+
+        for email in v:
+            if not re.match(email_pattern, email):
+                raise ValueError(f"Invalid email address in workflow config: {email}")
+
+        return v

@@ -8,14 +8,14 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 from datetime import datetime
-import logging
 import pandas as pd
 import io
 import os
+from utils.logging_config import get_logger
 
 from schema.tool_schemas import EmailAgentInput
 
-logger = logging.getLogger(__name__)
+logger = get_logger()
 
 
 class EmailAgent(BaseTool):
@@ -56,6 +56,13 @@ class EmailAgent(BaseTool):
         """Send email with screener results"""
 
         try:
+            # Validate SMTP configuration
+            if not self._smtp_config['sender_email'] or not self._smtp_config['sender_password']:
+                return json.dumps({
+                    'success': False,
+                    'error': 'SMTP configuration incomplete. Please set SENDER_EMAIL and SENDER_PASSWORD environment variables.'
+                })
+
             # Get screener data from database
             screener_data = self._get_screener_data(screener_result_id)
             if not screener_data:
@@ -71,7 +78,7 @@ class EmailAgent(BaseTool):
             msg = MIMEMultipart('alternative')
             msg['Subject'] = f"{subject_prefix} - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
             msg['From'] = f"{self._smtp_config['sender_name']} <{self._smtp_config['sender_email']}>"
-            msg['To'] = ', '.join(recipient_emails)
+            # msg['To'] = ", ".join(recipient_emails)
 
             # Add HTML content
             html_part = MIMEText(html_content, 'html')
@@ -94,6 +101,8 @@ class EmailAgent(BaseTool):
 
             # Log to database
             self._log_email_sent(screener_result_id, recipient_emails, len(screener_data['results']))
+
+            logger.info(f"Email sent successfully to {len(recipient_emails)} recipients")
 
             return json.dumps({
                 'success': True,
@@ -232,7 +241,7 @@ class EmailAgent(BaseTool):
                     </div>
                 </div>
 
-                {"<div class='reasoning'><h3>🎯 Analysis Rationale</h3><p>" + (screener_data.get('query_reasoning') or screener_data.get('agent_reasoning', 'Systematic screening based on current market conditions.')) + "</p></div>" if screener_data.get('query_reasoning') or screener_data.get('agent_reasoning') else ""}
+                {"<div class='reasoning'><h3>🎯 Analysis Rationale</h3><p>" + (screener_data.get('query_reasoning') or screener_data.get('agent_reasoning', 'Systematic screening based on current market conditions.'))[:500] + "</p></div>" if screener_data.get('query_reasoning') or screener_data.get('agent_reasoning') else ""}
 
                 {"<div class='reasoning'><h3>💭 Custom Message</h3><p>" + custom_message + "</p></div>" if custom_message else ""}
 
@@ -260,6 +269,7 @@ class EmailAgent(BaseTool):
 
         # Add stock rows
         for i, stock in enumerate(results, 1):
+
             name = stock.get('name', 'N/A')
             close = stock.get('close', 0)
             change = stock.get('change', 0)
@@ -312,6 +322,7 @@ class EmailAgent(BaseTool):
             value = f.get('value')
             min_value = f.get('min_value')
             max_value = f.get('max_value')
+            values = f.get('values', [])
 
             if filter_type == 'greater_than':
                 filter_html += f"<li class='filter-item'><strong>{column}</strong> > {value:,}</li>"
@@ -321,6 +332,8 @@ class EmailAgent(BaseTool):
                 filter_html += f"<li class='filter-item'><strong>{column}</strong> between {min_value:,} and {max_value:,}</li>"
             elif filter_type == 'equals':
                 filter_html += f"<li class='filter-item'><strong>{column}</strong> = {value}</li>"
+            elif filter_type == 'in' and values:
+                filter_html += f"<li class='filter-item'><strong>{column}</strong> in [{', '.join(map(str, values))}]</li>"
             else:
                 filter_html += f"<li class='filter-item'><strong>{column}</strong> {filter_type} filter</li>"
 
@@ -351,79 +364,59 @@ class EmailAgent(BaseTool):
 
     def _log_email_sent(self, screener_result_id: str, recipients: List[str], stock_count: int):
         """Log email sending to database"""
-        if not self._db_manager:
-            return
-
         try:
-            # This would require adding an EmailLog table to track sent emails
-            # For now, just log to application logs
             logger.info(
                 f"Email sent - Result ID: {screener_result_id}, Recipients: {len(recipients)}, Stocks: {stock_count}")
         except Exception as e:
             logger.error(f"Error logging email: {e}")
 
 
-# schema/tool_schemas.py - Add this to your existing file
-class EmailAgentInput(BaseModel):
-    """Input schema for Email Agent"""
-    recipient_emails: List[str] = Field(description="List of recipient email addresses")
-    screener_result_id: str = Field(description="ID of the screener result to send")
-    subject_prefix: str = Field(default="TradingView Screener Results", description="Email subject prefix")
-    include_csv: bool = Field(default=True, description="Include CSV attachment")
-    custom_message: Optional[str] = Field(None, description="Custom message to include in email")
+# Standalone email workflow function
+def send_screener_email(db_manager,
+                        screener_result_id: str,
+                        recipient_emails: List[str],
+                        custom_message: Optional[str] = None,
+                        smtp_config: Optional[Dict] = None) -> Dict[str, Any]:
+    """
+    Standalone function to send screener results via email
 
+    Args:
+        db_manager: Database manager instance
+        screener_result_id: ID of the screener result to send
+        recipient_emails: List of email addresses
+        custom_message: Optional custom message
+        smtp_config: Optional SMTP configuration
 
-# Enhanced ScreenerUpdateAgent with Email Integration
-# Add this method to your existing ScreenerUpdateAgent class
+    Returns:
+        Dict with success status and details
+    """
 
-def analyze_and_email_results(self,
-                              fed_url: str,
-                              recipient_emails: List[str],
-                              target_content: str = "interest rates monetary policy",
-                              custom_message: Optional[str] = None) -> Dict[str, Any]:
-    """Complete workflow: analyze Fed data, create screeners, and email results"""
+    logger.info(f"Sending screener email for result ID: {screener_result_id}")
 
-    # Step 1: Run the normal analysis
-    analysis_result = self.analyze_fed_data_and_update_screeners(fed_url, target_content)
+    try:
+        # Create email agent
+        email_agent = EmailAgent(db_manager=db_manager, smtp_config=smtp_config)
 
-    if not analysis_result['success']:
-        return analysis_result
+        # Send email
+        result_json = email_agent._run(
+            recipient_emails=recipient_emails,
+            screener_result_id=screener_result_id,
+            custom_message=custom_message
+        )
 
-    # Step 2: Find the screener result ID from the analysis
-    screener_result_id = None
-    intermediate_steps = analysis_result.get('intermediate_steps', [])
+        result = json.loads(result_json)
 
-    for step in intermediate_steps:
-        if len(step) >= 2 and hasattr(step[0], 'tool') and step[0].tool == 'tradingview_query':
-            try:
-                tool_result = json.loads(step[1])
-                if tool_result.get('success') and tool_result.get('screener_result_id'):
-                    screener_result_id = tool_result['screener_result_id']
-                    break
-            except:
-                continue
+        if result['success']:
+            logger.info(f"Email sent successfully to {len(recipient_emails)} recipients")
+        else:
+            logger.error(f"Email sending failed: {result.get('error')}")
 
-    if not screener_result_id:
+        return result
+
+    except Exception as e:
+        logger.error(f"Email workflow error: {e}")
         return {
             'success': False,
-            'error': 'No screener results found to email',
-            'analysis_result': analysis_result
+            'error': str(e),
+            'timestamp': datetime.now().isoformat()
         }
-
-    # Step 3: Send email with results
-    email_tool = EmailAgent(db_manager=self.db_manager)
-    email_result = email_tool._run(
-        recipient_emails=recipient_emails,
-        screener_result_id=screener_result_id,
-        custom_message=custom_message
-    )
-
-    email_result_parsed = json.loads(email_result)
-
-    return {
-        'success': email_result_parsed['success'],
-        'analysis_result': analysis_result,
-        'email_result': email_result_parsed,
-        'screener_result_id': screener_result_id,
-        'workflow_completed_at': datetime.now().isoformat()
-    }
