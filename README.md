@@ -39,6 +39,7 @@ Use it **at your own risk**.
 💻 This project is developed primarily on a **Windows machine**, so there may be platform-specific issues on macOS or Linux.
 
 ---
+[Check out my Medium story about the stock screener](https://medium.com/@wintersweet001/customized-smart-stock-screener-built-in-less-than-4-hours-d112e80863d4)
 
 💡 *This project is open source and shared for educational purposes only.*
 
