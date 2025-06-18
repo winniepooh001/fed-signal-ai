@@ -1,10 +1,11 @@
 from database.database import DatabaseManager
 from agents.market_movement_analyzer import MarketMovementAnalyzer
 from agents.screener_analysis_agent import ScreenerAnalysisAgent
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from utils.logging_config import get_logger
 from market_data.data_fetch import DatabaseIntegratedMarketDataFetcher
-from agents.email_agent import send_screener_email
+from agents.filter_decision import FilterDecisionAgent
+
 import os
 import glob
 import json
@@ -28,6 +29,9 @@ class EnhancedMainAgent:
         # Initialize market movement analyzer
         self.movement_analyzer = MarketMovementAnalyzer(model=model)
 
+        # Initialize filter decision agent
+        self.filter_decision_agent = FilterDecisionAgent(model=model)
+
         # Initialize screener agent
         self.screener_agent = ScreenerAnalysisAgent(
             database_url=database_url,
@@ -35,7 +39,48 @@ class EnhancedMainAgent:
             temperature=0
         )
 
-        logger.info("Enhanced Main Agent initialized")
+        logger.info("Enhanced Main Agent initialized with smart filtering")
+
+    def _get_most_recent_filter(self) -> Optional[Dict[str, Any]]:
+        """Get the most recent successful screener execution"""
+
+        try:
+            with self.db_manager.get_session() as session:
+                from database.models import AgentExecution, ScreenerResult, ScreenerInput
+
+                # Get most recent successful screener execution
+                recent_execution = session.query(AgentExecution) \
+                    .join(ScreenerInput) \
+                    .join(ScreenerResult) \
+                    .filter(AgentExecution.success == True) \
+                    .filter(ScreenerResult.success == True) \
+                    .order_by(AgentExecution.completed_at.desc()) \
+                    .first()
+
+                if not recent_execution:
+                    return None
+
+                # Extract metadata from execution
+                metadata = {}
+                if recent_execution.execution_metadata:
+                    try:
+                        metadata = json.loads(recent_execution.execution_metadata)
+                    except:
+                        pass
+
+                return {
+                    'execution_id': recent_execution.id,
+                    'timestamp': recent_execution.completed_at.isoformat(),
+                    'fed_item_count': metadata.get('fed_item_count', 0),
+                    'fed_sentiment': metadata.get('fed_sentiment', 'UNKNOWN'),
+                    'market_condition': metadata.get('market_condition', 'UNKNOWN'),
+                    'user_prompt': recent_execution.user_prompt[:200],
+                    'days_ago': (datetime.utcnow() - recent_execution.completed_at).days
+                }
+
+        except Exception as e:
+            logger.error(f"Error getting recent filter: {e}")
+            return None
 
     def run_workflow(self, output_dir: str = "output") -> Dict[str, Any]:
         """
@@ -49,7 +94,7 @@ class EnhancedMainAgent:
         """
 
         logger.info("=" * 80)
-        logger.info("STARTING ENHANCED MAIN AGENT WORKFLOW")
+        logger.info("STARTING SMART FILTERING WORKFLOW")
         logger.info("=" * 80)
 
         workflow_results = {
@@ -58,9 +103,13 @@ class EnhancedMainAgent:
             'current_market_data': None,
             'market_movement_analysis': None,
             'fed_content_summary': None,
+            'most_recent_filter': None,
+            'filter_decision': None,
             'screener_results': None,
             'email_results': None,
-            'workflow_success': False
+            'fed_content_saved': None,
+            'workflow_success': False,
+            'exit_reason': None
         }
 
         try:
@@ -137,54 +186,115 @@ class EnhancedMainAgent:
             workflow_results['fed_content_summary'] = fed_content_summary
 
             logger.info(f"✅ Fed content summary extracted ({fed_content_summary['item_count']} items)")
-
-            # Step 6: Create enhanced analysis for screener
-            logger.info("STEP 6: Creating enhanced analysis for screener")
+            # step 6
+            logger.info("STEP 6: Checking if new filtering is warranted")
             logger.info("-" * 50)
 
-            enhanced_analysis = self._create_enhanced_analysis(
-                fed_content_summary,
-                movement_analysis
-            )
+            most_recent_filter = self._get_most_recent_filter()
+            workflow_results['most_recent_filter'] = most_recent_filter
 
-            # Step 7: Run screener with enhanced analysis
-            logger.info("STEP 7: Running screener with enhanced analysis")
-            logger.info("-" * 50)
 
-            screener_result = self.screener_agent.create_screener_from_analysis(
-                fed_analysis=enhanced_analysis
-            )
-            workflow_results['screener_results'] = screener_result
+            if most_recent_filter:
+                logger.info(f"Found recent filter from {most_recent_filter['days_ago']} days ago")
+                logger.info(
+                    f"Recent filter: {most_recent_filter['fed_sentiment']} sentiment, {most_recent_filter['fed_item_count']} Fed items")
 
-            if screener_result['success']:
-                logger.info("✅ Screener completed successfully")
-                screener_data = screener_result.get('screener_results', {})
-                logger.info(f"   Total stocks found: {screener_data.get('total_results', 0)}")
-                logger.info(f"   Stocks returned: {screener_data.get('returned_results', 0)}")
-
-                # Step 8: Prepare and send email report
-                logger.info("STEP 8: Preparing and sending email report")
-                logger.info("-" * 50)
-
-                email_result = self._prepare_and_send_email(
-                    screener_result,
+                # Ask LLM if new filter is warranted
+                filter_decision = self.filter_decision_agent.should_create_new_filter(
+                    most_recent_filter,
                     fed_content_summary,
                     movement_analysis
                 )
-                workflow_results['email_results'] = email_result
+                workflow_results['filter_decision'] = filter_decision
 
-                if email_result['success']:
-                    logger.info(f"✅ Email sent successfully to {len(email_result.get('recipients', []))} recipients")
+                if not filter_decision['create_new_filter']:
+                    logger.info("🚫 NEW FILTERING NOT WARRANTED")
+                    logger.info(f"Reason: {filter_decision['reasoning'][:200]}...")
                     workflow_results['workflow_success'] = True
-                elif email_result.get('skipped'):
-                    logger.info("📧 Email skipped - no recipients configured")
-                    workflow_results['workflow_success'] = True
+                    workflow_results['exit_reason'] = 'Recent filter still relevant'
+                    should_run_screening = False  # Don't run screening
+
                 else:
-                    logger.error(f"❌ Email sending failed: {email_result.get('error')}")
-                    # Still consider workflow successful if screener worked
-                    workflow_results['workflow_success'] = True
+                    logger.info("✅ NEW FILTERING WARRANTED")
+                    logger.info(f"Reason: {filter_decision['reasoning'][:200]}...")
+                    should_run_screening = True  # Run screening
+
             else:
-                logger.error(f"❌ Screener failed: {screener_result.get('error')}")
+                logger.info("No recent filter found - proceeding with new screening")
+                workflow_results['filter_decision'] = {
+                    'create_new_filter': True,
+                    'reasoning': 'No recent filter found'
+                }
+                should_run_screening = True  # Run screening
+
+            should_run_screening = True
+            # Only run Steps 7-8 if screening is warranted
+            if should_run_screening:
+                # Step 7: Create enhanced analysis for screener
+                logger.info("STEP 7: Creating enhanced analysis for screener")
+                logger.info("-" * 50)
+
+                enhanced_analysis = self._create_enhanced_analysis(
+                    fed_content_summary,
+                    movement_analysis
+                )
+
+                # Add metadata for future filter decisions
+                enhanced_analysis['metadata'] = {
+                    'fed_item_count': fed_content_summary.get('item_count', 0),
+                    'fed_sentiment': fed_content_summary.get('overall_sentiment', 'NEUTRAL'),
+                    'market_condition': 'enhanced_analysis'
+                }
+
+                # Step 8: Run screener with enhanced analysis
+                logger.info("STEP 8: Running screener with enhanced analysis")
+                logger.info("-" * 50)
+
+                screener_result = self.screener_agent.create_screener_from_analysis(
+                    fed_analysis=enhanced_analysis
+                )
+                workflow_results['screener_results'] = screener_result
+
+                if screener_result['success']:
+                    logger.info("✅ Screener completed successfully")
+                    screener_data = screener_result.get('screener_results', {})
+                    logger.info(f"   Total stocks found: {screener_data.get('total_results', 0)}")
+                    logger.info(f"   Stocks returned: {screener_data.get('returned_results', 0)}")
+
+                    # Update execution metadata with filter info for future decisions
+                    self._update_execution_metadata(
+                        screener_result.get('execution_id'),
+                        enhanced_analysis.get('metadata', {})
+                    )
+
+                    # Step 9: Prepare and send email report
+                    logger.info("STEP 9: Preparing and sending email report")
+                    logger.info("-" * 50)
+
+                    email_result = self._prepare_and_send_email(
+                        screener_result,
+                        fed_content_summary,
+                        movement_analysis
+                    )
+                    workflow_results['email_results'] = email_result
+
+                    if email_result['success']:
+                        logger.info(
+                            f"✅ Email sent successfully to {len(email_result.get('recipients', []))} recipients")
+                        workflow_results['workflow_success'] = True
+                    elif email_result.get('skipped'):
+                        logger.info("📧 Email skipped - no recipients configured")
+                        workflow_results['workflow_success'] = True
+                    else:
+                        logger.error(f"❌ Email sending failed: {email_result.get('error')}")
+                        workflow_results['workflow_success'] = True
+                else:
+                    logger.error(f"❌ Screener failed: {screener_result.get('error')}")
+
+            else:
+                # Screening not warranted - exit successfully without running steps 7-8
+                logger.info("Skipping screening steps 7-8 - not warranted")
+                workflow_results['workflow_success'] = True
 
         except Exception as e:
             logger.error(f"Workflow failed: {str(e)}", exc_info=True)
@@ -194,6 +304,31 @@ class EnhancedMainAgent:
         self._log_workflow_summary(workflow_results)
 
         return workflow_results
+
+    def _update_execution_metadata(self, execution_id: str, metadata: Dict[str, Any]):
+        """Update execution metadata for future filter decisions"""
+
+        try:
+            with self.db_manager.get_session() as session:
+                from database.models import AgentExecution
+
+                execution = session.query(AgentExecution).filter_by(id=execution_id).first()
+                if execution:
+                    current_metadata = {}
+                    if execution.execution_metadata:
+                        try:
+                            current_metadata = json.loads(execution.execution_metadata)
+                        except:
+                            pass
+
+                    # Update with new metadata
+                    current_metadata.update(metadata)
+                    execution.execution_metadata = json.dumps(current_metadata)
+
+                    logger.debug(f"Updated execution {execution_id} metadata")
+
+        except Exception as e:
+            logger.error(f"Error updating execution metadata: {e}")
 
     def _find_json_files(self, output_dir: str) -> List[Dict[str, Any]]:
         """Find JSON files in output directory and extract scraped_data_id from filename"""
@@ -367,29 +502,31 @@ optimizing screening for {market_environment} environment with {policy_stance} p
             if not screener_result_id:
                 raise ValueError("No screener result ID found")
 
-            # NEW: Create enhanced message with Fed URLs and full market commentary
-            fed_items = fed_summary.get('fed_items', [])  # Get original Fed items
-            fed_urls = []
+            # Create custom message for Analysis Rationale section (comprehensive)
+            fed_items = fed_summary.get('fed_items', [])
+
+            # Fed URLs section
+            fed_urls_section = ""
             if fed_items:
+                fed_urls_section = "\nFed Source Documents:\n"
                 for item in fed_items[:5]:  # Top 5 URLs
                     url = item.get('url', '')
                     title = item.get('title', 'Fed Communication')[:60]
                     if url:
-                        fed_urls.append(f"• {title}: {url}")
+                        fed_urls_section += f"• {title}: {url}\n"
 
+            # Market commentary
             market_commentary = movement_analysis.get('commentary', 'Market analysis unavailable')
 
-            custom_message = f"""Fed Analysis + Market Movement Integration:
+            # Comprehensive custom message for Analysis Rationale
+            custom_message = f"""<div class="reasoning-header">Fed Analysis Summary</div>
+            <div class="reasoning-content">Analyzed {fed_summary.get('item_count', 0)} Federal Reserve communications with overall sentiment: {fed_summary.get('overall_sentiment', 'NEUTRAL')}</div>
 
-📊 Fed Analysis: {fed_summary.get('item_count', 0)} communications, sentiment: {fed_summary.get('overall_sentiment', 'NEUTRAL')}
-
-📈 Market Commentary: 
-{market_commentary}
-
-🏛️ Fed Source Documents:
-{chr(10).join(fed_urls) if fed_urls else 'No Fed URLs available'}
-
-This screening integrates Fed policy signals with real-time market data analysis."""
+            <div class="reasoning-subheader">Market Movement Analysis</div>
+            <div class="reasoning-content">{market_commentary}</div>
+            {f'<div class="reasoning-subheader">Fed Source Documents</div><div class="reasoning-content">{fed_urls_section.strip()}</div>' if fed_urls_section else ''}
+            <div class="reasoning-subheader">Screening Strategy</div>
+            <div class="reasoning-content">This screening integrates Federal Reserve policy signals with real-time market data analysis to identify stocks positioned for current market conditions.</div>"""
 
             # Use existing email agent
             from agents.email_agent import send_screener_email
@@ -411,45 +548,10 @@ This screening integrates Fed policy signals with real-time market data analysis
             return {'success': False, 'error': str(e)}
 
     def _log_workflow_summary(self, workflow_results: Dict[str, Any]):
-        """Log workflow summary"""
+        """Updated log workflow summary with null safety"""
 
         logger.info("=" * 80)
-        logger.info("ENHANCED WORKFLOW SUMMARY")
-        logger.info("=" * 80)
-
-        json_files = workflow_results.get('json_files_found', [])
-        logger.info(f"JSON Files Found: {len(json_files)}")
-
-        historical_data = workflow_results.get('historical_market_data', [])
-        logger.info(f"Historical Market Data: {len(historical_data) if historical_data else 0} points")
-
-        current_data = workflow_results.get('current_market_data', [])
-        logger.info(f"Current Market Data: {len(current_data) if current_data else 0} points")
-
-        movement_analysis = workflow_results.get('market_movement_analysis', {})
-        logger.info(f"Market Movement Analysis: {'✅ SUCCESS' if movement_analysis.get('success') else '❌ FAILED'}")
-
-        fed_summary = workflow_results.get('fed_content_summary', {})
-        logger.info(f"Fed Content Summary: {fed_summary.get('item_count', 0) if fed_summary else 0} items")
-
-        screener_results = workflow_results.get('screener_results', {})
-        logger.info(f"Screener Results: {'✅ SUCCESS' if screener_results.get('success') else '❌ FAILED'}")
-
-        email_results = workflow_results.get('email_results', {})
-        if email_results:
-            if email_results.get('skipped'):
-                logger.info("Email Report: 📧 SKIPPED (no recipients)")
-            else:
-                logger.info(f"Email Report: {'✅ SUCCESS' if email_results.get('success') else '❌ FAILED'}")
-        else:
-            logger.info("Email Report: ❌ NOT ATTEMPTED")
-
-        logger.info(f"Overall Success: {'✅ YES' if workflow_results.get('workflow_success') else '❌ NO'}")
-        logger.info("=" * 80)
-        """Log workflow summary"""
-
-        logger.info("=" * 80)
-        logger.info("ENHANCED WORKFLOW SUMMARY")
+        logger.info("SMART FILTERING WORKFLOW SUMMARY")
         logger.info("=" * 80)
 
         json_files = workflow_results.get('json_files_found', [])
@@ -462,15 +564,32 @@ This screening integrates Fed policy signals with real-time market data analysis
         logger.info(f"Current Market Data: {len(current_data) if current_data else 0} points")
 
         movement_analysis = workflow_results.get('market_movement_analysis', {})
-        logger.info(f"Market Movement Analysis: {'✅ SUCCESS' if movement_analysis.get('success') else '❌ FAILED'}")
+        logger.info(
+            f"Market Movement Analysis: {'✅ SUCCESS' if movement_analysis and movement_analysis.get('success') else '❌ FAILED'}")
 
         fed_summary = workflow_results.get('fed_content_summary', {})
         logger.info(f"Fed Content Summary: {fed_summary.get('item_count', 0) if fed_summary else 0} items")
 
-        screener_results = workflow_results.get('screener_results', {})
-        logger.info(f"Screener Results: {'✅ SUCCESS' if screener_results.get('success') else '❌ FAILED'}")
+        # FIX: Add null safety for recent filter and filter decision
+        recent_filter = workflow_results.get('most_recent_filter')
+        if recent_filter:
+            logger.info(f"Recent Filter: {recent_filter['days_ago']} days ago ({recent_filter['fed_sentiment']})")
+        else:
+            logger.info("Recent Filter: None found")
 
-        email_results = workflow_results.get('email_results', {})
+        filter_decision = workflow_results.get('filter_decision')
+        if filter_decision:
+            decision = "✅ CREATE NEW" if filter_decision.get('create_new_filter') else "🚫 SKIP (RECENT EXISTS)"
+            logger.info(f"Filter Decision: {decision}")
+
+        # FIX: Add null safety for screener results
+        screener_results = workflow_results.get('screener_results')
+        if screener_results:
+            logger.info(f"Screener Results: {'✅ SUCCESS' if screener_results.get('success') else '❌ FAILED'}")
+        else:
+            logger.info("Screener Results: ❌ NOT EXECUTED")
+
+        email_results = workflow_results.get('email_results')
         if email_results:
             if email_results.get('skipped'):
                 logger.info("Email Report: 📧 SKIPPED (no recipients)")
@@ -478,6 +597,17 @@ This screening integrates Fed policy signals with real-time market data analysis
                 logger.info(f"Email Report: {'✅ SUCCESS' if email_results.get('success') else '❌ FAILED'}")
         else:
             logger.info("Email Report: ❌ NOT ATTEMPTED")
+
+        fed_saved = workflow_results.get('fed_content_saved')
+        if fed_saved:
+            logger.info(
+                f"Fed Content Saved: {'✅ SUCCESS' if fed_saved.get('success') else '❌ FAILED'} ({fed_saved.get('saved_count', 0)} items)")
+        else:
+            logger.info("Fed Content Saved: ❌ NOT ATTEMPTED")
+
+        exit_reason = workflow_results.get('exit_reason')
+        if exit_reason:
+            logger.info(f"Exit Reason: {exit_reason}")
 
         logger.info(f"Overall Success: {'✅ YES' if workflow_results.get('workflow_success') else '❌ NO'}")
         logger.info("=" * 80)

@@ -196,6 +196,7 @@ class EmailAgent(BaseTool):
                 .summary-label {{ font-size: 12px; color: #666; text-transform: uppercase; }}
                 .reasoning {{ background-color: #fff3e0; padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #ff9800; }}
                 .reasoning h3 {{ margin: 0 0 10px 0; color: #e65100; font-size: 18px; }}
+                .reasoning p {{ margin: 0; line-height: 1.6; white-space: pre-line; }}
                 .filters {{ background-color: #f1f8e9; padding: 20px; border-radius: 8px; margin-bottom: 25px; }}
                 .filters h3 {{ margin: 0 0 15px 0; color: #388e3c; font-size: 18px; }}
                 .filter-list {{ list-style: none; padding: 0; margin: 0; }}
@@ -241,9 +242,7 @@ class EmailAgent(BaseTool):
                     </div>
                 </div>
 
-                {"<div class='reasoning'><h3>🎯 Analysis Rationale</h3><p>" + (screener_data.get('query_reasoning') or screener_data.get('agent_reasoning', 'Systematic screening based on current market conditions.'))[:500] + "</p></div>" if screener_data.get('query_reasoning') or screener_data.get('agent_reasoning') else ""}
-
-                {"<div class='reasoning'><h3>💭 Custom Message</h3><p>" + custom_message + "</p></div>" if custom_message else ""}
+                {"<div class='reasoning'><h3>🎯 Analysis Rationale</h3><p>" + custom_message + "</p></div>" if custom_message else ""}
 
                 <div class="filters">
                     <h3>🔍 Filter Criteria</h3>
@@ -269,7 +268,6 @@ class EmailAgent(BaseTool):
 
         # Add stock rows
         for i, stock in enumerate(results, 1):
-
             name = stock.get('name', 'N/A')
             close = stock.get('close', 0)
             change = stock.get('change', 0)
