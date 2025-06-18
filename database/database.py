@@ -5,6 +5,7 @@ from typing import Optional, Dict, Any, List
 import logging
 from datetime import datetime, timedelta
 import json
+import hashlib
 
 from database.models import Base, ScrapedData, ScreenerInput, ScreenerResult, AgentExecution, DataEmbedding, LLMUsage, MarketData
 
@@ -112,37 +113,6 @@ class DatabaseManager:
 
             return stats
 
-    def save_scraped_data(self, source: str, url: str, target_content: str,
-                          raw_content: str, metadata: Optional[Dict] = None) -> str:
-        """Save scraped data and return ID"""
-        with self.get_session() as session:
-            scraped_data = ScrapedData(
-                source=source,
-                url=url,
-                target_content=target_content,
-                raw_content=raw_content,
-                extra_metadata=json.dumps(metadata or {})  # Convert to JSON string for SQLite
-            )
-            session.add(scraped_data)
-            session.flush()  # Get the ID
-            scraped_data_id = scraped_data.id
-            logger.info(f"Saved scraped data with ID: {scraped_data_id}")
-            return scraped_data_id
-
-    def save_embeddings(self, scraped_data_id: str, embeddings: List[Dict[str, Any]]):
-        """Save embeddings for scraped data"""
-        with self.get_session() as session:
-            for embedding_data in embeddings:
-                embedding = DataEmbedding(
-                    scraped_data_id=scraped_data_id,
-                    embedding_model=embedding_data['model'],
-                    embedding_vector=json.dumps(embedding_data['vector']),  # Convert to JSON string
-                    chunk_index=embedding_data.get('chunk_index', 0),
-                    chunk_text=embedding_data['text']
-                )
-                session.add(embedding)
-            logger.info(f"Saved {len(embeddings)} embeddings for scraped data {scraped_data_id}")
-
     def start_agent_execution(self, user_prompt: str, execution_type: str,
                               scraped_data_id: Optional[str] = None,
                               metadata: Optional[Dict] = None) -> str:
@@ -227,65 +197,6 @@ class DatabaseManager:
             logger.info(f"Saved screener result with ID: {result_id}")
             return result_id
 
-    def get_recent_scraped_data(self, source: Optional[str] = None, limit: int = 10) -> List[Dict]:
-        """Get recent scraped data"""
-        with self.get_session() as session:
-            query = session.query(ScrapedData)
-            if source:
-                query = query.filter_by(source=source)
-
-            results = query.order_by(ScrapedData.created_at.desc()).limit(limit).all()
-            return [
-                {
-                    'id': r.id,
-                    'source': r.source,
-                    'url': r.url,
-                    'content_preview': r.raw_content[:200] + '...' if len(r.raw_content) > 200 else r.raw_content,
-                    'created_at': r.created_at.isoformat()
-                }
-                for r in results
-            ]
-
-    def search_similar_content(self, query_embedding: List[float],
-                               limit: int = 5, source: Optional[str] = None) -> List[Dict]:
-        """Search for similar content using embeddings (simplified - would use vector DB in production)"""
-        # This is a simplified version - in production, use a proper vector database like ChromaDB/Pinecone
-        with self.get_session() as session:
-            query_builder = session.query(DataEmbedding).join(ScrapedData)
-            if source:
-                query_builder = query_builder.filter(ScrapedData.source == source)
-
-            embeddings = query_builder.all()
-
-            # Simple cosine similarity (use proper vector search in production)
-            import numpy as np
-
-            similarities = []
-            for emb in embeddings:
-                try:
-                    stored_vector = np.array(json.loads(emb.embedding_vector))  # Parse JSON string
-                    query_vector = np.array(query_embedding)
-
-                    # Cosine similarity
-                    cosine_sim = np.dot(stored_vector, query_vector) / (
-                            np.linalg.norm(stored_vector) * np.linalg.norm(query_vector)
-                    )
-
-                    similarities.append({
-                        'embedding_id': emb.id,
-                        'scraped_data_id': emb.scraped_data_id,
-                        'similarity': float(cosine_sim),
-                        'text': emb.chunk_text,
-                        'source': emb.scraped_data.source
-                    })
-                except (json.JSONDecodeError, ValueError) as e:
-                    logger.warning(f"Error parsing embedding vector: {e}")
-                    continue
-
-            # Sort by similarity and return top results
-            similarities.sort(key=lambda x: x['similarity'], reverse=True)
-            return similarities[:limit]
-
 
     def save_market_data_point(self,
                                ticker: str,
@@ -340,23 +251,92 @@ class DatabaseManager:
                 for md in market_data_points
             ]
 
+    def save_market_data_batch(self,
+                               market_data_points: List[Dict[str, Any]],
+                               batch_timestamp: Optional[datetime] = None,
+                               scraped_data_id: Optional[str] = None) -> List[str]:
+        """
+        Save market data as a batch with consistent timestamp
 
-    def get_recent_market_data(self,
-                               data_type: Optional[str] = None,
-                               ticker: Optional[str] = None,
-                               limit: int = 100) -> List[Dict]:
-        """Get recent market data with optional filters"""
+        Args:
+            market_data_points: List of market data dictionaries
+            batch_timestamp: Consistent timestamp for this batch (defaults to now)
+            scraped_data_id: Optional link to scraped data
+
+        Returns:
+            List of market data IDs
+        """
+
+        if batch_timestamp is None:
+            batch_timestamp = datetime.utcnow()
+
+        market_data_ids = []
+
         with self.get_session() as session:
-            query = session.query(MarketData)
+            for dp in market_data_points:
+                market_data = MarketData(
+                    scraped_data_id=scraped_data_id,
+                    batch_timestamp=batch_timestamp,  # NEW: Consistent batch time
+                    data_type=dp.get('data_type', 'unknown'),
+                    ticker=dp.get('ticker', '').upper(),
+                    price=dp.get('price', 0.0),
+                    change_percent=dp.get('change_percent'),
+                    volume=dp.get('volume'),
+                    market_cap=dp.get('market_cap'),
+                    data_source=dp.get('data_source', 'unknown'),
+                    provider_timestamp=dp.get('provider_timestamp'),
+                    retrieved_at=datetime.utcnow()
+                )
+                session.add(market_data)
+                session.flush()
+                market_data_ids.append(market_data.id)
 
-            if data_type:
-                query = query.filter_by(data_type=data_type)
-            if ticker:
-                query = query.filter_by(ticker=ticker.upper())
+        logger.info(f"Saved batch of {len(market_data_ids)} market data points with timestamp {batch_timestamp}")
+        return market_data_ids
 
-            market_data_points = query.order_by(
-                MarketData.retrieved_at.desc()
-            ).limit(limit).all()
+    def get_latest_market_data_batch(self,
+                                     data_types: Optional[List[str]] = None,
+                                     exclude_scraped_linked: bool = False) -> List[Dict]:
+        """
+        Get the most recent batch of market data by batch_timestamp
+
+        Args:
+            data_types: Optional filter by data types
+            exclude_scraped_linked: If True, only get data NOT linked to scraped_data_id
+
+        Returns:
+            List of market data points from the latest batch
+        """
+
+        with self.get_session() as session:
+            # Find the latest batch timestamp
+            query = session.query(MarketData.batch_timestamp)
+
+            if exclude_scraped_linked:
+                query = query.filter(MarketData.scraped_data_id.is_(None))
+
+            if data_types:
+                query = query.filter(MarketData.data_type.in_(data_types))
+
+            latest_batch = query.order_by(MarketData.batch_timestamp.desc()).first()
+
+            if not latest_batch:
+                return []
+
+            latest_timestamp = latest_batch[0]
+
+            # Get all data from that batch
+            data_query = session.query(MarketData).filter(
+                MarketData.batch_timestamp == latest_timestamp
+            )
+
+            if data_types:
+                data_query = data_query.filter(MarketData.data_type.in_(data_types))
+
+            if exclude_scraped_linked:
+                data_query = data_query.filter(MarketData.scraped_data_id.is_(None))
+
+            market_data_points = data_query.all()
 
             return [
                 {
@@ -365,11 +345,89 @@ class DatabaseManager:
                     'price': md.price,
                     'change_percent': md.change_percent,
                     'volume': md.volume,
+                    'market_cap': md.market_cap,
                     'data_type': md.data_type,
                     'data_source': md.data_source,
+                    'batch_timestamp': md.batch_timestamp.isoformat(),
+                    'provider_timestamp': md.provider_timestamp.isoformat() if md.provider_timestamp else None,
+                    'retrieved_at': md.retrieved_at.isoformat()
+                }
+                for md in market_data_points
+            ]
+
+    def get_market_data_by_batch_timestamp(self, batch_timestamp: datetime) -> List[Dict]:
+        """Get market data by specific batch timestamp"""
+
+        with self.get_session() as session:
+            market_data_points = session.query(MarketData).filter(
+                MarketData.batch_timestamp == batch_timestamp
+            ).all()
+
+            return [
+                {
+                    'id': md.id,
+                    'ticker': md.ticker,
+                    'price': md.price,
+                    'change_percent': md.change_percent,
+                    'volume': md.volume,
+                    'market_cap': md.market_cap,
+                    'data_type': md.data_type,
+                    'data_source': md.data_source,
+                    'batch_timestamp': md.batch_timestamp.isoformat(),
                     'scraped_data_id': md.scraped_data_id,
                     'provider_timestamp': md.provider_timestamp.isoformat() if md.provider_timestamp else None,
                     'retrieved_at': md.retrieved_at.isoformat()
                 }
                 for md in market_data_points
             ]
+
+    def save_fed_content_to_scraped_data(self,
+                                         fed_items: List[Dict[str, Any]],
+                                         execution_id: Optional[str] = None) -> List[str]:
+        """
+        Save Fed content to existing ScrapedData table after successful email
+
+        Args:
+            fed_items: List of Fed content items from JSON
+            execution_id: Agent execution ID for reference
+
+        Returns:
+            List of scraped_data IDs
+        """
+
+        saved_ids = []
+
+        with self.get_session() as session:
+            for item in fed_items:
+                # Prepare metadata with sentiment and execution info
+                metadata = {
+                    'sentiment': item.get('sentiment', 'NEUTRAL'),
+                    'sentiment_score': item.get('sentiment_score'),
+                    'summary': item.get('summary', ''),
+                    'published_date': item.get('published_date'),
+                    'execution_id': execution_id,
+                    'processed_via_email': True,
+                    'processed_at': datetime.utcnow().isoformat()
+                }
+
+                # Create ScrapedData entry
+                scraped_data = ScrapedData(
+                    external_id=item.get('url', '').split('/')[-1] if item.get('url') else None,  # Extract ID from URL
+                    source='fed_processed',  # Different source to distinguish from raw scrapes
+                    url=item.get('url', ''),
+                    target_content='processed_fed_content',
+                    raw_content=item.get('full_content', '')[:5000],  # Truncate if too long
+                    processed_content=item.get('summary', ''),
+                    extra_metadata=json.dumps(metadata),
+                    content_hash=hashlib.md5((item.get('url', '') + item.get('title', '')).encode()).hexdigest()[:32],
+                    scraped_at=datetime.utcnow(),
+                    created_at=datetime.utcnow(),
+                    updated_at=datetime.utcnow()
+                )
+
+                session.add(scraped_data)
+                session.flush()
+                saved_ids.append(scraped_data.id)
+
+        logger.info(f"Saved {len(saved_ids)} Fed content items to ScrapedData table")
+        return saved_ids

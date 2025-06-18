@@ -1,16 +1,13 @@
-# tools/comprehensive_fed_scraper.py
-from langchain.tools import BaseTool
+
 from typing import Type, Optional, Dict, Any, List
 import requests
 from bs4 import BeautifulSoup
-import json
+
 from datetime import datetime, timedelta
 import re
 import hashlib
 from utils.logging_config import get_logger
 from scrapers.model_object import FedContent
-
-from schema.tool_schemas import FedWebScraperInput
 
 logger = get_logger(__name__)
 

@@ -103,19 +103,6 @@ class LLMUsage(Base):
     agent_execution = relationship("AgentExecution", back_populates="llm_usage")
 
 
-class ScraperState(Base):
-    """Track scraper execution state and last check times"""
-    __tablename__ = "scraper_states"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    scraper_name = Column(String(100), nullable=False, unique=True)
-    last_check_time = Column(DateTime, nullable=True)
-    last_run_metadata = Column(TEXT, nullable=True)  # JSON metadata about last run
-    total_runs = Column(Integer, default=0)
-    successful_runs = Column(Integer, default=0)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
 
 # Update existing ScrapedData model to include external_id and improve indexing
 class ScrapedData(Base):
@@ -168,6 +155,7 @@ class MarketData(Base):
     __tablename__ = "market_data"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    batch_timestamp = Column(DateTime, nullable=False)  # NEW: Consistent batch collection time
     scraped_data_id = Column(String, ForeignKey("scraped_data.id"), nullable=True)  # Reference to Fed content
     data_type = Column(String(50), nullable=False)  # 'market_indicators', 'sector_rotation', 'individual_stock'
     ticker = Column(String(20), nullable=False)  # Stock/ETF ticker symbol
@@ -185,8 +173,9 @@ class MarketData(Base):
 
     # Indexes for performance
     __table_args__ = (
-        Index('idx_market_data_ticker_retrieved', 'ticker', 'retrieved_at'),
+        Index('idx_market_data_batch_timestamp', 'batch_timestamp'),  # NEW: Query by batch
+        Index('idx_market_data_ticker_batch', 'ticker', 'batch_timestamp'),  # NEW: Ticker + batch
         Index('idx_market_data_scraped_data_id', 'scraped_data_id'),
-        Index('idx_market_data_type_retrieved', 'data_type', 'retrieved_at'),
+        Index('idx_market_data_type_batch', 'data_type', 'batch_timestamp'),  # NEW: Type + batch
         {'extend_existing': True}
     )

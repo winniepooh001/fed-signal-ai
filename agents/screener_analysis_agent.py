@@ -203,7 +203,8 @@ class ScreenerAnalysisAgent:
         analysis_result = fed_analysis.get('analysis_result', {})
         market_environment = analysis_result.get('market_environment', 'neutral')
         policy_stance = analysis_result.get('policy_stance', 'neutral')
-        risk_sentiment = analysis_result.get('risk_sentiment', 'neutral')
+        risk_sentiment = analysis_result.get('movement_analysis', 'neutral')
+        fed_summary = analysis_result.get('fed_summary', '')
 
         prompt = f"""
         Based on the Federal Reserve analysis, create an appropriate stock screener for the current market environment.
@@ -211,24 +212,14 @@ class ScreenerAnalysisAgent:
         Fed Analysis Summary:
         - Market Environment: {market_environment}
         - Policy Stance: {policy_stance}
-        - Risk Sentiment: {risk_sentiment}
+        - Movement Since News: {risk_sentiment}
+        - Fed Summary: {fed_summary}
         - Analysis Output: {fed_analysis.get('agent_output', '')[:500]}...
 
-        Create ONE TradingView screener that aligns with this Fed analysis.
-
-        Market Environment Guidelines:
-        - HAWKISH/RISK_OFF: Focus on defensive sectors, value stocks, dividend-paying companies
-          Suggested filters: low PE ratios, high dividend yields, low debt-to-equity, defensive sectors
-
-        - DOVISH/RISK_ON: Focus on growth stocks, high-momentum companies, rate-sensitive sectors
-          Suggested filters: earnings growth, revenue growth, high relative volume, technology/growth sectors
-
-        - NEUTRAL: Balanced approach focusing on quality and moderate growth
-          Suggested filters: moderate PE ratios, consistent earnings, good liquidity
+        Create ONE TradingView screener that aligns with this Fed analysis by applying appropriate filters 
 
         Execute the tradingview_query tool with appropriate filters to target 20-50 stocks.
         Provide reasoning for your filter choices based on the Fed analysis.
-        
         
         STOP AFTER FIRST TOOL CALL - Never call tradingview_query multiple times!
 

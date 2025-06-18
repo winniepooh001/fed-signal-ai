@@ -11,11 +11,9 @@ logger = initialize_logging(
 )
 import os
 from dotenv import load_dotenv
-from workflow.email_workflow import EmailEnabledWorkflow
+from workflow.enhanced_workflow import EnhancedMainAgent
 
 # Now import the separate agents
-from agents.fed_analysis_agent import FedAnalysisAgent
-from agents.screener_analysis_agent import ScreenerAnalysisAgent
 from database import DatabaseManager
 
 load_dotenv()
@@ -33,68 +31,27 @@ def get_smtp_config() -> dict:
 
 
 
-def run_email_workflow():
-    """Run the complete workflow with email integration"""
-
-    logger.info("📧 RUNNING COMPLETE WORKFLOW WITH EMAIL")
-    logger.info("=" * 80)
-
-    # Check for email configuration
-    smtp_config = get_smtp_config()
-
-    if not smtp_config['sender_email'] or not smtp_config['sender_password']:
-        logger.warning("⚠️ SMTP configuration incomplete - email functionality disabled")
-        logger.warning("To enable email, set SENDER_EMAIL and SENDER_PASSWORD environment variables")
-
-    # Get recipient emails from environment or use default
-    recipient_emails_str = os.getenv('RECIPIENT_EMAILS', '')
-    if recipient_emails_str:
-        recipient_emails = [email.strip() for email in recipient_emails_str.split(',')]
-    else:
-        logger.warning("⚠️ No RECIPIENT_EMAILS set in environment - using demo email")
-        recipient_emails = ["demo@example.com"]  # Replace with actual email for testing
-
-    try:
-        # Initialize email-enabled workflow
-        workflow = EmailEnabledWorkflow(
-            database_url="sqlite:///screener_data.db",
-            model="gpt-4.1-mini",
-            smtp_config=smtp_config
-        )
-
-        # Custom email message
-        custom_message = (
-            "This automated report contains stock screening results based on the latest "
-            "Federal Reserve communications. The screening criteria have been optimized "
-            "for the current market environment and policy stance."
-        )
-
-        # Run complete workflow
-        result = workflow.run_complete_workflow_with_email(
-            fed_url="https://www.federalreserve.gov/newsevents/pressreleases.htm",
-            target_content="FOMC interest rates monetary policy",
-            recipient_emails=recipient_emails,
-            custom_email_message=custom_message
-        )
-
-        return result['workflow_success']
-
-    except Exception as e:
-        logger.error(f"Email workflow failed: {e}", exc_info=True)
-        return False
-
 def main():
-    """Refactored main function with clear two-agent workflow"""
+    """Main function with corrected workflow"""
 
-    logger.info("Initializing Two-Agent Screener System")
+    logger.info("Starting Enhanced Main Agent with Corrected Logic")
 
     try:
-        # Initialize separate agents
-        run_email_workflow()
+        # Initialize enhanced agent
+        agent = EnhancedMainAgent()
+
+        # Run workflow
+        result = agent.run_workflow(output_dir="output")
+
+        if result['workflow_success']:
+            logger.info("✅ WORKFLOW COMPLETED SUCCESSFULLY")
+        else:
+            logger.info("❌ WORKFLOW COMPLETED WITH ISSUES")
 
     except Exception as e:
-        logger.critical(f"System failed with critical error: {str(e)}", exc_info=True)
+        logger.critical(f"System failed: {str(e)}", exc_info=True)
         raise
+
 
 
 def setup_database():
