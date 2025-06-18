@@ -161,7 +161,7 @@ python --version  # Should be 3.13+
 ### 1. Clone the Repository (master branch not main)
 
 ```bash
-git clone https://github.com/winniepooh001/screener.git
+git clone https://github.com/winniepooh001/fed-signal-ai.git
 ```
 
 ### 2. Create Virtual Environment
