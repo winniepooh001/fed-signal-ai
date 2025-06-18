@@ -366,32 +366,6 @@ llm = create_llm('claude-3-sonnet', provider='anthropic')
 llm = create_llm('deepseek-chat', provider='deepseek')
 ```
 
-### 📊 Performance Analytics
-
-```mermaid
-pie title LLM Usage Distribution
-    "GPT-4o Mini" : 45
-    "Gemini Flash" : 30
-    "Claude Sonnet" : 15
-    "DeepSeek Chat" : 10
-```
-
-### 🎛️ Filter Evolution
-
-```mermaid
-graph LR
-    A[Initial Population] --> B[Fitness Evaluation]
-    B --> C[Selection]
-    C --> D[Crossover]
-    D --> E[Mutation]
-    E --> F[New Generation]
-    F --> B
-    
-    style A fill:#e3f2fd
-    style F fill:#e8f5e8
-```
-
----
 
 ## 📈 Sample Output
 
