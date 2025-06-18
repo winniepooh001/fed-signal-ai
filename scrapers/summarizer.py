@@ -13,10 +13,10 @@ class DocumentSummarizer:
 
     def __init__(self, llm_config: Dict[str, Any] = None):
         self.llm_config = llm_config or {
-            'model': 'gemini-2.5-flash',
+            'model': 'gpt-4.1-mini',
             'temperature': 0,
             'max_tokens': 8000,
-            'provider': 'google'
+            'provider': 'openai'
         }
         self.llm = self._initialize_llm()
 

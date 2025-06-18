@@ -147,8 +147,10 @@ class DatabaseIntegratedMarketDataFetcher:
         for provider in self.providers:
             try:
                 # Market indicators
+                logger.info("collect indicator data")
                 indicator_data = provider.get_data(self.market_indicators)
                 for dp in indicator_data:
+
                     all_market_data.append({
                         'ticker': dp.symbol,
                         'price': dp.price,
@@ -161,6 +163,7 @@ class DatabaseIntegratedMarketDataFetcher:
                     })
 
                 # Sector data
+                logger.info("collect sector rotation data")
                 sector_data = provider.get_data(self.sector_etfs)
                 for dp in sector_data:
                     all_market_data.append({
@@ -306,14 +309,15 @@ def fetch_and_save_market_data_to_table(
                     break
 
         # Collect and save market data
-        results = fetcher.collect_and_save_market_data(
+        results = fetcher.collect_and_save_market_data_with_batch(
             scraped_data_id=agent_execution_id,
-            additional_symbols=additional_symbols
+            additional_symbols=additional_symbols,
+            batch_timestamp=datetime.now()
         )
 
         # Create summary
-        total_points = len(results['market_indicators']) + len(results['sector_rotation']) + len(
-            results['individual_stocks'])
+        total_points = results.get('total_points', 0)
+        summary_data = results.get('summary', {})
 
         return {
             'success': True,
@@ -321,9 +325,9 @@ def fetch_and_save_market_data_to_table(
             'market_data_results': results,
             'summary': {
                 'total_data_points': total_points,
-                'market_indicators': len(results['market_indicators']),
-                'sector_rotation': len(results['sector_rotation']),
-                'individual_stocks': len(results['individual_stocks']),
+                'market_indicators':  summary_data.get('market_indicators', 0),
+                'sector_rotation': summary_data.get('sector_rotation', 0),
+                'individual_stocks': summary_data.get('individual_stocks', 0),
                 'linked_to_scraped_id': scraped_data_id
             },
             'metadata': {

@@ -101,7 +101,7 @@ class EnhancedMainAgent:
             logger.info("STEP 3: Capturing current market snapshot")
             logger.info("-" * 50)
 
-            current_batch_timestamp = datetime.utcnow()
+            current_batch_timestamp = datetime.now()
 
             current_market_result = self.market_fetcher.collect_and_save_market_data_with_batch(
                 scraped_data_id=None,  # Independent collection, not linked to Fed scrape

@@ -274,6 +274,7 @@ class DatabaseManager:
 
         with self.get_session() as session:
             for dp in market_data_points:
+
                 market_data = MarketData(
                     scraped_data_id=scraped_data_id,
                     batch_timestamp=batch_timestamp,  # NEW: Consistent batch time
@@ -284,8 +285,8 @@ class DatabaseManager:
                     volume=dp.get('volume'),
                     market_cap=dp.get('market_cap'),
                     data_source=dp.get('data_source', 'unknown'),
-                    provider_timestamp=dp.get('provider_timestamp'),
-                    retrieved_at=datetime.utcnow()
+                    provider_timestamp=datetime.fromisoformat(dp.get('provider_timestamp')),
+                    retrieved_at=datetime.now()
                 )
                 session.add(market_data)
                 session.flush()
