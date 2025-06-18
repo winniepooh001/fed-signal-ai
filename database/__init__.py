@@ -1,12 +1,12 @@
 from database.database import DatabaseManager
+from database.embeddings import EmbeddingManager
 from database.models import (
+    AgentExecution,
+    DataEmbedding,
     ScrapedData,
     ScreenerInput,
     ScreenerResult,
-    AgentExecution,
-    DataEmbedding
 )
-from database.embeddings import EmbeddingManager
 
 __all__ = [
     "DatabaseManager",
@@ -15,5 +15,5 @@ __all__ = [
     "ScreenerResult",
     "AgentExecution",
     "DataEmbedding",
-    "EmbeddingManager"
+    "EmbeddingManager",
 ]

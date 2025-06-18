@@ -1,12 +1,11 @@
-from typing import List, Dict, Any
-
-from utils.logging_config import get_logger
+from datetime import datetime
+from typing import Any, Dict, List
 
 from utils.llm_provider import create_llm
-from datetime import datetime
-
+from utils.logging_config import get_logger
 
 logger = get_logger(__name__)
+
 
 class MarketMovementAnalyzer:
     """Separate class for analyzing market movements between two snapshots"""
@@ -15,9 +14,9 @@ class MarketMovementAnalyzer:
         self.llm = create_llm(model=model, temperature=0.1)
         logger.info(f"Market Movement Analyzer initialized with {model}")
 
-    def analyze_market_movement(self,
-                                historical_data: List[Dict[str, Any]],
-                                current_data: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_market_movement(
+        self, historical_data: List[Dict[str, Any]], current_data: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Analyze market movement between historical and current snapshots
 
@@ -30,33 +29,35 @@ class MarketMovementAnalyzer:
         """
 
         try:
-            prompt = self._create_movement_analysis_prompt(historical_data, current_data)
+            prompt = self._create_movement_analysis_prompt(
+                historical_data, current_data
+            )
             response = self.llm.invoke(prompt)
 
-            if hasattr(response, 'content'):
+            if hasattr(response, "content"):
                 commentary = response.content.strip()
             else:
                 commentary = str(response).strip()
 
             return {
-                'success': True,
-                'commentary': commentary,
-                'historical_data_points': len(historical_data),
-                'current_data_points': len(current_data),
-                'analysis_timestamp': datetime.now().isoformat()
+                "success": True,
+                "commentary": commentary,
+                "historical_data_points": len(historical_data),
+                "current_data_points": len(current_data),
+                "analysis_timestamp": datetime.now().isoformat(),
             }
 
         except Exception as e:
             logger.error(f"Error analyzing market movement: {e}")
             return {
-                'success': False,
-                'error': str(e),
-                'commentary': 'Market movement analysis unavailable due to technical error.'
+                "success": False,
+                "error": str(e),
+                "commentary": "Market movement analysis unavailable due to technical error.",
             }
 
-    def _create_movement_analysis_prompt(self,
-                                         historical_data: List[Dict[str, Any]],
-                                         current_data: List[Dict[str, Any]]) -> str:
+    def _create_movement_analysis_prompt(
+        self, historical_data: List[Dict[str, Any]], current_data: List[Dict[str, Any]]
+    ) -> str:
         """Create prompt for market movement analysis"""
 
         historical_summary = self._summarize_market_data(historical_data, "Historical")
@@ -81,41 +82,45 @@ Be specific about which sectors or asset classes show strength or weakness.
 
         return prompt
 
-    def _summarize_market_data(self, market_data: List[Dict[str, Any]], label: str) -> str:
+    def _summarize_market_data(
+        self, market_data: List[Dict[str, Any]], label: str
+    ) -> str:
         """Summarize market data for prompt"""
 
         if not market_data:
             return f"{label} Market Data: No data available"
 
         # Group by data type
-        indicators = [md for md in market_data if md.get('data_type') == 'market_indicators']
-        sectors = [md for md in market_data if md.get('data_type') == 'sector_rotation']
-        stocks = [md for md in market_data if md.get('data_type') == 'individual_stock']
+        indicators = [
+            md for md in market_data if md.get("data_type") == "market_indicators"
+        ]
+        sectors = [md for md in market_data if md.get("data_type") == "sector_rotation"]
+        stocks = [md for md in market_data if md.get("data_type") == "individual_stock"]
 
         summary = f"{label} Market Data:\n"
 
         if indicators:
             summary += "  Market Indicators:\n"
             for md in indicators[:10]:  # Top 10
-                ticker = md.get('ticker', 'N/A')
-                price = md.get('price', 0)
-                change_pct = md.get('change_percent', 0)
+                ticker = md.get("ticker", "N/A")
+                price = md.get("price", 0)
+                change_pct = md.get("change_percent", 0)
                 summary += f"    {ticker}: ${price:.2f} ({change_pct:+.1f}%)\n"
 
         if sectors:
             summary += "  Sector Performance:\n"
             for md in sectors[:10]:  # Top 10
-                ticker = md.get('ticker', 'N/A')
-                price = md.get('price', 0)
-                change_pct = md.get('change_percent', 0)
+                ticker = md.get("ticker", "N/A")
+                price = md.get("price", 0)
+                change_pct = md.get("change_percent", 0)
                 summary += f"    {ticker}: ${price:.2f} ({change_pct:+.1f}%)\n"
 
         if stocks:
             summary += "  Individual Stocks:\n"
             for md in stocks[:5]:  # Top 5
-                ticker = md.get('ticker', 'N/A')
-                price = md.get('price', 0)
-                change_pct = md.get('change_percent', 0)
+                ticker = md.get("ticker", "N/A")
+                price = md.get("price", 0)
+                change_pct = md.get("change_percent", 0)
                 summary += f"    {ticker}: ${price:.2f} ({change_pct:+.1f}%)\n"
 
         return summary

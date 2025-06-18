@@ -1,7 +1,9 @@
-from utils.logging_config import get_logger
 import os
 
+from utils.logging_config import get_logger
+
 logger = get_logger(__name__)
+
 
 def delete_all_files_in_directory(directory_path):
     logger.info(f"clear {directory_path}")

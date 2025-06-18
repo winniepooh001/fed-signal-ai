@@ -1,7 +1,8 @@
-from abc import ABC, abstractmethod
-from typing import Dict, Any, Optional, Union, Type, List
-from utils.logging_config import get_logger
 import os
+from abc import ABC, abstractmethod
+from typing import Dict, List, Optional
+
+from utils.logging_config import get_logger
 
 logger = get_logger()
 
@@ -12,7 +13,7 @@ class AbstractLLMProvider(ABC):
     def __init__(self, model: str, temperature: float = 0.1, **kwargs):
         self.model = model
         self.temperature = temperature
-        self.provider_name = self.__class__.__name__.replace('Provider', '').lower()
+        self.provider_name = self.__class__.__name__.replace("Provider", "").lower()
         self.kwargs = kwargs
 
     @abstractmethod
@@ -42,46 +43,49 @@ class OpenAIProvider(AbstractLLMProvider):
     def create_llm(self):
         try:
             from langchain_openai import ChatOpenAI
+
             return ChatOpenAI(
                 model=self.normalize_model_name(self.model),
                 temperature=self.temperature,
-                **self.kwargs
+                **self.kwargs,
             )
         except ImportError:
-            raise ImportError("langchain_openai not installed. Run: pip install langchain-openai")
+            raise ImportError(
+                "langchain_openai not installed. Run: pip install langchain-openai"
+            )
 
     def get_model_list(self) -> Dict[str, str]:
         return {
-            'gpt-4o': 'gpt-4o',
-            'gpt-4o-mini': 'gpt-4o-mini',
-            'gpt-4-turbo': 'gpt-4-turbo-preview',
-            'gpt-4': 'gpt-4',
-            'gpt-3.5-turbo': 'gpt-3.5-turbo',
-            'o1-preview': 'o1-preview',
-            'o1-mini': 'o1-mini'
+            "gpt-4o": "gpt-4o",
+            "gpt-4o-mini": "gpt-4o-mini",
+            "gpt-4-turbo": "gpt-4-turbo-preview",
+            "gpt-4": "gpt-4",
+            "gpt-3.5-turbo": "gpt-3.5-turbo",
+            "o1-preview": "o1-preview",
+            "o1-mini": "o1-mini",
         }
 
     def normalize_model_name(self, model: str) -> str:
         """Normalize model name for OpenAI"""
         # Handle common aliases
         aliases = {
-            'gpt4': 'gpt-4',
-            'gpt4o': 'gpt-4o',
-            'gpt4-mini': 'gpt-4o-mini',
-            'gpt35': 'gpt-3.5-turbo',
-            'chatgpt': 'gpt-3.5-turbo'
+            "gpt4": "gpt-4",
+            "gpt4o": "gpt-4o",
+            "gpt4-mini": "gpt-4o-mini",
+            "gpt35": "gpt-3.5-turbo",
+            "chatgpt": "gpt-3.5-turbo",
         }
         return aliases.get(model.lower(), model)
 
     def get_pricing_info(self) -> Dict[str, Dict[str, float]]:
         return {
-            'gpt-4o': {'input': 0.005, 'output': 0.015},
-            'gpt-4o-mini': {'input': 0.00015, 'output': 0.0006},
-            'gpt-4-turbo-preview': {'input': 0.01, 'output': 0.03},
-            'gpt-4': {'input': 0.03, 'output': 0.06},
-            'gpt-3.5-turbo': {'input': 0.001, 'output': 0.002},
-            'o1-preview': {'input': 0.015, 'output': 0.06},
-            'o1-mini': {'input': 0.003, 'output': 0.012}
+            "gpt-4o": {"input": 0.005, "output": 0.015},
+            "gpt-4o-mini": {"input": 0.00015, "output": 0.0006},
+            "gpt-4-turbo-preview": {"input": 0.01, "output": 0.03},
+            "gpt-4": {"input": 0.03, "output": 0.06},
+            "gpt-3.5-turbo": {"input": 0.001, "output": 0.002},
+            "o1-preview": {"input": 0.015, "output": 0.06},
+            "o1-mini": {"input": 0.003, "output": 0.012},
         }
 
 
@@ -91,37 +95,40 @@ class GoogleProvider(AbstractLLMProvider):
     def create_llm(self):
         try:
             from langchain_google_genai import ChatGoogleGenerativeAI
+
             return ChatGoogleGenerativeAI(
                 model=self.normalize_model_name(self.model),
                 temperature=self.temperature,
-                **self.kwargs
+                **self.kwargs,
             )
         except ImportError:
-            raise ImportError("langchain_google_genai not installed. Run: pip install langchain-google-genai")
+            raise ImportError(
+                "langchain_google_genai not installed. Run: pip install langchain-google-genai"
+            )
 
     def get_model_list(self) -> Dict[str, str]:
         return {
-            'gemini-pro': 'gemini-pro',
-            'gemini-1.5-pro': 'gemini-1.5-pro',
-            'gemini-1.5-flash': 'gemini-1.5-flash',
-            'gemini-ultra': 'gemini-ultra'
+            "gemini-pro": "gemini-pro",
+            "gemini-1.5-pro": "gemini-1.5-pro",
+            "gemini-1.5-flash": "gemini-1.5-flash",
+            "gemini-ultra": "gemini-ultra",
         }
 
     def normalize_model_name(self, model: str) -> str:
         """Normalize model name for Google"""
         aliases = {
-            'gemini': 'gemini-pro',
-            'gemini-pro-latest': 'gemini-1.5-pro',
-            'gemini-flash': 'gemini-1.5-flash'
+            "gemini": "gemini-pro",
+            "gemini-pro-latest": "gemini-1.5-pro",
+            "gemini-flash": "gemini-1.5-flash",
         }
         return aliases.get(model.lower(), model)
 
     def get_pricing_info(self) -> Dict[str, Dict[str, float]]:
         return {
-            'gemini-pro': {'input': 0.0005, 'output': 0.0015},
-            'gemini-1.5-pro': {'input': 0.0035, 'output': 0.0105},
-            'gemini-1.5-flash': {'input': 0.00035, 'output': 0.00105},
-            'gemini-ultra': {'input': 0.01, 'output': 0.03}  # Estimated
+            "gemini-pro": {"input": 0.0005, "output": 0.0015},
+            "gemini-1.5-pro": {"input": 0.0035, "output": 0.0105},
+            "gemini-1.5-flash": {"input": 0.00035, "output": 0.00105},
+            "gemini-ultra": {"input": 0.01, "output": 0.03},  # Estimated
         }
 
 
@@ -131,38 +138,41 @@ class AnthropicProvider(AbstractLLMProvider):
     def create_llm(self):
         try:
             from langchain_anthropic import ChatAnthropic
+
             return ChatAnthropic(
                 model=self.normalize_model_name(self.model),
                 temperature=self.temperature,
-                **self.kwargs
+                **self.kwargs,
             )
         except ImportError:
-            raise ImportError("langchain_anthropic not installed. Run: pip install langchain-anthropic")
+            raise ImportError(
+                "langchain_anthropic not installed. Run: pip install langchain-anthropic"
+            )
 
     def get_model_list(self) -> Dict[str, str]:
         return {
-            'claude-3-opus': 'claude-3-opus-20240229',
-            'claude-3-sonnet': 'claude-3-sonnet-20240229',
-            'claude-3-haiku': 'claude-3-haiku-20240307',
-            'claude-3.5-sonnet': 'claude-3-5-sonnet-20241022'
+            "claude-3-opus": "claude-3-opus-20240229",
+            "claude-3-sonnet": "claude-3-sonnet-20240229",
+            "claude-3-haiku": "claude-3-haiku-20240307",
+            "claude-3.5-sonnet": "claude-3-5-sonnet-20241022",
         }
 
     def normalize_model_name(self, model: str) -> str:
         """Normalize model name for Anthropic"""
         aliases = {
-            'claude': 'claude-3-sonnet-20240229',
-            'claude-opus': 'claude-3-opus-20240229',
-            'claude-sonnet': 'claude-3-sonnet-20240229',
-            'claude-haiku': 'claude-3-haiku-20240307'
+            "claude": "claude-3-sonnet-20240229",
+            "claude-opus": "claude-3-opus-20240229",
+            "claude-sonnet": "claude-3-sonnet-20240229",
+            "claude-haiku": "claude-3-haiku-20240307",
         }
         return aliases.get(model.lower(), model)
 
     def get_pricing_info(self) -> Dict[str, Dict[str, float]]:
         return {
-            'claude-3-opus-20240229': {'input': 0.015, 'output': 0.075},
-            'claude-3-sonnet-20240229': {'input': 0.003, 'output': 0.015},
-            'claude-3-haiku-20240307': {'input': 0.00025, 'output': 0.00125},
-            'claude-3-5-sonnet-20241022': {'input': 0.003, 'output': 0.015}
+            "claude-3-opus-20240229": {"input": 0.015, "output": 0.075},
+            "claude-3-sonnet-20240229": {"input": 0.003, "output": 0.015},
+            "claude-3-haiku-20240307": {"input": 0.00025, "output": 0.00125},
+            "claude-3-5-sonnet-20241022": {"input": 0.003, "output": 0.015},
         }
 
 
@@ -171,36 +181,38 @@ class DeepSeekProvider(AbstractLLMProvider):
 
     def create_llm(self):
         try:
-            from langchain_deepseek import ChatDeepSeek# DeepSeek uses OpenAI-compatible API
+            from langchain_deepseek import (
+                ChatDeepSeek,
+            )  # DeepSeek uses OpenAI-compatible API
+
             return ChatDeepSeek(
                 model=self.normalize_model_name(self.model),
                 temperature=self.temperature,
                 api_key=os.getenv("DEEPSEEK_API_KEY"),
-                **self.kwargs
+                **self.kwargs,
             )
         except ImportError:
-            raise ImportError("langchain_openai not installed. Run: pip install langchain-openai")
+            raise ImportError(
+                "langchain_openai not installed. Run: pip install langchain-openai"
+            )
 
     def get_model_list(self) -> Dict[str, str]:
         return {
-            'deepseek-chat': 'deepseek-chat',
-            'deepseek-coder': 'deepseek-coder',
-            'deepseek-v2.5': 'deepseek-v2.5'
+            "deepseek-chat": "deepseek-chat",
+            "deepseek-coder": "deepseek-coder",
+            "deepseek-v2.5": "deepseek-v2.5",
         }
 
     def normalize_model_name(self, model: str) -> str:
         """Normalize model name for DeepSeek"""
-        aliases = {
-            'deepseek': 'deepseek-chat',
-            'deepseek-latest': 'deepseek-v2.5'
-        }
+        aliases = {"deepseek": "deepseek-chat", "deepseek-latest": "deepseek-v2.5"}
         return aliases.get(model.lower(), model)
 
     def get_pricing_info(self) -> Dict[str, Dict[str, float]]:
         return {
-            'deepseek-chat': {'input': 0.00014, 'output': 0.00028},
-            'deepseek-coder': {'input': 0.00014, 'output': 0.00028},
-            'deepseek-v2.5': {'input': 0.00014, 'output': 0.00028}
+            "deepseek-chat": {"input": 0.00014, "output": 0.00028},
+            "deepseek-coder": {"input": 0.00014, "output": 0.00028},
+            "deepseek-v2.5": {"input": 0.00014, "output": 0.00028},
         }
 
 
@@ -208,18 +220,20 @@ class LLMFactory:
     """Factory class to create LLM instances from different providers"""
 
     _providers = {
-        'openai': OpenAIProvider,
-        'google': GoogleProvider,
-        'anthropic': AnthropicProvider,
-        'deepseek': DeepSeekProvider
+        "openai": OpenAIProvider,
+        "google": GoogleProvider,
+        "anthropic": AnthropicProvider,
+        "deepseek": DeepSeekProvider,
     }
 
     @classmethod
-    def create_llm(cls,
-                   model: str,
-                   provider: Optional[str] = None,
-                   temperature: float = 0.1,
-                   **kwargs):
+    def create_llm(
+        cls,
+        model: str,
+        provider: Optional[str] = None,
+        temperature: float = 0.1,
+        **kwargs,
+    ):
         """
         Create an LLM instance from any provider
 
@@ -234,8 +248,8 @@ class LLMFactory:
         """
 
         # Parse provider from model string if present
-        if '/' in model:
-            provider_from_model, model = model.split('/', 1)
+        if "/" in model:
+            provider_from_model, model = model.split("/", 1)
             if not provider:
                 provider = provider_from_model
 
@@ -246,14 +260,16 @@ class LLMFactory:
         provider = provider.lower()
 
         if provider not in cls._providers:
-            available = ', '.join(cls._providers.keys())
+            available = ", ".join(cls._providers.keys())
             raise ValueError(f"Unknown provider '{provider}'. Available: {available}")
 
         logger.info(f"Creating LLM: {provider}/{model}")
 
         # Create provider instance
         provider_class = cls._providers[provider]
-        provider_instance = provider_class(model=model, temperature=temperature, **kwargs)
+        provider_instance = provider_class(
+            model=model, temperature=temperature, **kwargs
+        )
 
         # Return the actual LLM instance
         return provider_instance.create_llm()
@@ -263,18 +279,20 @@ class LLMFactory:
         """Auto-detect provider based on model name patterns"""
         model_lower = model.lower()
 
-        if any(x in model_lower for x in ['gpt', 'chatgpt', 'o1']):
-            return 'openai'
-        elif any(x in model_lower for x in ['gemini', 'bard']):
-            return 'google'
-        elif any(x in model_lower for x in ['claude']):
-            return 'anthropic'
-        elif any(x in model_lower for x in ['deepseek']):
-            return 'deepseek'
+        if any(x in model_lower for x in ["gpt", "chatgpt", "o1"]):
+            return "openai"
+        elif any(x in model_lower for x in ["gemini", "bard"]):
+            return "google"
+        elif any(x in model_lower for x in ["claude"]):
+            return "anthropic"
+        elif any(x in model_lower for x in ["deepseek"]):
+            return "deepseek"
         else:
             # Default to OpenAI for unknown models
-            logger.warning(f"Could not detect provider for model '{model}', defaulting to OpenAI")
-            return 'openai'
+            logger.warning(
+                f"Could not detect provider for model '{model}', defaulting to OpenAI"
+            )
+            return "openai"
 
     @classmethod
     def get_available_providers(cls) -> List[str]:
@@ -304,10 +322,9 @@ class LLMFactory:
 
 
 # Convenience function for easy usage
-def create_llm(model: str,
-               provider: Optional[str] = None,
-               temperature: float = 0.1,
-               **kwargs):
+def create_llm(
+    model: str, provider: Optional[str] = None, temperature: float = 0.1, **kwargs
+):
     """
     Convenience function to create LLM instances
 

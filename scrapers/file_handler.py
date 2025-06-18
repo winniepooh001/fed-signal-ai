@@ -10,23 +10,20 @@ Cron Setup (every 30 minutes, 9-5 M-F):
     */30 9-17 * * 1-5 /usr/bin/python3 /path/to/fed_scraper_standalone.py
 """
 
-import os
-import sys
 import json
-import time
-import hashlib
-from utils.logging_config import get_logger
-import platform
-from datetime import datetime, timedelta
+import sys
+from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
+from typing import Optional
+
+from utils.logging_config import get_logger
 
 # Add project root to path
 PROJECT_ROOT = Path(__file__).parent.absolute()
 sys.path.insert(0, str(PROJECT_ROOT))
 
 logger = get_logger(__name__)
+
 
 class SimpleFileManager:
     """Simple file-based tracking for scraper runs and content hashes"""
@@ -42,7 +39,7 @@ class SimpleFileManager:
         """Get the timestamp of the last successful run"""
         try:
             if self.last_run_file.exists():
-                with open(self.last_run_file, 'r') as f:
+                with open(self.last_run_file, "r") as f:
                     timestamp_str = f.read().strip()
                     return datetime.fromisoformat(timestamp_str)
         except Exception as e:
@@ -52,7 +49,7 @@ class SimpleFileManager:
     def update_last_run_time(self):
         """Update the last run timestamp"""
         try:
-            with open(self.last_run_file, 'w') as f:
+            with open(self.last_run_file, "w") as f:
                 f.write(datetime.now().isoformat())
         except Exception as e:
             logger.error(f"Could not update last run time: {e}")
@@ -61,7 +58,7 @@ class SimpleFileManager:
         """Check if content is new based on hash"""
         try:
             if self.content_hashes_file.exists():
-                with open(self.content_hashes_file, 'r') as f:
+                with open(self.content_hashes_file, "r") as f:
                     existing_hashes = set(line.strip() for line in f)
                     return content_hash not in existing_hashes
         except Exception as e:
@@ -71,23 +68,29 @@ class SimpleFileManager:
     def add_content_hash(self, content_hash: str):
         """Add a content hash to the tracking file"""
         try:
-            with open(self.content_hashes_file, 'a') as f:
+            with open(self.content_hashes_file, "a") as f:
                 f.write(f"{content_hash}\n")
         except Exception as e:
             logger.error(f"Could not save content hash: {e}")
 
-    def log_run(self, new_items: int, relevant_items: int, execution_time_ms: int, status: str = 'success'):
+    def log_run(
+        self,
+        new_items: int,
+        relevant_items: int,
+        execution_time_ms: int,
+        status: str = "success",
+    ):
         """Log scraper run to file"""
         try:
             log_entry = {
-                'timestamp': datetime.now().isoformat(),
-                'new_items': new_items,
-                'relevant_items': relevant_items,
-                'execution_time_ms': execution_time_ms,
-                'status': status
+                "timestamp": datetime.now().isoformat(),
+                "new_items": new_items,
+                "relevant_items": relevant_items,
+                "execution_time_ms": execution_time_ms,
+                "status": status,
             }
 
-            with open(self.run_log_file, 'a') as f:
+            with open(self.run_log_file, "a") as f:
                 f.write(f"{json.dumps(log_entry)}\n")
         except Exception as e:
             logger.error(f"Could not log run: {e}")
@@ -97,12 +100,12 @@ class SimpleFileManager:
         try:
             if self.content_hashes_file.exists():
                 # For simplicity, just keep the last 10000 hashes
-                with open(self.content_hashes_file, 'r') as f:
+                with open(self.content_hashes_file, "r") as f:
                     lines = f.readlines()
 
                 if len(lines) > 10000:
-                    with open(self.content_hashes_file, 'w') as f:
+                    with open(self.content_hashes_file, "w") as f:
                         f.writelines(lines[-10000:])
-                    logger.info(f"Cleaned up content hashes, kept last 10000 entries")
+                    logger.info("Cleaned up content hashes, kept last 10000 entries")
         except Exception as e:
             logger.warning(f"Could not cleanup old hashes: {e}")

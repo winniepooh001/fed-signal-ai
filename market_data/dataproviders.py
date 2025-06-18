@@ -1,14 +1,13 @@
-
-from typing import Dict, Any, List
-from market_data.data_model import MarketDataPoint
-
 import os
+from typing import Any, Dict, List
 
+from market_data.data_model import MarketDataPoint
 from utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
 import time
+
 
 class MarketDataProvider:
     """Abstract base class for market data providers"""
@@ -16,8 +15,8 @@ class MarketDataProvider:
     def __init__(self, name: str, config: Dict[str, Any]):
         self.name = name
         self.config = config
-        self.rate_limit_delay = config.get('rate_limit_delay', 0.1)
-        self.max_retries = config.get('max_retries', 3)
+        self.rate_limit_delay = config.get("rate_limit_delay", 0.1)
+        self.max_retries = config.get("max_retries", 3)
 
     def get_data(self, symbols: List[str]) -> List[MarketDataPoint]:
         """Override in subclasses"""
@@ -33,7 +32,7 @@ class TiingoProvider(MarketDataProvider):
 
     def __init__(self, config: Dict[str, Any]):
         super().__init__("tiingo", config)
-        self.api_key = config.get('api_key') or os.getenv('TIINGO_API_KEY')
+        self.api_key = config.get("api_key") or os.getenv("TIINGO_API_KEY")
         self.base_url = "https://api.tiingo.com/tiingo/daily"
 
         if self.api_key:
@@ -46,9 +45,10 @@ class TiingoProvider(MarketDataProvider):
         """Initialize Tiingo client"""
         try:
             from tiingo import TiingoClient
+
             config = {
-                'api_key': self.api_key,
-                'session': True  # Reuse HTTP session for better performance
+                "api_key": self.api_key,
+                "session": True,  # Reuse HTTP session for better performance
             }
             return TiingoClient(config)
         except ImportError:
@@ -74,7 +74,7 @@ class TiingoProvider(MarketDataProvider):
                 price_data = self.client.get_ticker_price(
                     symbol,
                     frequency="1min",  # Get most recent data
-                    columns="open,close,high,low,volume"
+                    columns="open,close,high,low,volume",
                 )
 
                 if price_data and len(price_data) > 0:
@@ -83,27 +83,29 @@ class TiingoProvider(MarketDataProvider):
                     # Get metadata for additional info
                     try:
                         metadata = self.client.get_ticker_metadata(symbol)
-                        market_cap = metadata.get('marketCap')
-                        pe_ratio = metadata.get('peRatio')
+                        market_cap = metadata.get("marketCap")
+                        pe_ratio = metadata.get("peRatio")
                     except:
                         market_cap = None
                         pe_ratio = None
 
                     # Calculate change (approximate from OHLC)
-                    price = latest.get('close', latest.get('open', 0))
-                    prev_close = latest.get('open', price)
+                    price = latest.get("close", latest.get("open", 0))
+                    prev_close = latest.get("open", price)
                     change = price - prev_close
-                    change_percent = (change / prev_close * 100) if prev_close != 0 else 0
+                    change_percent = (
+                        (change / prev_close * 100) if prev_close != 0 else 0
+                    )
 
                     data_point = MarketDataPoint(
                         symbol=symbol.upper(),
                         price=price,
                         change=change,
                         change_percent=change_percent,
-                        volume=int(latest.get('volume', 0)),
+                        volume=int(latest.get("volume", 0)),
                         market_cap=market_cap,
                         pe_ratio=pe_ratio,
-                        source="tiingo"
+                        source="tiingo",
                     )
 
                     data_points.append(data_point)
@@ -130,6 +132,7 @@ class YFinanceProvider(MarketDataProvider):
         """Initialize yfinance"""
         try:
             import yfinance as yf
+
             return yf
         except ImportError:
             logger.error("yfinance library not installed. Run: pip install yfinance")
@@ -147,7 +150,7 @@ class YFinanceProvider(MarketDataProvider):
 
         # Batch request for better performance
         try:
-            tickers = self.yf.Tickers(' '.join(symbols))
+            tickers = self.yf.Tickers(" ".join(symbols))
 
             for symbol in symbols:
                 try:
@@ -157,17 +160,21 @@ class YFinanceProvider(MarketDataProvider):
 
                     # Get current data
                     info = ticker.info
-                    hist = ticker.history(period="1D", interval="1m")  # Get last 2 days for change calc
+                    hist = ticker.history(
+                        period="1D", interval="1m"
+                    )  # Get last 2 days for change calc
 
                     if not hist.empty:
-                        current_price = hist['Close'].iloc[-1]
-                        volume = int(hist['Volume'].iloc[-1])
+                        current_price = hist["Close"].iloc[-1]
+                        volume = int(hist["Volume"].iloc[-1])
 
                         # Calculate change
                         if len(hist) > 1:
-                            prev_close = hist['Close'].iloc[-2]
+                            prev_close = hist["Close"].iloc[-2]
                             change = current_price - prev_close
-                            change_percent = (change / prev_close * 100) if prev_close != 0 else 0
+                            change_percent = (
+                                (change / prev_close * 100) if prev_close != 0 else 0
+                            )
                         else:
                             change = 0
                             change_percent = 0
@@ -178,13 +185,15 @@ class YFinanceProvider(MarketDataProvider):
                             change=float(change),
                             change_percent=float(change_percent),
                             volume=volume,
-                            market_cap=info.get('marketCap'),
-                            pe_ratio=info.get('trailingPE'),
-                            source="yfinance"
+                            market_cap=info.get("marketCap"),
+                            pe_ratio=info.get("trailingPE"),
+                            source="yfinance",
                         )
 
                         data_points.append(data_point)
-                        logger.debug(f"yfinance: Got data for {symbol}: ${current_price:.2f}")
+                        logger.debug(
+                            f"yfinance: Got data for {symbol}: ${current_price:.2f}"
+                        )
 
                 except Exception as e:
                     logger.warning(f"yfinance error for {symbol}: {e}")

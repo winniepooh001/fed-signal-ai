@@ -13,16 +13,11 @@ Usage:
     data = fetcher.get_market_snapshot(['SPY', 'QQQ', 'VIX'])
 """
 
-import os
 import sys
-import time
-import json
-from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional, Union
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
+from datetime import datetime
 from pathlib import Path
-import asyncio
-import logging
+from typing import Any, Dict, List, Optional
 
 # Add project root to path for imports
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -36,6 +31,7 @@ logger = get_logger(__name__)
 @dataclass
 class MarketDataPoint:
     """Standardized market data point"""
+
     symbol: str
     price: float
     change: float
@@ -54,6 +50,7 @@ class MarketDataPoint:
 @dataclass
 class MarketSnapshot:
     """Complete market snapshot with multiple data points"""
+
     timestamp: str
     data_points: List[MarketDataPoint]
     market_indicators: Dict[str, Any]
@@ -61,9 +58,8 @@ class MarketSnapshot:
 
     def to_dict(self) -> Dict[str, Any]:
         return {
-            'timestamp': self.timestamp,
-            'data_points': [asdict(dp) for dp in self.data_points],
-            'market_indicators': self.market_indicators,
-            'metadata': self.metadata
+            "timestamp": self.timestamp,
+            "data_points": [asdict(dp) for dp in self.data_points],
+            "market_indicators": self.market_indicators,
+            "metadata": self.metadata,
         }
-

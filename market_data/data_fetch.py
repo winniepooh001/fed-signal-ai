@@ -1,11 +1,8 @@
-from typing import Dict, Any, Optional, List
 from datetime import datetime
-
-from market_data.dataproviders import TiingoProvider, YFinanceProvider
+from typing import Any, Dict, List, Optional
 
 from database.database import DatabaseManager
-
-
+from market_data.dataproviders import YFinanceProvider
 from utils.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -14,9 +11,7 @@ logger = get_logger(__name__)
 class DatabaseIntegratedMarketDataFetcher:
     """Market data fetcher that saves to dedicated MarketData table"""
 
-    def __init__(self,
-                 database_url: str,
-                 config: Optional[Dict[str, Any]] = None):
+    def __init__(self, database_url: str, config: Optional[Dict[str, Any]] = None):
         """Initialize with database integration"""
         self.config = config or self._get_default_config()
 
@@ -28,7 +23,7 @@ class DatabaseIntegratedMarketDataFetcher:
         self.providers = []
 
         # Add yfinance provider
-        yfinance_config = self.config.get('yfinance', {})
+        yfinance_config = self.config.get("yfinance", {})
         yfinance_provider = YFinanceProvider(yfinance_config)
         if yfinance_provider.is_available():
             self.providers.append(yfinance_provider)
@@ -39,91 +34,106 @@ class DatabaseIntegratedMarketDataFetcher:
 
         # Market indicators
         self.market_indicators = [
-            "SPY", "QQQ", "IWM", "DIA",  # Equities
+            "SPY",
+            "QQQ",
+            "IWM",
+            "DIA",  # Equities
             "^VIX",  # Volatility
-            "TLT", "IEF", "HYG", "LQD", "^TNX",  # Bonds and yields
-            "GLD", "USO", "DBA", "DBC",  # Inflation proxies
-            "UUP", "BTC-USD",  # Dollar and crypto
-            "EFA", "EEM", "FXI",  # International
+            "TLT",
+            "IEF",
+            "HYG",
+            "LQD",
+            "^TNX",  # Bonds and yields
+            "GLD",
+            "USO",
+            "DBA",
+            "DBC",  # Inflation proxies
+            "UUP",
+            "BTC-USD",  # Dollar and crypto
+            "EFA",
+            "EEM",
+            "FXI",  # International
         ]
 
         # Sector ETFs
         self.sector_etfs = [
-            'XLK',  # Technology
-            'XLF',  # Financial
-            'XLV',  # Healthcare
-            'XLE',  # Energy
-            'XLI',  # Industrial
-            'XLY',  # Consumer Discretionary
-            'XLP',  # Consumer Staples
-            'XLU',  # Utilities
-            'XLRE',  # Real Estate
-            'XLB',  # Materials
-            'XLC'  # Communication
+            "XLK",  # Technology
+            "XLF",  # Financial
+            "XLV",  # Healthcare
+            "XLE",  # Energy
+            "XLI",  # Industrial
+            "XLY",  # Consumer Discretionary
+            "XLP",  # Consumer Staples
+            "XLU",  # Utilities
+            "XLRE",  # Real Estate
+            "XLB",  # Materials
+            "XLC",  # Communication
         ]
 
     def _get_default_config(self) -> Dict[str, Any]:
         """Get default configuration"""
-        return {
-            'yfinance': {
-                'rate_limit_delay': 0.2,
-                'max_retries': 2
-            }
-        }
+        return {"yfinance": {"rate_limit_delay": 0.2, "max_retries": 2}}
 
-    def collect_and_save_market_data(self,
-                                     scraped_data_id: Optional[str] = None,
-                                     additional_symbols: Optional[List[str]] = None) -> Dict[str, Any]:
+    def collect_and_save_market_data(
+        self,
+        scraped_data_id: Optional[str] = None,
+        additional_symbols: Optional[List[str]] = None,
+    ) -> Dict[str, Any]:
         """Collect market data and save to MarketData table"""
 
         logger.info("Collecting market data and saving to MarketData table")
 
         results = {
-            'market_indicators': [],
-            'sector_rotation': [],
-            'individual_stocks': [],
-            'scraped_data_id': scraped_data_id,
-            'timestamp': datetime.now().isoformat()
+            "market_indicators": [],
+            "sector_rotation": [],
+            "individual_stocks": [],
+            "scraped_data_id": scraped_data_id,
+            "timestamp": datetime.now().isoformat(),
         }
 
         # Collect market indicators
         logger.info("Collecting market indicators...")
         market_data_ids = self._collect_and_save_symbols(
             symbols=self.market_indicators,
-            data_type='market_indicators',
-            scraped_data_id=scraped_data_id
+            data_type="market_indicators",
+            scraped_data_id=scraped_data_id,
         )
-        results['market_indicators'] = market_data_ids
+        results["market_indicators"] = market_data_ids
 
         # Collect sector rotation data
         logger.info("Collecting sector rotation data...")
         sector_data_ids = self._collect_and_save_symbols(
             symbols=self.sector_etfs,
-            data_type='sector_rotation',
-            scraped_data_id=scraped_data_id
+            data_type="sector_rotation",
+            scraped_data_id=scraped_data_id,
         )
-        results['sector_rotation'] = sector_data_ids
+        results["sector_rotation"] = sector_data_ids
 
         # Collect additional individual stocks if provided
         if additional_symbols:
             logger.info(f"Collecting individual stocks: {additional_symbols}")
             individual_data_ids = self._collect_and_save_symbols(
                 symbols=additional_symbols,
-                data_type='individual_stock',
-                scraped_data_id=scraped_data_id
+                data_type="individual_stock",
+                scraped_data_id=scraped_data_id,
             )
-            results['individual_stocks'] = individual_data_ids
+            results["individual_stocks"] = individual_data_ids
 
-        total_saved = len(results['market_indicators']) + len(results['sector_rotation']) + len(
-            results['individual_stocks'])
+        total_saved = (
+            len(results["market_indicators"])
+            + len(results["sector_rotation"])
+            + len(results["individual_stocks"])
+        )
         logger.info(f"Saved {total_saved} market data points to database")
 
         return results
 
-    def collect_and_save_market_data_with_batch(self,
-                                                scraped_data_id: Optional[str] = None,
-                                                additional_symbols: Optional[List[str]] = None,
-                                                batch_timestamp: Optional[datetime] = None) -> Dict[str, Any]:
+    def collect_and_save_market_data_with_batch(
+        self,
+        scraped_data_id: Optional[str] = None,
+        additional_symbols: Optional[List[str]] = None,
+        batch_timestamp: Optional[datetime] = None,
+    ) -> Dict[str, Any]:
         """
         Collect market data and save with consistent batch timestamp
 
@@ -151,46 +161,52 @@ class DatabaseIntegratedMarketDataFetcher:
                 indicator_data = provider.get_data(self.market_indicators)
                 for dp in indicator_data:
 
-                    all_market_data.append({
-                        'ticker': dp.symbol,
-                        'price': dp.price,
-                        'change_percent': dp.change_percent,
-                        'volume': dp.volume,
-                        'market_cap': dp.market_cap,
-                        'data_type': 'market_indicators',
-                        'data_source': dp.source,
-                        'provider_timestamp': getattr(dp, 'timestamp', None)
-                    })
+                    all_market_data.append(
+                        {
+                            "ticker": dp.symbol,
+                            "price": dp.price,
+                            "change_percent": dp.change_percent,
+                            "volume": dp.volume,
+                            "market_cap": dp.market_cap,
+                            "data_type": "market_indicators",
+                            "data_source": dp.source,
+                            "provider_timestamp": getattr(dp, "timestamp", None),
+                        }
+                    )
 
                 # Sector data
                 logger.info("collect sector rotation data")
                 sector_data = provider.get_data(self.sector_etfs)
                 for dp in sector_data:
-                    all_market_data.append({
-                        'ticker': dp.symbol,
-                        'price': dp.price,
-                        'change_percent': dp.change_percent,
-                        'volume': dp.volume,
-                        'market_cap': dp.market_cap,
-                        'data_type': 'sector_rotation',
-                        'data_source': dp.source,
-                        'provider_timestamp': getattr(dp, 'timestamp', None)
-                    })
+                    all_market_data.append(
+                        {
+                            "ticker": dp.symbol,
+                            "price": dp.price,
+                            "change_percent": dp.change_percent,
+                            "volume": dp.volume,
+                            "market_cap": dp.market_cap,
+                            "data_type": "sector_rotation",
+                            "data_source": dp.source,
+                            "provider_timestamp": getattr(dp, "timestamp", None),
+                        }
+                    )
 
                 # Additional symbols
                 if additional_symbols:
                     additional_data = provider.get_data(additional_symbols)
                     for dp in additional_data:
-                        all_market_data.append({
-                            'ticker': dp.symbol,
-                            'price': dp.price,
-                            'change_percent': dp.change_percent,
-                            'volume': dp.volume,
-                            'market_cap': dp.market_cap,
-                            'data_type': 'individual_stock',
-                            'data_source': dp.source,
-                            'provider_timestamp': getattr(dp, 'timestamp', None)
-                        })
+                        all_market_data.append(
+                            {
+                                "ticker": dp.symbol,
+                                "price": dp.price,
+                                "change_percent": dp.change_percent,
+                                "volume": dp.volume,
+                                "market_cap": dp.market_cap,
+                                "data_type": "individual_stock",
+                                "data_source": dp.source,
+                                "provider_timestamp": getattr(dp, "timestamp", None),
+                            }
+                        )
 
                 # If we got data, don't try other providers
                 if all_market_data:
@@ -204,26 +220,35 @@ class DatabaseIntegratedMarketDataFetcher:
         market_data_ids = self.db_manager.save_market_data_batch(
             market_data_points=all_market_data,
             batch_timestamp=batch_timestamp,
-            scraped_data_id=scraped_data_id
+            scraped_data_id=scraped_data_id,
         )
 
         return {
-            'success': True,
-            'batch_timestamp': batch_timestamp.isoformat(),
-            'market_data_ids': market_data_ids,
-            'total_points': len(all_market_data),
-            'scraped_data_id': scraped_data_id,
-            'summary': {
-                'market_indicators': len([d for d in all_market_data if d['data_type'] == 'market_indicators']),
-                'sector_rotation': len([d for d in all_market_data if d['data_type'] == 'sector_rotation']),
-                'individual_stocks': len([d for d in all_market_data if d['data_type'] == 'individual_stock'])
-            }
+            "success": True,
+            "batch_timestamp": batch_timestamp.isoformat(),
+            "market_data_ids": market_data_ids,
+            "total_points": len(all_market_data),
+            "scraped_data_id": scraped_data_id,
+            "summary": {
+                "market_indicators": len(
+                    [
+                        d
+                        for d in all_market_data
+                        if d["data_type"] == "market_indicators"
+                    ]
+                ),
+                "sector_rotation": len(
+                    [d for d in all_market_data if d["data_type"] == "sector_rotation"]
+                ),
+                "individual_stocks": len(
+                    [d for d in all_market_data if d["data_type"] == "individual_stock"]
+                ),
+            },
         }
 
-    def _collect_and_save_symbols(self,
-                                  symbols: List[str],
-                                  data_type: str,
-                                  scraped_data_id: Optional[str] = None) -> List[str]:
+    def _collect_and_save_symbols(
+        self, symbols: List[str], data_type: str, scraped_data_id: Optional[str] = None
+    ) -> List[str]:
         """Collect data for symbols and save to MarketData table"""
 
         market_data_ids = []
@@ -236,9 +261,11 @@ class DatabaseIntegratedMarketDataFetcher:
                     try:
                         # Parse provider timestamp if available
                         provider_timestamp = None
-                        if hasattr(dp, 'timestamp') and dp.timestamp:
+                        if hasattr(dp, "timestamp") and dp.timestamp:
                             try:
-                                provider_timestamp = datetime.fromisoformat(dp.timestamp.replace('Z', '+00:00'))
+                                provider_timestamp = datetime.fromisoformat(
+                                    dp.timestamp.replace("Z", "+00:00")
+                                )
                             except:
                                 provider_timestamp = None
 
@@ -252,12 +279,14 @@ class DatabaseIntegratedMarketDataFetcher:
                             change_percent=dp.change_percent,
                             volume=dp.volume,
                             market_cap=dp.market_cap,
-                            provider_timestamp=provider_timestamp
+                            provider_timestamp=provider_timestamp,
                         )
 
                         market_data_ids.append(market_data_id)
 
-                        logger.debug(f"Saved {dp.symbol}: ${dp.price:.2f} from {dp.source}")
+                        logger.debug(
+                            f"Saved {dp.symbol}: ${dp.price:.2f} from {dp.source}"
+                        )
 
                     except Exception as e:
                         logger.error(f"Error saving market data for {dp.symbol}: {e}")
@@ -275,11 +304,12 @@ class DatabaseIntegratedMarketDataFetcher:
 
 
 def fetch_and_save_market_data_to_table(
-        fed_content_items: List[Any],
-        database_url: str,
-        agent_execution_id: Optional[str] = None,
-        additional_symbols: Optional[List[str]] = None,
-        config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    fed_content_items: List[Any],
+    database_url: str,
+    agent_execution_id: Optional[str] = None,
+    additional_symbols: Optional[List[str]] = None,
+    config: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
     """
     Fetch market data and save to dedicated MarketData table
 
@@ -294,7 +324,9 @@ def fetch_and_save_market_data_to_table(
         Dict with results and database IDs
     """
 
-    logger.info(f"Collecting market data for {len(fed_content_items)} Fed content items")
+    logger.info(
+        f"Collecting market data for {len(fed_content_items)} Fed content items"
+    )
 
     try:
         # Initialize fetcher
@@ -304,7 +336,7 @@ def fetch_and_save_market_data_to_table(
         scraped_data_id = None
         if fed_content_items:
             for item in fed_content_items:
-                if hasattr(item, 'scraped_data_id'):
+                if hasattr(item, "scraped_data_id"):
                     scraped_data_id = item.scraped_data_id
                     break
 
@@ -312,35 +344,35 @@ def fetch_and_save_market_data_to_table(
         results = fetcher.collect_and_save_market_data_with_batch(
             scraped_data_id=agent_execution_id,
             additional_symbols=additional_symbols,
-            batch_timestamp=datetime.now()
+            batch_timestamp=datetime.now(),
         )
 
         # Create summary
-        total_points = results.get('total_points', 0)
-        summary_data = results.get('summary', {})
+        total_points = results.get("total_points", 0)
+        summary_data = results.get("summary", {})
 
         return {
-            'success': True,
-            'timestamp': datetime.now().isoformat(),
-            'market_data_results': results,
-            'summary': {
-                'total_data_points': total_points,
-                'market_indicators':  summary_data.get('market_indicators', 0),
-                'sector_rotation': summary_data.get('sector_rotation', 0),
-                'individual_stocks': summary_data.get('individual_stocks', 0),
-                'linked_to_scraped_id': scraped_data_id
+            "success": True,
+            "timestamp": datetime.now().isoformat(),
+            "market_data_results": results,
+            "summary": {
+                "total_data_points": total_points,
+                "market_indicators": summary_data.get("market_indicators", 0),
+                "sector_rotation": summary_data.get("sector_rotation", 0),
+                "individual_stocks": summary_data.get("individual_stocks", 0),
+                "linked_to_scraped_id": scraped_data_id,
             },
-            'metadata': {
-                'agent_execution_id': agent_execution_id,
-                'fed_content_count': len(fed_content_items)
-            }
+            "metadata": {
+                "agent_execution_id": agent_execution_id,
+                "fed_content_count": len(fed_content_items),
+            },
         }
 
     except Exception as e:
         logger.error(f"Error collecting market data: {e}")
         return {
-            'success': False,
-            'error': str(e),
-            'timestamp': datetime.now().isoformat(),
-            'metadata': {'agent_execution_id': agent_execution_id}
+            "success": False,
+            "error": str(e),
+            "timestamp": datetime.now().isoformat(),
+            "metadata": {"agent_execution_id": agent_execution_id},
         }

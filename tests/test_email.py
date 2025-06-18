@@ -6,14 +6,15 @@ Minimal Email Test Script
 Tests email functionality step by step to identify issues.
 """
 
-import os
-import sys
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from dotenv import load_dotenv
 import json
+import os
+import smtplib
+import sys
 from datetime import datetime
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
@@ -26,10 +27,10 @@ def test_smtp_connection():
     print("=" * 50)
 
     # Get SMTP configuration
-    smtp_server = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
-    smtp_port = int(os.getenv('SMTP_PORT', '587'))
-    sender_email = os.getenv('SENDER_EMAIL')
-    sender_password = os.getenv('SENDER_PASSWORD')
+    smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+    smtp_port = int(os.getenv("SMTP_PORT", "587"))
+    sender_email = os.getenv("SENDER_EMAIL")
+    sender_password = os.getenv("SENDER_PASSWORD")
 
     print(f"SMTP Server: {smtp_server}:{smtp_port}")
     print(f"Sender Email: {sender_email}")
@@ -51,7 +52,9 @@ def test_smtp_connection():
 
     except smtplib.SMTPAuthenticationError as e:
         print(f"❌ AUTHENTICATION FAILED: {e}")
-        print("For Gmail, make sure you're using an App Password, not your regular password")
+        print(
+            "For Gmail, make sure you're using an App Password, not your regular password"
+        )
         print("Guide: https://support.google.com/accounts/answer/185833")
         return False
 
@@ -72,14 +75,14 @@ def test_basic_email():
     print("=" * 50)
 
     # Get configuration
-    smtp_server = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
-    smtp_port = int(os.getenv('SMTP_PORT', '587'))
-    sender_email = os.getenv('SENDER_EMAIL')
-    sender_password = os.getenv('SENDER_PASSWORD')
-    sender_name = os.getenv('SENDER_NAME', 'Test System')
+    smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+    smtp_port = int(os.getenv("SMTP_PORT", "587"))
+    sender_email = os.getenv("SENDER_EMAIL")
+    sender_password = os.getenv("SENDER_PASSWORD")
+    sender_name = os.getenv("SENDER_NAME", "Test System")
 
     # Get recipient
-    recipient_emails_str = os.getenv('RECIPIENT_EMAILS')
+    recipient_emails_str = os.getenv("RECIPIENT_EMAILS")
     if not recipient_emails_str:
         recipient_email = input("Enter test recipient email: ").strip()
         if not recipient_email:
@@ -87,16 +90,17 @@ def test_basic_email():
             return False
         recipient_emails = [recipient_email]
     else:
-        recipient_emails = [email.strip() for email in recipient_emails_str.split(',')]
+        recipient_emails = [email.strip() for email in recipient_emails_str.split(",")]
 
     print(f"Recipients: {recipient_emails}")
 
     # Create simple email
     msg = MIMEText(
-        "This is a test email from the TradingView Screener system.\n\nIf you receive this, email functionality is working correctly!")
-    msg['Subject'] = f"Test Email - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-    msg['From'] = f"{sender_name} <{sender_email}>"
-    msg['To'] = ', '.join(recipient_emails)
+        "This is a test email from the TradingView Screener system.\n\nIf you receive this, email functionality is working correctly!"
+    )
+    msg["Subject"] = f"Test Email - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+    msg["From"] = f"{sender_name} <{sender_email}>"
+    msg["To"] = ", ".join(recipient_emails)
 
     try:
         print("\nSending test email...")
@@ -123,21 +127,22 @@ def test_html_email():
     print("=" * 50)
 
     # Get configuration
-    smtp_server = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
-    smtp_port = int(os.getenv('SMTP_PORT', '587'))
-    sender_email = os.getenv('SENDER_EMAIL')
-    sender_password = os.getenv('SENDER_PASSWORD')
-    sender_name = os.getenv('SENDER_NAME', 'Test System')
+    smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+    smtp_port = int(os.getenv("SMTP_PORT", "587"))
+    sender_email = os.getenv("SENDER_EMAIL")
+    sender_password = os.getenv("SENDER_PASSWORD")
+    sender_name = os.getenv("SENDER_NAME", "Test System")
 
-    recipient_emails_str = os.getenv('RECIPIENT_EMAILS')
+    recipient_emails_str = os.getenv("RECIPIENT_EMAILS")
     if not recipient_emails_str:
         print("❌ No RECIPIENT_EMAILS set - skipping HTML test")
         return False
 
-    recipient_emails = [email.strip() for email in recipient_emails_str.split(',')]
+    recipient_emails = [email.strip() for email in recipient_emails_str.split(",")]
 
     # Create HTML email
-    html_content = """
+    html_content = (
+        """
     <!DOCTYPE html>
     <html>
     <head>
@@ -163,7 +168,9 @@ def test_html_email():
                 <li class="success">✅ Email delivery</li>
             </ul>
 
-            <p><strong>Timestamp:</strong> """ + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + """</p>
+            <p><strong>Timestamp:</strong> """
+        + datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        + """</p>
 
             <hr>
             <p><em>This is an automated test email from the TradingView Screener system.</em></p>
@@ -171,15 +178,16 @@ def test_html_email():
     </body>
     </html>
     """
+    )
 
     # Create multipart message
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = f"HTML Email Test - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-    msg['From'] = f"{sender_name} <{sender_email}>"
-    msg['To'] = ', '.join(recipient_emails)
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = f"HTML Email Test - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+    msg["From"] = f"{sender_name} <{sender_email}>"
+    msg["To"] = ", ".join(recipient_emails)
 
     # Add HTML part
-    html_part = MIMEText(html_content, 'html')
+    html_part = MIMEText(html_content, "html")
     msg.attach(html_part)
 
     try:
@@ -208,7 +216,7 @@ def test_database_integration():
 
     try:
         # Import database components
-        sys.path.append('.')
+        sys.path.append(".")
         from database import DatabaseManager
 
         print("Testing database connection...")
@@ -220,8 +228,7 @@ def test_database_integration():
         print("Creating test screener data...")
 
         execution_id = db_manager.start_agent_execution(
-            user_prompt="Test email functionality",
-            execution_type="email_test"
+            user_prompt="Test email functionality", execution_type="email_test"
         )
         print(f"✅ Created execution: {execution_id}")
 
@@ -230,14 +237,32 @@ def test_database_integration():
             columns=["name", "close", "change"],
             filters=[],
             sort_column="change",
-            reasoning="Test email configuration"
+            reasoning="Test email configuration",
         )
         print(f"✅ Created screener input: {input_id}")
 
         test_result_data = [
-            {"name": "AAPL", "close": 150.00, "change": 2.5, "volume": 50000000, "market_cap_basic": 2500000000000},
-            {"name": "GOOGL", "close": 2800.00, "change": 1.8, "volume": 25000000, "market_cap_basic": 1800000000000},
-            {"name": "MSFT", "close": 350.00, "change": 3.2, "volume": 35000000, "market_cap_basic": 2600000000000}
+            {
+                "name": "AAPL",
+                "close": 150.00,
+                "change": 2.5,
+                "volume": 50000000,
+                "market_cap_basic": 2500000000000,
+            },
+            {
+                "name": "GOOGL",
+                "close": 2800.00,
+                "change": 1.8,
+                "volume": 25000000,
+                "market_cap_basic": 1800000000000,
+            },
+            {
+                "name": "MSFT",
+                "close": 350.00,
+                "change": 3.2,
+                "volume": 35000000,
+                "market_cap_basic": 2600000000000,
+            },
         ]
 
         result_id = db_manager.save_screener_result(
@@ -245,7 +270,7 @@ def test_database_integration():
             total_results=3,
             returned_results=3,
             result_data=test_result_data,
-            success=True
+            success=True,
         )
         print(f"✅ Created screener result: {result_id}")
 
@@ -254,20 +279,22 @@ def test_database_integration():
         from tools.email_agent import EmailAgent
 
         smtp_config = {
-            'smtp_server': os.getenv('SMTP_SERVER', 'smtp.gmail.com'),
-            'smtp_port': int(os.getenv('SMTP_PORT', '587')),
-            'sender_email': os.getenv('SENDER_EMAIL'),
-            'sender_password': os.getenv('SENDER_PASSWORD'),
-            'sender_name': os.getenv('SENDER_NAME', 'Test System')
+            "smtp_server": os.getenv("SMTP_SERVER", "smtp.gmail.com"),
+            "smtp_port": int(os.getenv("SMTP_PORT", "587")),
+            "sender_email": os.getenv("SENDER_EMAIL"),
+            "sender_password": os.getenv("SENDER_PASSWORD"),
+            "sender_name": os.getenv("SENDER_NAME", "Test System"),
         }
 
         email_agent = EmailAgent(db_manager=db_manager, smtp_config=smtp_config)
         print("✅ Email agent created successfully")
 
         # Get recipient emails
-        recipient_emails_str = os.getenv('RECIPIENT_EMAILS')
+        recipient_emails_str = os.getenv("RECIPIENT_EMAILS")
         if recipient_emails_str:
-            recipient_emails = [email.strip() for email in recipient_emails_str.split(',')]
+            recipient_emails = [
+                email.strip() for email in recipient_emails_str.split(",")
+            ]
 
             print(f"Sending test report to: {recipient_emails}")
 
@@ -275,12 +302,12 @@ def test_database_integration():
                 recipient_emails=recipient_emails,
                 screener_result_id=result_id,
                 subject_prefix="DATABASE TEST - TradingView Screener",
-                custom_message="This is a test email with real database integration. The screening results are from test data."
+                custom_message="This is a test email with real database integration. The screening results are from test data.",
             )
 
             result = json.loads(result_json)
 
-            if result['success']:
+            if result["success"]:
                 print("✅ DATABASE EMAIL TEST SUCCESSFUL!")
                 print(f"   Sent to: {len(recipient_emails)} recipients")
                 print(f"   Stocks included: {result['stocks_sent']}")
@@ -296,6 +323,7 @@ def test_database_integration():
     except Exception as e:
         print(f"❌ DATABASE INTEGRATION FAILED: {e}")
         import traceback
+
         traceback.print_exc()
         return False
 
@@ -307,12 +335,12 @@ def show_configuration():
     print("=" * 50)
 
     config_items = [
-        ('SENDER_EMAIL', os.getenv('SENDER_EMAIL', '(not set)')),
-        ('SENDER_PASSWORD', '(set)' if os.getenv('SENDER_PASSWORD') else '(not set)'),
-        ('RECIPIENT_EMAILS', os.getenv('RECIPIENT_EMAILS', '(not set)')),
-        ('SMTP_SERVER', os.getenv('SMTP_SERVER', 'smtp.gmail.com')),
-        ('SMTP_PORT', os.getenv('SMTP_PORT', '587')),
-        ('SENDER_NAME', os.getenv('SENDER_NAME', 'TradingView Screener Agent'))
+        ("SENDER_EMAIL", os.getenv("SENDER_EMAIL", "(not set)")),
+        ("SENDER_PASSWORD", "(set)" if os.getenv("SENDER_PASSWORD") else "(not set)"),
+        ("RECIPIENT_EMAILS", os.getenv("RECIPIENT_EMAILS", "(not set)")),
+        ("SMTP_SERVER", os.getenv("SMTP_SERVER", "smtp.gmail.com")),
+        ("SMTP_PORT", os.getenv("SMTP_PORT", "587")),
+        ("SENDER_NAME", os.getenv("SENDER_NAME", "TradingView Screener Agent")),
     ]
 
     for key, value in config_items:
@@ -335,7 +363,7 @@ def main():
     show_configuration()
 
     # Check if basic config is present
-    if not os.getenv('SENDER_EMAIL') or not os.getenv('SENDER_PASSWORD'):
+    if not os.getenv("SENDER_EMAIL") or not os.getenv("SENDER_PASSWORD"):
         print("\n❌ MISSING EMAIL CONFIGURATION")
         print("Please set SENDER_EMAIL and SENDER_PASSWORD in .env file")
         return False
@@ -345,7 +373,7 @@ def main():
         ("SMTP Connection", test_smtp_connection),
         ("Basic Email", test_basic_email),
         ("HTML Email", test_html_email),
-        ("Database Integration", test_database_integration)
+        ("Database Integration", test_database_integration),
     ]
 
     results = []

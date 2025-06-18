@@ -1,8 +1,9 @@
-from sentence_transformers import SentenceTransformer
-from typing import List, Dict, Any, Optional
-import numpy as np
-from datetime import datetime
 import logging
+from datetime import datetime
+from typing import Any, Dict, List
+
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +16,9 @@ class EmbeddingManager:
         self.model = SentenceTransformer(model_name)
         logger.info(f"Initialized embedding model: {model_name}")
 
-    def create_embeddings(self, text: str, chunk_size: int = 512) -> List[Dict[str, Any]]:
+    def create_embeddings(
+        self, text: str, chunk_size: int = 512
+    ) -> List[Dict[str, Any]]:
         """Create embeddings for text, chunking if necessary"""
         try:
             # Split text into chunks if too long
@@ -29,15 +32,19 @@ class EmbeddingManager:
                 # Generate embedding
                 embedding_vector = self.model.encode(chunk)
 
-                embeddings.append({
-                    'model': self.model_name,
-                    'vector': embedding_vector.tolist(),  # Convert numpy to list for JSON storage
-                    'chunk_index': i,
-                    'text': chunk,
-                    'created_at': datetime.utcnow().isoformat()
-                })
+                embeddings.append(
+                    {
+                        "model": self.model_name,
+                        "vector": embedding_vector.tolist(),  # Convert numpy to list for JSON storage
+                        "chunk_index": i,
+                        "text": chunk,
+                        "created_at": datetime.utcnow().isoformat(),
+                    }
+                )
 
-            logger.info(f"Created {len(embeddings)} embeddings for text of length {len(text)}")
+            logger.info(
+                f"Created {len(embeddings)} embeddings for text of length {len(text)}"
+            )
             return embeddings
 
         except Exception as e:
@@ -50,7 +57,7 @@ class EmbeddingManager:
             return [text]
 
         chunks = []
-        sentences = text.split('. ')
+        sentences = text.split(". ")
 
         current_chunk = ""
         for sentence in sentences:
@@ -67,8 +74,9 @@ class EmbeddingManager:
 
         return chunks
 
-    def search_similar_text(self, query: str, candidate_texts: List[str],
-                            top_k: int = 5) -> List[Dict[str, Any]]:
+    def search_similar_text(
+        self, query: str, candidate_texts: List[str], top_k: int = 5
+    ) -> List[Dict[str, Any]]:
         """Find most similar texts to query"""
         try:
             query_embedding = self.model.encode(query)
@@ -78,17 +86,20 @@ class EmbeddingManager:
             similarities = []
             for i, candidate_embedding in enumerate(candidate_embeddings):
                 cosine_sim = np.dot(query_embedding, candidate_embedding) / (
-                        np.linalg.norm(query_embedding) * np.linalg.norm(candidate_embedding)
+                    np.linalg.norm(query_embedding)
+                    * np.linalg.norm(candidate_embedding)
                 )
 
-                similarities.append({
-                    'index': i,
-                    'text': candidate_texts[i],
-                    'similarity': float(cosine_sim)
-                })
+                similarities.append(
+                    {
+                        "index": i,
+                        "text": candidate_texts[i],
+                        "similarity": float(cosine_sim),
+                    }
+                )
 
             # Sort by similarity and return top_k
-            similarities.sort(key=lambda x: x['similarity'], reverse=True)
+            similarities.sort(key=lambda x: x["similarity"], reverse=True)
             return similarities[:top_k]
 
         except Exception as e:

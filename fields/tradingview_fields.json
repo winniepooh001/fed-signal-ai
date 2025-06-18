@@ -1,0 +1,5018 @@
+[
+  {
+    "field_name": "type",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 0
+  },
+  {
+    "field_name": "is_primary",
+    "field_type": "boolean",
+    "table_index": 0,
+    "row_index": 1
+  },
+  {
+    "field_name": "active_symbol",
+    "field_type": "boolean",
+    "table_index": 0,
+    "row_index": 2
+  },
+  {
+    "field_name": "index",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 3
+  },
+  {
+    "field_name": "earnings_per_share_basic_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 4
+  },
+  {
+    "field_name": "changechangechange|1change|5change|15change|30change|60change|120change|240change|1Wchange|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 5
+  },
+  {
+    "field_name": "change_abschange_abschange_abs|1change_abs|5change_abs|15change_abs|30change_abs|60change_abs|120change_abs|240change_abs|1Wchange_abs|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 6
+  },
+  {
+    "field_name": "market_cap_basic",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 7
+  },
+  {
+    "field_name": "number_of_employees",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 8
+  },
+  {
+    "field_name": "closecloseclose|1close|5close|15close|30close|60close|120close|240close|1Wclose|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 9
+  },
+  {
+    "field_name": "price_earnings_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 10
+  },
+  {
+    "field_name": "sector",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 11
+  },
+  {
+    "field_name": "Recommend.AllRecommend.AllRecommend.All|1Recommend.All|5Recommend.All|15Recommend.All|30Recommend.All|60Recommend.All|120Recommend.All|240Recommend.All|1WRecommend.All|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 12
+  },
+  {
+    "field_name": "volumevolumevolume|1volume|5volume|15volume|30volume|60volume|120volume|240volume|1Wvolume|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 13
+  },
+  {
+    "field_name": "Value.TradedValue.TradedValue.Traded|1Value.Traded|5Value.Traded|15Value.Traded|30Value.Traded|60Value.Traded|120Value.Traded|240Value.Traded|1WValue.Traded|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 14
+  },
+  {
+    "field_name": "High.1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 15
+  },
+  {
+    "field_name": "Low.1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 16
+  },
+  {
+    "field_name": "beta_1_year",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 17
+  },
+  {
+    "field_name": "High.3M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 18
+  },
+  {
+    "field_name": "Low.3M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 19
+  },
+  {
+    "field_name": "Perf.3M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 20
+  },
+  {
+    "field_name": "Perf.5Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 21
+  },
+  {
+    "field_name": "High.6M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 22
+  },
+  {
+    "field_name": "Low.6M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 23
+  },
+  {
+    "field_name": "Perf.6M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 24
+  },
+  {
+    "field_name": "price_52_week_high",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 25
+  },
+  {
+    "field_name": "price_52_week_low",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 26
+  },
+  {
+    "field_name": "High.All",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 27
+  },
+  {
+    "field_name": "Low.All",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 28
+  },
+  {
+    "field_name": "Perf.All",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 29
+  },
+  {
+    "field_name": "Aroon.DownAroon.DownAroon.Down|1Aroon.Down|5Aroon.Down|15Aroon.Down|30Aroon.Down|60Aroon.Down|120Aroon.Down|240Aroon.Down|1WAroon.Down|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 30
+  },
+  {
+    "field_name": "Aroon.UpAroon.UpAroon.Up|1Aroon.Up|5Aroon.Up|15Aroon.Up|30Aroon.Up|60Aroon.Up|120Aroon.Up|240Aroon.Up|1WAroon.Up|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 31
+  },
+  {
+    "field_name": "ADRADRADR|1ADR|5ADR|15ADR|30ADR|60ADR|120ADR|240ADR|1WADR|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 32
+  },
+  {
+    "field_name": "ADXADXADX|1ADX|5ADX|15ADX|30ADX|60ADX|120ADX|240ADX|1WADX|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 33
+  },
+  {
+    "field_name": "ATRATRATR|1ATR|5ATR|15ATR|30ATR|60ATR|120ATR|240ATR|1WATR|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 34
+  },
+  {
+    "field_name": "average_volume_10d_calcaverage_volume_10d_calcaverage_volume_10d_calc|1average_volume_10d_calc|5average_volume_10d_calc|15average_volume_10d_calc|30average_volume_10d_calc|60average_volume_10d_calc|120average_volume_10d_calc|240average_volume_10d_calc|1Waverage_volume_10d_calc|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 35
+  },
+  {
+    "field_name": "average_volume_30d_calcaverage_volume_30d_calcaverage_volume_30d_calc|1average_volume_30d_calc|5average_volume_30d_calc|15average_volume_30d_calc|30average_volume_30d_calc|60average_volume_30d_calc|120average_volume_30d_calc|240average_volume_30d_calc|1Waverage_volume_30d_calc|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 36
+  },
+  {
+    "field_name": "average_volume_60d_calcaverage_volume_60d_calcaverage_volume_60d_calc|1average_volume_60d_calc|5average_volume_60d_calc|15average_volume_60d_calc|30average_volume_60d_calc|60average_volume_60d_calc|120average_volume_60d_calc|240average_volume_60d_calc|1Waverage_volume_60d_calc|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 37
+  },
+  {
+    "field_name": "average_volume_90d_calcaverage_volume_90d_calcaverage_volume_90d_calc|1average_volume_90d_calc|5average_volume_90d_calc|15average_volume_90d_calc|30average_volume_90d_calc|60average_volume_90d_calc|120average_volume_90d_calc|240average_volume_90d_calc|1Waverage_volume_90d_calc|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 38
+  },
+  {
+    "field_name": "AOAOAO|1AO|5AO|15AO|30AO|60AO|120AO|240AO|1WAO|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 39
+  },
+  {
+    "field_name": "basic_eps_net_income",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 40
+  },
+  {
+    "field_name": "BB.lowerBB.lowerBB.lower|1BB.lower|5BB.lower|15BB.lower|30BB.lower|60BB.lower|120BB.lower|240BB.lower|1WBB.lower|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 41
+  },
+  {
+    "field_name": "BB.upperBB.upperBB.upper|1BB.upper|5BB.upper|15BB.upper|30BB.upper|60BB.upper|120BB.upper|240BB.upper|1WBB.upper|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 42
+  },
+  {
+    "field_name": "BBPowerBBPowerBBPower|1BBPower|5BBPower|15BBPower|30BBPower|60BBPower|120BBPower|240BBPower|1WBBPower|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 43
+  },
+  {
+    "field_name": "cash_n_short_term_invest_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 44
+  },
+  {
+    "field_name": "cash_n_short_term_invest_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 45
+  },
+  {
+    "field_name": "cash_n_equivalents_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 46
+  },
+  {
+    "field_name": "cash_n_equivalents_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 47
+  },
+  {
+    "field_name": "ChaikinMoneyFlowChaikinMoneyFlowChaikinMoneyFlow|1ChaikinMoneyFlow|5ChaikinMoneyFlow|15ChaikinMoneyFlow|30ChaikinMoneyFlow|60ChaikinMoneyFlow|120ChaikinMoneyFlow|240ChaikinMoneyFlow|1WChaikinMoneyFlow|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 48
+  },
+  {
+    "field_name": "change_from_openchange_from_openchange_from_open|1change_from_open|5change_from_open|15change_from_open|30change_from_open|60change_from_open|120change_from_open|240change_from_open|1Wchange_from_open|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 49
+  },
+  {
+    "field_name": "change_from_open_abschange_from_open_abschange_from_open_abs|1change_from_open_abs|5change_from_open_abs|15change_from_open_abs|30change_from_open_abs|60change_from_open_abs|120change_from_open_abs|240change_from_open_abs|1Wchange_from_open_abs|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 50
+  },
+  {
+    "field_name": "CCI20CCI20CCI20|1CCI20|5CCI20|15CCI20|30CCI20|60CCI20|120CCI20|240CCI20|1WCCI20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 51
+  },
+  {
+    "field_name": "country",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 52
+  },
+  {
+    "field_name": "current_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 53
+  },
+  {
+    "field_name": "debt_to_equity",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 54
+  },
+  {
+    "field_name": "dividends_paid",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 55
+  },
+  {
+    "field_name": "dps_common_stock_prim_issue_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 56
+  },
+  {
+    "field_name": "dps_common_stock_prim_issue_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 57
+  },
+  {
+    "field_name": "dividends_per_share_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 58
+  },
+  {
+    "field_name": "dividend_yield_recent",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 59
+  },
+  {
+    "field_name": "DonchCh20.LowerDonchCh20.LowerDonchCh20.Lower|1DonchCh20.Lower|5DonchCh20.Lower|15DonchCh20.Lower|30DonchCh20.Lower|60DonchCh20.Lower|120DonchCh20.Lower|240DonchCh20.Lower|1WDonchCh20.Lower|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 60
+  },
+  {
+    "field_name": "DonchCh20.UpperDonchCh20.UpperDonchCh20.Upper|1DonchCh20.Upper|5DonchCh20.Upper|15DonchCh20.Upper|30DonchCh20.Upper|60DonchCh20.Upper|120DonchCh20.Upper|240DonchCh20.Upper|1WDonchCh20.Upper|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 61
+  },
+  {
+    "field_name": "ebitda_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 62
+  },
+  {
+    "field_name": "ebitda_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 63
+  },
+  {
+    "field_name": "ebitda_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 64
+  },
+  {
+    "field_name": "ebitda",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 65
+  },
+  {
+    "field_name": "ebitda_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 66
+  },
+  {
+    "field_name": "enterprise_value_ebitda_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 67
+  },
+  {
+    "field_name": "enterprise_value_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 68
+  },
+  {
+    "field_name": "earnings_per_share_diluted_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 69
+  },
+  {
+    "field_name": "last_annual_eps",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 70
+  },
+  {
+    "field_name": "earnings_per_share_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 71
+  },
+  {
+    "field_name": "earnings_per_share_diluted_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 72
+  },
+  {
+    "field_name": "earnings_per_share_diluted_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 73
+  },
+  {
+    "field_name": "earnings_per_share_diluted_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 74
+  },
+  {
+    "field_name": "earnings_per_share_diluted_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 75
+  },
+  {
+    "field_name": "earnings_per_share_forecast_next_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 76
+  },
+  {
+    "field_name": "exchange",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 77
+  },
+  {
+    "field_name": "EMA5EMA5EMA5|1EMA5|5EMA5|15EMA5|30EMA5|60EMA5|120EMA5|240EMA5|1WEMA5|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 78
+  },
+  {
+    "field_name": "EMA10EMA10EMA10|1EMA10|5EMA10|15EMA10|30EMA10|60EMA10|120EMA10|240EMA10|1WEMA10|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 79
+  },
+  {
+    "field_name": "EMA20EMA20EMA20|1EMA20|5EMA20|15EMA20|30EMA20|60EMA20|120EMA20|240EMA20|1WEMA20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 80
+  },
+  {
+    "field_name": "EMA30EMA30EMA30|1EMA30|5EMA30|15EMA30|30EMA30|60EMA30|120EMA30|240EMA30|1WEMA30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 81
+  },
+  {
+    "field_name": "EMA50EMA50EMA50|1EMA50|5EMA50|15EMA50|30EMA50|60EMA50|120EMA50|240EMA50|1WEMA50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 82
+  },
+  {
+    "field_name": "EMA100EMA100EMA100|1EMA100|5EMA100|15EMA100|30EMA100|60EMA100|120EMA100|240EMA100|1WEMA100|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 83
+  },
+  {
+    "field_name": "EMA200EMA200EMA200|1EMA200|5EMA200|15EMA200|30EMA200|60EMA200|120EMA200|240EMA200|1WEMA200|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 84
+  },
+  {
+    "field_name": "free_cash_flow_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 85
+  },
+  {
+    "field_name": "free_cash_flow_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 86
+  },
+  {
+    "field_name": "free_cash_flow_margin_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 87
+  },
+  {
+    "field_name": "free_cash_flow_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 88
+  },
+  {
+    "field_name": "free_cash_flow_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 89
+  },
+  {
+    "field_name": "free_cash_flow_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 90
+  },
+  {
+    "field_name": "gapgapgap|1gap|5gap|15gap|30gap|60gap|120gap|240gap|1Wgap|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 91
+  },
+  {
+    "field_name": "goodwill",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 92
+  },
+  {
+    "field_name": "gross_profit_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 93
+  },
+  {
+    "field_name": "gross_margin",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 94
+  },
+  {
+    "field_name": "gross_profit_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 95
+  },
+  {
+    "field_name": "gross_profit",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 96
+  },
+  {
+    "field_name": "gross_profit_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 97
+  },
+  {
+    "field_name": "gross_profit_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 98
+  },
+  {
+    "field_name": "gross_profit_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 99
+  },
+  {
+    "field_name": "gross_profit_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 100
+  },
+  {
+    "field_name": "highhighhigh|1high|5high|15high|30high|60high|120high|240high|1Whigh|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 101
+  },
+  {
+    "field_name": "HullMA9HullMA9HullMA9|1HullMA9|5HullMA9|15HullMA9|30HullMA9|60HullMA9|120HullMA9|240HullMA9|1WHullMA9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 102
+  },
+  {
+    "field_name": "Ichimoku.BLineIchimoku.BLineIchimoku.BLine|1Ichimoku.BLine|5Ichimoku.BLine|15Ichimoku.BLine|30Ichimoku.BLine|60Ichimoku.BLine|120Ichimoku.BLine|240Ichimoku.BLine|1WIchimoku.BLine|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 103
+  },
+  {
+    "field_name": "Ichimoku.CLineIchimoku.CLineIchimoku.CLine|1Ichimoku.CLine|5Ichimoku.CLine|15Ichimoku.CLine|30Ichimoku.CLine|60Ichimoku.CLine|120Ichimoku.CLine|240Ichimoku.CLine|1WIchimoku.CLine|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 104
+  },
+  {
+    "field_name": "Ichimoku.Lead1Ichimoku.Lead1Ichimoku.Lead1|1Ichimoku.Lead1|5Ichimoku.Lead1|15Ichimoku.Lead1|30Ichimoku.Lead1|60Ichimoku.Lead1|120Ichimoku.Lead1|240Ichimoku.Lead1|1WIchimoku.Lead1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 105
+  },
+  {
+    "field_name": "Ichimoku.Lead2Ichimoku.Lead2Ichimoku.Lead2|1Ichimoku.Lead2|5Ichimoku.Lead2|15Ichimoku.Lead2|30Ichimoku.Lead2|60Ichimoku.Lead2|120Ichimoku.Lead2|240Ichimoku.Lead2|1WIchimoku.Lead2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 106
+  },
+  {
+    "field_name": "industry",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 107
+  },
+  {
+    "field_name": "KltChnl.lowerKltChnl.lowerKltChnl.lower|1KltChnl.lower|5KltChnl.lower|15KltChnl.lower|30KltChnl.lower|60KltChnl.lower|120KltChnl.lower|240KltChnl.lower|1WKltChnl.lower|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 108
+  },
+  {
+    "field_name": "KltChnl.upperKltChnl.upperKltChnl.upper|1KltChnl.upper|5KltChnl.upper|15KltChnl.upper|30KltChnl.upper|60KltChnl.upper|120KltChnl.upper|240KltChnl.upper|1WKltChnl.upper|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 109
+  },
+  {
+    "field_name": "last_annual_revenue",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 110
+  },
+  {
+    "field_name": "lowlowlow|1low|5low|15low|30low|60low|120low|240low|1Wlow|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 111
+  },
+  {
+    "field_name": "MACD.macdMACD.macdMACD.macd|1MACD.macd|5MACD.macd|15MACD.macd|30MACD.macd|60MACD.macd|120MACD.macd|240MACD.macd|1WMACD.macd|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 112
+  },
+  {
+    "field_name": "MACD.signalMACD.signalMACD.signal|1MACD.signal|5MACD.signal|15MACD.signal|30MACD.signal|60MACD.signal|120MACD.signal|240MACD.signal|1WMACD.signal|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 113
+  },
+  {
+    "field_name": "MomMomMom|1Mom|5Mom|15Mom|30Mom|60Mom|120Mom|240Mom|1WMom|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 114
+  },
+  {
+    "field_name": "MoneyFlowMoneyFlowMoneyFlow|1MoneyFlow|5MoneyFlow|15MoneyFlow|30MoneyFlow|60MoneyFlow|120MoneyFlow|240MoneyFlow|1WMoneyFlow|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 115
+  },
+  {
+    "field_name": "Perf.1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 116
+  },
+  {
+    "field_name": "Recommend.MARecommend.MARecommend.MA|1Recommend.MA|5Recommend.MA|15Recommend.MA|30Recommend.MA|60Recommend.MA|120Recommend.MA|240Recommend.MA|1WRecommend.MA|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 117
+  },
+  {
+    "field_name": "ADX-DIADX-DIADX-DI|1ADX-DI|5ADX-DI|15ADX-DI|30ADX-DI|60ADX-DI|120ADX-DI|240ADX-DI|1WADX-DI|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 118
+  },
+  {
+    "field_name": "net_debt",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 119
+  },
+  {
+    "field_name": "net_income_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 120
+  },
+  {
+    "field_name": "net_income",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 121
+  },
+  {
+    "field_name": "net_income_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 122
+  },
+  {
+    "field_name": "net_income_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 123
+  },
+  {
+    "field_name": "net_income_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 124
+  },
+  {
+    "field_name": "net_income_bef_disc_oper_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 125
+  },
+  {
+    "field_name": "after_tax_margin",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 126
+  },
+  {
+    "field_name": "number_of_shareholders",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 127
+  },
+  {
+    "field_name": "openopenopen|1open|5open|15open|30open|60open|120open|240open|1Wopen|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 128
+  },
+  {
+    "field_name": "oper_income_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 129
+  },
+  {
+    "field_name": "operating_margin",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 130
+  },
+  {
+    "field_name": "Recommend.OtherRecommend.OtherRecommend.Other|1Recommend.Other|5Recommend.Other|15Recommend.Other|30Recommend.Other|60Recommend.Other|120Recommend.Other|240Recommend.Other|1WRecommend.Other|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 131
+  },
+  {
+    "field_name": "P.SARP.SARP.SAR|1P.SAR|5P.SAR|15P.SAR|30P.SAR|60P.SAR|120P.SAR|240P.SAR|1WP.SAR|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 132
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.MiddlePivot.M.Camarilla.MiddlePivot.M.Camarilla.Middle|1Pivot.M.Camarilla.Middle|5Pivot.M.Camarilla.Middle|15Pivot.M.Camarilla.Middle|30Pivot.M.Camarilla.Middle|60Pivot.M.Camarilla.Middle|120Pivot.M.Camarilla.Middle|240Pivot.M.Camarilla.Middle|1WPivot.M.Camarilla.Middle|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 133
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.R1Pivot.M.Camarilla.R1Pivot.M.Camarilla.R1|1Pivot.M.Camarilla.R1|5Pivot.M.Camarilla.R1|15Pivot.M.Camarilla.R1|30Pivot.M.Camarilla.R1|60Pivot.M.Camarilla.R1|120Pivot.M.Camarilla.R1|240Pivot.M.Camarilla.R1|1WPivot.M.Camarilla.R1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 134
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.R2Pivot.M.Camarilla.R2Pivot.M.Camarilla.R2|1Pivot.M.Camarilla.R2|5Pivot.M.Camarilla.R2|15Pivot.M.Camarilla.R2|30Pivot.M.Camarilla.R2|60Pivot.M.Camarilla.R2|120Pivot.M.Camarilla.R2|240Pivot.M.Camarilla.R2|1WPivot.M.Camarilla.R2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 135
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.R3Pivot.M.Camarilla.R3Pivot.M.Camarilla.R3|1Pivot.M.Camarilla.R3|5Pivot.M.Camarilla.R3|15Pivot.M.Camarilla.R3|30Pivot.M.Camarilla.R3|60Pivot.M.Camarilla.R3|120Pivot.M.Camarilla.R3|240Pivot.M.Camarilla.R3|1WPivot.M.Camarilla.R3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 136
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.S1Pivot.M.Camarilla.S1Pivot.M.Camarilla.S1|1Pivot.M.Camarilla.S1|5Pivot.M.Camarilla.S1|15Pivot.M.Camarilla.S1|30Pivot.M.Camarilla.S1|60Pivot.M.Camarilla.S1|120Pivot.M.Camarilla.S1|240Pivot.M.Camarilla.S1|1WPivot.M.Camarilla.S1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 137
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.S2Pivot.M.Camarilla.S2Pivot.M.Camarilla.S2|1Pivot.M.Camarilla.S2|5Pivot.M.Camarilla.S2|15Pivot.M.Camarilla.S2|30Pivot.M.Camarilla.S2|60Pivot.M.Camarilla.S2|120Pivot.M.Camarilla.S2|240Pivot.M.Camarilla.S2|1WPivot.M.Camarilla.S2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 138
+  },
+  {
+    "field_name": "Pivot.M.Camarilla.S3Pivot.M.Camarilla.S3Pivot.M.Camarilla.S3|1Pivot.M.Camarilla.S3|5Pivot.M.Camarilla.S3|15Pivot.M.Camarilla.S3|30Pivot.M.Camarilla.S3|60Pivot.M.Camarilla.S3|120Pivot.M.Camarilla.S3|240Pivot.M.Camarilla.S3|1WPivot.M.Camarilla.S3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 139
+  },
+  {
+    "field_name": "Pivot.M.Classic.MiddlePivot.M.Classic.MiddlePivot.M.Classic.Middle|1Pivot.M.Classic.Middle|5Pivot.M.Classic.Middle|15Pivot.M.Classic.Middle|30Pivot.M.Classic.Middle|60Pivot.M.Classic.Middle|120Pivot.M.Classic.Middle|240Pivot.M.Classic.Middle|1WPivot.M.Classic.Middle|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 140
+  },
+  {
+    "field_name": "Pivot.M.Classic.R1Pivot.M.Classic.R1Pivot.M.Classic.R1|1Pivot.M.Classic.R1|5Pivot.M.Classic.R1|15Pivot.M.Classic.R1|30Pivot.M.Classic.R1|60Pivot.M.Classic.R1|120Pivot.M.Classic.R1|240Pivot.M.Classic.R1|1WPivot.M.Classic.R1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 141
+  },
+  {
+    "field_name": "Pivot.M.Classic.R2Pivot.M.Classic.R2Pivot.M.Classic.R2|1Pivot.M.Classic.R2|5Pivot.M.Classic.R2|15Pivot.M.Classic.R2|30Pivot.M.Classic.R2|60Pivot.M.Classic.R2|120Pivot.M.Classic.R2|240Pivot.M.Classic.R2|1WPivot.M.Classic.R2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 142
+  },
+  {
+    "field_name": "Pivot.M.Classic.R3Pivot.M.Classic.R3Pivot.M.Classic.R3|1Pivot.M.Classic.R3|5Pivot.M.Classic.R3|15Pivot.M.Classic.R3|30Pivot.M.Classic.R3|60Pivot.M.Classic.R3|120Pivot.M.Classic.R3|240Pivot.M.Classic.R3|1WPivot.M.Classic.R3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 143
+  },
+  {
+    "field_name": "Pivot.M.Classic.S1Pivot.M.Classic.S1Pivot.M.Classic.S1|1Pivot.M.Classic.S1|5Pivot.M.Classic.S1|15Pivot.M.Classic.S1|30Pivot.M.Classic.S1|60Pivot.M.Classic.S1|120Pivot.M.Classic.S1|240Pivot.M.Classic.S1|1WPivot.M.Classic.S1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 144
+  },
+  {
+    "field_name": "Pivot.M.Classic.S2Pivot.M.Classic.S2Pivot.M.Classic.S2|1Pivot.M.Classic.S2|5Pivot.M.Classic.S2|15Pivot.M.Classic.S2|30Pivot.M.Classic.S2|60Pivot.M.Classic.S2|120Pivot.M.Classic.S2|240Pivot.M.Classic.S2|1WPivot.M.Classic.S2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 145
+  },
+  {
+    "field_name": "Pivot.M.Classic.S3Pivot.M.Classic.S3Pivot.M.Classic.S3|1Pivot.M.Classic.S3|5Pivot.M.Classic.S3|15Pivot.M.Classic.S3|30Pivot.M.Classic.S3|60Pivot.M.Classic.S3|120Pivot.M.Classic.S3|240Pivot.M.Classic.S3|1WPivot.M.Classic.S3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 146
+  },
+  {
+    "field_name": "Pivot.M.Demark.MiddlePivot.M.Demark.MiddlePivot.M.Demark.Middle|1Pivot.M.Demark.Middle|5Pivot.M.Demark.Middle|15Pivot.M.Demark.Middle|30Pivot.M.Demark.Middle|60Pivot.M.Demark.Middle|120Pivot.M.Demark.Middle|240Pivot.M.Demark.Middle|1WPivot.M.Demark.Middle|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 147
+  },
+  {
+    "field_name": "Pivot.M.Demark.R1Pivot.M.Demark.R1Pivot.M.Demark.R1|1Pivot.M.Demark.R1|5Pivot.M.Demark.R1|15Pivot.M.Demark.R1|30Pivot.M.Demark.R1|60Pivot.M.Demark.R1|120Pivot.M.Demark.R1|240Pivot.M.Demark.R1|1WPivot.M.Demark.R1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 148
+  },
+  {
+    "field_name": "Pivot.M.Demark.S1Pivot.M.Demark.S1Pivot.M.Demark.S1|1Pivot.M.Demark.S1|5Pivot.M.Demark.S1|15Pivot.M.Demark.S1|30Pivot.M.Demark.S1|60Pivot.M.Demark.S1|120Pivot.M.Demark.S1|240Pivot.M.Demark.S1|1WPivot.M.Demark.S1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 149
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.MiddlePivot.M.Fibonacci.MiddlePivot.M.Fibonacci.Middle|1Pivot.M.Fibonacci.Middle|5Pivot.M.Fibonacci.Middle|15Pivot.M.Fibonacci.Middle|30Pivot.M.Fibonacci.Middle|60Pivot.M.Fibonacci.Middle|120Pivot.M.Fibonacci.Middle|240Pivot.M.Fibonacci.Middle|1WPivot.M.Fibonacci.Middle|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 150
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.R1Pivot.M.Fibonacci.R1Pivot.M.Fibonacci.R1|1Pivot.M.Fibonacci.R1|5Pivot.M.Fibonacci.R1|15Pivot.M.Fibonacci.R1|30Pivot.M.Fibonacci.R1|60Pivot.M.Fibonacci.R1|120Pivot.M.Fibonacci.R1|240Pivot.M.Fibonacci.R1|1WPivot.M.Fibonacci.R1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 151
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.R2Pivot.M.Fibonacci.R2Pivot.M.Fibonacci.R2|1Pivot.M.Fibonacci.R2|5Pivot.M.Fibonacci.R2|15Pivot.M.Fibonacci.R2|30Pivot.M.Fibonacci.R2|60Pivot.M.Fibonacci.R2|120Pivot.M.Fibonacci.R2|240Pivot.M.Fibonacci.R2|1WPivot.M.Fibonacci.R2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 152
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.R3Pivot.M.Fibonacci.R3Pivot.M.Fibonacci.R3|1Pivot.M.Fibonacci.R3|5Pivot.M.Fibonacci.R3|15Pivot.M.Fibonacci.R3|30Pivot.M.Fibonacci.R3|60Pivot.M.Fibonacci.R3|120Pivot.M.Fibonacci.R3|240Pivot.M.Fibonacci.R3|1WPivot.M.Fibonacci.R3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 153
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.S1Pivot.M.Fibonacci.S1Pivot.M.Fibonacci.S1|1Pivot.M.Fibonacci.S1|5Pivot.M.Fibonacci.S1|15Pivot.M.Fibonacci.S1|30Pivot.M.Fibonacci.S1|60Pivot.M.Fibonacci.S1|120Pivot.M.Fibonacci.S1|240Pivot.M.Fibonacci.S1|1WPivot.M.Fibonacci.S1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 154
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.S2Pivot.M.Fibonacci.S2Pivot.M.Fibonacci.S2|1Pivot.M.Fibonacci.S2|5Pivot.M.Fibonacci.S2|15Pivot.M.Fibonacci.S2|30Pivot.M.Fibonacci.S2|60Pivot.M.Fibonacci.S2|120Pivot.M.Fibonacci.S2|240Pivot.M.Fibonacci.S2|1WPivot.M.Fibonacci.S2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 155
+  },
+  {
+    "field_name": "Pivot.M.Fibonacci.S3Pivot.M.Fibonacci.S3Pivot.M.Fibonacci.S3|1Pivot.M.Fibonacci.S3|5Pivot.M.Fibonacci.S3|15Pivot.M.Fibonacci.S3|30Pivot.M.Fibonacci.S3|60Pivot.M.Fibonacci.S3|120Pivot.M.Fibonacci.S3|240Pivot.M.Fibonacci.S3|1WPivot.M.Fibonacci.S3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 156
+  },
+  {
+    "field_name": "Pivot.M.Woodie.MiddlePivot.M.Woodie.MiddlePivot.M.Woodie.Middle|1Pivot.M.Woodie.Middle|5Pivot.M.Woodie.Middle|15Pivot.M.Woodie.Middle|30Pivot.M.Woodie.Middle|60Pivot.M.Woodie.Middle|120Pivot.M.Woodie.Middle|240Pivot.M.Woodie.Middle|1WPivot.M.Woodie.Middle|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 157
+  },
+  {
+    "field_name": "Pivot.M.Woodie.R1Pivot.M.Woodie.R1Pivot.M.Woodie.R1|1Pivot.M.Woodie.R1|5Pivot.M.Woodie.R1|15Pivot.M.Woodie.R1|30Pivot.M.Woodie.R1|60Pivot.M.Woodie.R1|120Pivot.M.Woodie.R1|240Pivot.M.Woodie.R1|1WPivot.M.Woodie.R1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 158
+  },
+  {
+    "field_name": "Pivot.M.Woodie.R2Pivot.M.Woodie.R2Pivot.M.Woodie.R2|1Pivot.M.Woodie.R2|5Pivot.M.Woodie.R2|15Pivot.M.Woodie.R2|30Pivot.M.Woodie.R2|60Pivot.M.Woodie.R2|120Pivot.M.Woodie.R2|240Pivot.M.Woodie.R2|1WPivot.M.Woodie.R2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 159
+  },
+  {
+    "field_name": "Pivot.M.Woodie.R3Pivot.M.Woodie.R3Pivot.M.Woodie.R3|1Pivot.M.Woodie.R3|5Pivot.M.Woodie.R3|15Pivot.M.Woodie.R3|30Pivot.M.Woodie.R3|60Pivot.M.Woodie.R3|120Pivot.M.Woodie.R3|240Pivot.M.Woodie.R3|1WPivot.M.Woodie.R3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 160
+  },
+  {
+    "field_name": "Pivot.M.Woodie.S1Pivot.M.Woodie.S1Pivot.M.Woodie.S1|1Pivot.M.Woodie.S1|5Pivot.M.Woodie.S1|15Pivot.M.Woodie.S1|30Pivot.M.Woodie.S1|60Pivot.M.Woodie.S1|120Pivot.M.Woodie.S1|240Pivot.M.Woodie.S1|1WPivot.M.Woodie.S1|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 161
+  },
+  {
+    "field_name": "Pivot.M.Woodie.S2Pivot.M.Woodie.S2Pivot.M.Woodie.S2|1Pivot.M.Woodie.S2|5Pivot.M.Woodie.S2|15Pivot.M.Woodie.S2|30Pivot.M.Woodie.S2|60Pivot.M.Woodie.S2|120Pivot.M.Woodie.S2|240Pivot.M.Woodie.S2|1WPivot.M.Woodie.S2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 162
+  },
+  {
+    "field_name": "Pivot.M.Woodie.S3Pivot.M.Woodie.S3Pivot.M.Woodie.S3|1Pivot.M.Woodie.S3|5Pivot.M.Woodie.S3|15Pivot.M.Woodie.S3|30Pivot.M.Woodie.S3|60Pivot.M.Woodie.S3|120Pivot.M.Woodie.S3|240Pivot.M.Woodie.S3|1WPivot.M.Woodie.S3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 163
+  },
+  {
+    "field_name": "ADX+DIADX+DIADX+DI|1ADX+DI|5ADX+DI|15ADX+DI|30ADX+DI|60ADX+DI|120ADX+DI|240ADX+DI|1WADX+DI|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 164
+  },
+  {
+    "field_name": "postmarket_change",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 165
+  },
+  {
+    "field_name": "postmarket_change_abs",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 166
+  },
+  {
+    "field_name": "postmarket_close",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 167
+  },
+  {
+    "field_name": "postmarket_high",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 168
+  },
+  {
+    "field_name": "postmarket_low",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 169
+  },
+  {
+    "field_name": "postmarket_open",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 170
+  },
+  {
+    "field_name": "postmarket_volume",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 171
+  },
+  {
+    "field_name": "premarket_change",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 172
+  },
+  {
+    "field_name": "premarket_change_abs",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 173
+  },
+  {
+    "field_name": "premarket_change_from_open",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 174
+  },
+  {
+    "field_name": "premarket_change_from_open_abs",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 175
+  },
+  {
+    "field_name": "premarket_close",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 176
+  },
+  {
+    "field_name": "premarket_gap",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 177
+  },
+  {
+    "field_name": "premarket_high",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 178
+  },
+  {
+    "field_name": "premarket_low",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 179
+  },
+  {
+    "field_name": "premarket_open",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 180
+  },
+  {
+    "field_name": "premarket_volume",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 181
+  },
+  {
+    "field_name": "pre_tax_margin",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 182
+  },
+  {
+    "field_name": "price_book_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 183
+  },
+  {
+    "field_name": "price_book_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 184
+  },
+  {
+    "field_name": "price_free_cash_flow_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 185
+  },
+  {
+    "field_name": "price_revenue_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 186
+  },
+  {
+    "field_name": "price_sales_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 187
+  },
+  {
+    "field_name": "quick_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 188
+  },
+  {
+    "field_name": "ROCROCROC|1ROC|5ROC|15ROC|30ROC|60ROC|120ROC|240ROC|1WROC|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 189
+  },
+  {
+    "field_name": "earnings_release_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 190
+  },
+  {
+    "field_name": "RSI7RSI7RSI7|1RSI7|5RSI7|15RSI7|30RSI7|60RSI7|120RSI7|240RSI7|1WRSI7|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 191
+  },
+  {
+    "field_name": "RSIRSIRSI|1RSI|5RSI|15RSI|30RSI|60RSI|120RSI|240RSI|1WRSI|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 192
+  },
+  {
+    "field_name": "relative_volume_10d_calcrelative_volume_10d_calcrelative_volume_10d_calc|1relative_volume_10d_calc|5relative_volume_10d_calc|15relative_volume_10d_calc|30relative_volume_10d_calc|60relative_volume_10d_calc|120relative_volume_10d_calc|240relative_volume_10d_calc|1Wrelative_volume_10d_calc|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 193
+  },
+  {
+    "field_name": "research_and_dev_ratio_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 194
+  },
+  {
+    "field_name": "research_and_dev_ratio_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 195
+  },
+  {
+    "field_name": "return_on_assets",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 196
+  },
+  {
+    "field_name": "return_on_equity",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 197
+  },
+  {
+    "field_name": "return_on_invested_capital",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 198
+  },
+  {
+    "field_name": "total_revenue_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 199
+  },
+  {
+    "field_name": "revenue_per_employee",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 200
+  },
+  {
+    "field_name": "total_revenue_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 201
+  },
+  {
+    "field_name": "total_revenue_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 202
+  },
+  {
+    "field_name": "total_revenue_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 203
+  },
+  {
+    "field_name": "sell_gen_admin_exp_other_ratio_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 204
+  },
+  {
+    "field_name": "sell_gen_admin_exp_other_ratio_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 205
+  },
+  {
+    "field_name": "float_shares_outstanding",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 206
+  },
+  {
+    "field_name": "SMA5SMA5SMA5|1SMA5|5SMA5|15SMA5|30SMA5|60SMA5|120SMA5|240SMA5|1WSMA5|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 207
+  },
+  {
+    "field_name": "SMA10SMA10SMA10|1SMA10|5SMA10|15SMA10|30SMA10|60SMA10|120SMA10|240SMA10|1WSMA10|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 208
+  },
+  {
+    "field_name": "SMA20SMA20SMA20|1SMA20|5SMA20|15SMA20|30SMA20|60SMA20|120SMA20|240SMA20|1WSMA20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 209
+  },
+  {
+    "field_name": "SMA30SMA30SMA30|1SMA30|5SMA30|15SMA30|30SMA30|60SMA30|120SMA30|240SMA30|1WSMA30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 210
+  },
+  {
+    "field_name": "SMA50SMA50SMA50|1SMA50|5SMA50|15SMA50|30SMA50|60SMA50|120SMA50|240SMA50|1WSMA50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 211
+  },
+  {
+    "field_name": "SMA100SMA100SMA100|1SMA100|5SMA100|15SMA100|30SMA100|60SMA100|120SMA100|240SMA100|1WSMA100|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 212
+  },
+  {
+    "field_name": "SMA200SMA200SMA200|1SMA200|5SMA200|15SMA200|30SMA200|60SMA200|120SMA200|240SMA200|1WSMA200|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 213
+  },
+  {
+    "field_name": "Stoch.DStoch.DStoch.D|1Stoch.D|5Stoch.D|15Stoch.D|30Stoch.D|60Stoch.D|120Stoch.D|240Stoch.D|1WStoch.D|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 214
+  },
+  {
+    "field_name": "Stoch.KStoch.KStoch.K|1Stoch.K|5Stoch.K|15Stoch.K|30Stoch.K|60Stoch.K|120Stoch.K|240Stoch.K|1WStoch.K|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 215
+  },
+  {
+    "field_name": "Stoch.RSI.KStoch.RSI.KStoch.RSI.K|1Stoch.RSI.K|5Stoch.RSI.K|15Stoch.RSI.K|30Stoch.RSI.K|60Stoch.RSI.K|120Stoch.RSI.K|240Stoch.RSI.K|1WStoch.RSI.K|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 216
+  },
+  {
+    "field_name": "Stoch.RSI.DStoch.RSI.DStoch.RSI.D|1Stoch.RSI.D|5Stoch.RSI.D|15Stoch.RSI.D|30Stoch.RSI.D|60Stoch.RSI.D|120Stoch.RSI.D|240Stoch.RSI.D|1WStoch.RSI.D|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 217
+  },
+  {
+    "field_name": "submarket",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 218
+  },
+  {
+    "field_name": "total_assets_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 219
+  },
+  {
+    "field_name": "total_assets",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 220
+  },
+  {
+    "field_name": "total_assets_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 221
+  },
+  {
+    "field_name": "total_assets_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 222
+  },
+  {
+    "field_name": "total_current_assets",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 223
+  },
+  {
+    "field_name": "total_debt_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 224
+  },
+  {
+    "field_name": "total_debt",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 225
+  },
+  {
+    "field_name": "total_debt_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 226
+  },
+  {
+    "field_name": "total_debt_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 227
+  },
+  {
+    "field_name": "total_liabilities_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 228
+  },
+  {
+    "field_name": "total_liabilities_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 229
+  },
+  {
+    "field_name": "total_revenue",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 230
+  },
+  {
+    "field_name": "total_shares_outstanding_fundamental",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 231
+  },
+  {
+    "field_name": "UOUOUO|1UO|5UO|15UO|30UO|60UO|120UO|240UO|1WUO|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 232
+  },
+  {
+    "field_name": "earnings_release_next_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 233
+  },
+  {
+    "field_name": "Volatility.D",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 234
+  },
+  {
+    "field_name": "Volatility.M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 235
+  },
+  {
+    "field_name": "Volatility.W",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 236
+  },
+  {
+    "field_name": "VWAPVWAPVWAP|1VWAP|5VWAP|15VWAP|30VWAP|60VWAP|120VWAP|240VWAP|1WVWAP|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 237
+  },
+  {
+    "field_name": "VWMAVWMAVWMA|1VWMA|5VWMA|15VWMA|30VWMA|60VWMA|120VWMA|240VWMA|1WVWMA|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 238
+  },
+  {
+    "field_name": "Perf.W",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 239
+  },
+  {
+    "field_name": "W.RW.RW.R|1W.R|5W.R|15W.R|30W.R|60W.R|120W.R|240W.R|1WW.R|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 240
+  },
+  {
+    "field_name": "Perf.Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 241
+  },
+  {
+    "field_name": "Perf.YTD",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 242
+  },
+  {
+    "field_name": "currency",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 243
+  },
+  {
+    "field_name": "total_shares_outstanding",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 244
+  },
+  {
+    "field_name": "market_cap_calc",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 245
+  },
+  {
+    "field_name": "ADRPADRPADRP|1ADRP|5ADRP|15ADRP|30ADRP|60ADRP|120ADRP|240ADRP|1WADRP|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 246
+  },
+  {
+    "field_name": "ADX+DI[1]ADX+DI[1]ADX+DI[1]|1ADX+DI[1]|5ADX+DI[1]|15ADX+DI[1]|30ADX+DI[1]|60ADX+DI[1]|120ADX+DI[1]|240ADX+DI[1]|1WADX+DI[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 247
+  },
+  {
+    "field_name": "ADX+DI_9ADX+DI_9ADX+DI_9|1ADX+DI_9|5ADX+DI_9|15ADX+DI_9|30ADX+DI_9|60ADX+DI_9|120ADX+DI_9|240ADX+DI_9|1WADX+DI_9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 248
+  },
+  {
+    "field_name": "ADX+DI_20ADX+DI_20ADX+DI_20|1ADX+DI_20|5ADX+DI_20|15ADX+DI_20|30ADX+DI_20|60ADX+DI_20|120ADX+DI_20|240ADX+DI_20|1WADX+DI_20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 249
+  },
+  {
+    "field_name": "ADX+DI_100ADX+DI_100|1ADX+DI_100|5ADX+DI_100|15ADX+DI_100|30ADX+DI_100|60ADX+DI_100|120ADX+DI_100|240ADX+DI_100|1WADX+DI_100|1MADX+DI_100",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 250
+  },
+  {
+    "field_name": "ADX+DI_100[1]ADX+DI_100[1]ADX+DI_100[1]|1ADX+DI_100[1]|5ADX+DI_100[1]|15ADX+DI_100[1]|30ADX+DI_100[1]|60ADX+DI_100[1]|120ADX+DI_100[1]|240ADX+DI_100[1]|1WADX+DI_100[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 251
+  },
+  {
+    "field_name": "ADX+DI_50ADX+DI_50ADX+DI_50|1ADX+DI_50|5ADX+DI_50|15ADX+DI_50|30ADX+DI_50|60ADX+DI_50|120ADX+DI_50|240ADX+DI_50|1WADX+DI_50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 252
+  },
+  {
+    "field_name": "ADX+DI_20[1]ADX+DI_20[1]ADX+DI_20[1]|1ADX+DI_20[1]|5ADX+DI_20[1]|15ADX+DI_20[1]|30ADX+DI_20[1]|60ADX+DI_20[1]|120ADX+DI_20[1]|240ADX+DI_20[1]|1WADX+DI_20[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 253
+  },
+  {
+    "field_name": "ADX+DI_50[1]ADX+DI_50[1]ADX+DI_50[1]|1ADX+DI_50[1]|5ADX+DI_50[1]|15ADX+DI_50[1]|30ADX+DI_50[1]|60ADX+DI_50[1]|120ADX+DI_50[1]|240ADX+DI_50[1]|1WADX+DI_50[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 254
+  },
+  {
+    "field_name": "ADX+DI_9[1]ADX+DI_9[1]ADX+DI_9[1]|1ADX+DI_9[1]|5ADX+DI_9[1]|15ADX+DI_9[1]|30ADX+DI_9[1]|60ADX+DI_9[1]|120ADX+DI_9[1]|240ADX+DI_9[1]|1WADX+DI_9[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 255
+  },
+  {
+    "field_name": "ADX-DI[1]ADX-DI[1]ADX-DI[1]|1ADX-DI[1]|5ADX-DI[1]|15ADX-DI[1]|30ADX-DI[1]|60ADX-DI[1]|120ADX-DI[1]|240ADX-DI[1]|1WADX-DI[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 256
+  },
+  {
+    "field_name": "ADX-DI_9ADX-DI_9ADX-DI_9|1ADX-DI_9|5ADX-DI_9|15ADX-DI_9|30ADX-DI_9|60ADX-DI_9|120ADX-DI_9|240ADX-DI_9|1WADX-DI_9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 257
+  },
+  {
+    "field_name": "ADX-DI_20ADX-DI_20ADX-DI_20|1ADX-DI_20|5ADX-DI_20|15ADX-DI_20|30ADX-DI_20|60ADX-DI_20|120ADX-DI_20|240ADX-DI_20|1WADX-DI_20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 258
+  },
+  {
+    "field_name": "ADX-DI_100ADX-DI_100|1ADX-DI_100|5ADX-DI_100|15ADX-DI_100|30ADX-DI_100|60ADX-DI_100|120ADX-DI_100|240ADX-DI_100|1WADX-DI_100|1MADX-DI_100",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 259
+  },
+  {
+    "field_name": "ADX-DI_100[1]ADX-DI_100[1]ADX-DI_100[1]|1ADX-DI_100[1]|5ADX-DI_100[1]|15ADX-DI_100[1]|30ADX-DI_100[1]|60ADX-DI_100[1]|120ADX-DI_100[1]|240ADX-DI_100[1]|1WADX-DI_100[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 260
+  },
+  {
+    "field_name": "ADX-DI_50ADX-DI_50ADX-DI_50|1ADX-DI_50|5ADX-DI_50|15ADX-DI_50|30ADX-DI_50|60ADX-DI_50|120ADX-DI_50|240ADX-DI_50|1WADX-DI_50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 261
+  },
+  {
+    "field_name": "ADX-DI_20[1]ADX-DI_20[1]ADX-DI_20[1]|1ADX-DI_20[1]|5ADX-DI_20[1]|15ADX-DI_20[1]|30ADX-DI_20[1]|60ADX-DI_20[1]|120ADX-DI_20[1]|240ADX-DI_20[1]|1WADX-DI_20[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 262
+  },
+  {
+    "field_name": "ADX-DI_50[1]ADX-DI_50[1]ADX-DI_50[1]|1ADX-DI_50[1]|5ADX-DI_50[1]|15ADX-DI_50[1]|30ADX-DI_50[1]|60ADX-DI_50[1]|120ADX-DI_50[1]|240ADX-DI_50[1]|1WADX-DI_50[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 263
+  },
+  {
+    "field_name": "ADX-DI_9[1]ADX-DI_9[1]ADX-DI_9[1]|1ADX-DI_9[1]|5ADX-DI_9[1]|15ADX-DI_9[1]|30ADX-DI_9[1]|60ADX-DI_9[1]|120ADX-DI_9[1]|240ADX-DI_9[1]|1WADX-DI_9[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 264
+  },
+  {
+    "field_name": "ADX_9ADX_9ADX_9|1ADX_9|5ADX_9|15ADX_9|30ADX_9|60ADX_9|120ADX_9|240ADX_9|1WADX_9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 265
+  },
+  {
+    "field_name": "ADX_20ADX_20ADX_20|1ADX_20|5ADX_20|15ADX_20|30ADX_20|60ADX_20|120ADX_20|240ADX_20|1WADX_20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 266
+  },
+  {
+    "field_name": "ADX_100ADX_100|1ADX_100|5ADX_100|15ADX_100|30ADX_100|60ADX_100|120ADX_100|240ADX_100|1WADX_100|1MADX_100",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 267
+  },
+  {
+    "field_name": "ADX_50ADX_50ADX_50|1ADX_50|5ADX_50|15ADX_50|30ADX_50|60ADX_50|120ADX_50|240ADX_50|1WADX_50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 268
+  },
+  {
+    "field_name": "AO[1]AO[1]AO[1]|1AO[1]|5AO[1]|15AO[1]|30AO[1]|60AO[1]|120AO[1]|240AO[1]|1WAO[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 269
+  },
+  {
+    "field_name": "AO[2]AO[2]AO[2]|1AO[2]|5AO[2]|15AO[2]|30AO[2]|60AO[2]|120AO[2]|240AO[2]|1WAO[2]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 270
+  },
+  {
+    "field_name": "ATRPATRPATRP|1ATRP|5ATRP|15ATRP|30ATRP|60ATRP|120ATRP|240ATRP|1WATRP|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 271
+  },
+  {
+    "field_name": "AvgValue.Traded_10d",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 272
+  },
+  {
+    "field_name": "AvgValue.Traded_30d",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 273
+  },
+  {
+    "field_name": "AvgValue.Traded_60d",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 274
+  },
+  {
+    "field_name": "AvgValue.Traded_90d",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 275
+  },
+  {
+    "field_name": "BB.basisBB.basisBB.basis|1BB.basis|5BB.basis|15BB.basis|30BB.basis|60BB.basis|120BB.basis|240BB.basis|1WBB.basis|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 276
+  },
+  {
+    "field_name": "BB.basis_50BB.basis_50BB.basis_50|1BB.basis_50|5BB.basis_50|15BB.basis_50|30BB.basis_50|60BB.basis_50|120BB.basis_50|240BB.basis_50|1WBB.basis_50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 277
+  },
+  {
+    "field_name": "BB.lower_50BB.lower_50BB.lower_50|1BB.lower_50|5BB.lower_50|15BB.lower_50|30BB.lower_50|60BB.lower_50|120BB.lower_50|240BB.lower_50|1WBB.lower_50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 278
+  },
+  {
+    "field_name": "BB.upper_50BB.upper_50BB.upper_50|1BB.upper_50|5BB.upper_50|15BB.upper_50|30BB.upper_50|60BB.upper_50|120BB.upper_50|240BB.upper_50|1WBB.upper_50|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 279
+  },
+  {
+    "field_name": "CCI20[1]CCI20[1]CCI20[1]|1CCI20[1]|5CCI20[1]|15CCI20[1]|30CCI20[1]|60CCI20[1]|120CCI20[1]|240CCI20[1]|1WCCI20[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 280
+  },
+  {
+    "field_name": "Candle.3BlackCrowsCandle.3BlackCrowsCandle.3BlackCrows|1Candle.3BlackCrows|5Candle.3BlackCrows|15Candle.3BlackCrows|30Candle.3BlackCrows|60Candle.3BlackCrows|120Candle.3BlackCrows|240Candle.3BlackCrows|1WCandle.3BlackCrows|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 281
+  },
+  {
+    "field_name": "Candle.3WhiteSoldiersCandle.3WhiteSoldiersCandle.3WhiteSoldiers|1Candle.3WhiteSoldiers|5Candle.3WhiteSoldiers|15Candle.3WhiteSoldiers|30Candle.3WhiteSoldiers|60Candle.3WhiteSoldiers|120Candle.3WhiteSoldiers|240Candle.3WhiteSoldiers|1WCandle.3WhiteSoldiers|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 282
+  },
+  {
+    "field_name": "Candle.AbandonedBaby.BearishCandle.AbandonedBaby.BearishCandle.AbandonedBaby.Bearish|1Candle.AbandonedBaby.Bearish|5Candle.AbandonedBaby.Bearish|15Candle.AbandonedBaby.Bearish|30Candle.AbandonedBaby.Bearish|60Candle.AbandonedBaby.Bearish|120Candle.AbandonedBaby.Bearish|240Candle.AbandonedBaby.Bearish|1WCandle.AbandonedBaby.Bearish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 283
+  },
+  {
+    "field_name": "Candle.AbandonedBaby.BullishCandle.AbandonedBaby.BullishCandle.AbandonedBaby.Bullish|1Candle.AbandonedBaby.Bullish|5Candle.AbandonedBaby.Bullish|15Candle.AbandonedBaby.Bullish|30Candle.AbandonedBaby.Bullish|60Candle.AbandonedBaby.Bullish|120Candle.AbandonedBaby.Bullish|240Candle.AbandonedBaby.Bullish|1WCandle.AbandonedBaby.Bullish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 284
+  },
+  {
+    "field_name": "Candle.DojiCandle.DojiCandle.Doji|1Candle.Doji|5Candle.Doji|15Candle.Doji|30Candle.Doji|60Candle.Doji|120Candle.Doji|240Candle.Doji|1WCandle.Doji|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 285
+  },
+  {
+    "field_name": "Candle.Doji.DragonflyCandle.Doji.DragonflyCandle.Doji.Dragonfly|1Candle.Doji.Dragonfly|5Candle.Doji.Dragonfly|15Candle.Doji.Dragonfly|30Candle.Doji.Dragonfly|60Candle.Doji.Dragonfly|120Candle.Doji.Dragonfly|240Candle.Doji.Dragonfly|1WCandle.Doji.Dragonfly|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 286
+  },
+  {
+    "field_name": "Candle.Doji.GravestoneCandle.Doji.GravestoneCandle.Doji.Gravestone|1Candle.Doji.Gravestone|5Candle.Doji.Gravestone|15Candle.Doji.Gravestone|30Candle.Doji.Gravestone|60Candle.Doji.Gravestone|120Candle.Doji.Gravestone|240Candle.Doji.Gravestone|1WCandle.Doji.Gravestone|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 287
+  },
+  {
+    "field_name": "Candle.Engulfing.BearishCandle.Engulfing.BearishCandle.Engulfing.Bearish|1Candle.Engulfing.Bearish|5Candle.Engulfing.Bearish|15Candle.Engulfing.Bearish|30Candle.Engulfing.Bearish|60Candle.Engulfing.Bearish|120Candle.Engulfing.Bearish|240Candle.Engulfing.Bearish|1WCandle.Engulfing.Bearish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 288
+  },
+  {
+    "field_name": "Candle.Engulfing.BullishCandle.Engulfing.BullishCandle.Engulfing.Bullish|1Candle.Engulfing.Bullish|5Candle.Engulfing.Bullish|15Candle.Engulfing.Bullish|30Candle.Engulfing.Bullish|60Candle.Engulfing.Bullish|120Candle.Engulfing.Bullish|240Candle.Engulfing.Bullish|1WCandle.Engulfing.Bullish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 289
+  },
+  {
+    "field_name": "Candle.EveningStarCandle.EveningStarCandle.EveningStar|1Candle.EveningStar|5Candle.EveningStar|15Candle.EveningStar|30Candle.EveningStar|60Candle.EveningStar|120Candle.EveningStar|240Candle.EveningStar|1WCandle.EveningStar|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 290
+  },
+  {
+    "field_name": "Candle.HammerCandle.HammerCandle.Hammer|1Candle.Hammer|5Candle.Hammer|15Candle.Hammer|30Candle.Hammer|60Candle.Hammer|120Candle.Hammer|240Candle.Hammer|1WCandle.Hammer|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 291
+  },
+  {
+    "field_name": "Candle.HangingManCandle.HangingManCandle.HangingMan|1Candle.HangingMan|5Candle.HangingMan|15Candle.HangingMan|30Candle.HangingMan|60Candle.HangingMan|120Candle.HangingMan|240Candle.HangingMan|1WCandle.HangingMan|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 292
+  },
+  {
+    "field_name": "Candle.Harami.BearishCandle.Harami.BearishCandle.Harami.Bearish|1Candle.Harami.Bearish|5Candle.Harami.Bearish|15Candle.Harami.Bearish|30Candle.Harami.Bearish|60Candle.Harami.Bearish|120Candle.Harami.Bearish|240Candle.Harami.Bearish|1WCandle.Harami.Bearish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 293
+  },
+  {
+    "field_name": "Candle.Harami.BullishCandle.Harami.BullishCandle.Harami.Bullish|1Candle.Harami.Bullish|5Candle.Harami.Bullish|15Candle.Harami.Bullish|30Candle.Harami.Bullish|60Candle.Harami.Bullish|120Candle.Harami.Bullish|240Candle.Harami.Bullish|1WCandle.Harami.Bullish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 294
+  },
+  {
+    "field_name": "Candle.InvertedHammerCandle.InvertedHammerCandle.InvertedHammer|1Candle.InvertedHammer|5Candle.InvertedHammer|15Candle.InvertedHammer|30Candle.InvertedHammer|60Candle.InvertedHammer|120Candle.InvertedHammer|240Candle.InvertedHammer|1WCandle.InvertedHammer|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 295
+  },
+  {
+    "field_name": "Candle.Kicking.BearishCandle.Kicking.BearishCandle.Kicking.Bearish|1Candle.Kicking.Bearish|5Candle.Kicking.Bearish|15Candle.Kicking.Bearish|30Candle.Kicking.Bearish|60Candle.Kicking.Bearish|120Candle.Kicking.Bearish|240Candle.Kicking.Bearish|1WCandle.Kicking.Bearish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 296
+  },
+  {
+    "field_name": "Candle.Kicking.BullishCandle.Kicking.BullishCandle.Kicking.Bullish|1Candle.Kicking.Bullish|5Candle.Kicking.Bullish|15Candle.Kicking.Bullish|30Candle.Kicking.Bullish|60Candle.Kicking.Bullish|120Candle.Kicking.Bullish|240Candle.Kicking.Bullish|1WCandle.Kicking.Bullish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 297
+  },
+  {
+    "field_name": "Candle.LongShadow.LowerCandle.LongShadow.LowerCandle.LongShadow.Lower|1Candle.LongShadow.Lower|5Candle.LongShadow.Lower|15Candle.LongShadow.Lower|30Candle.LongShadow.Lower|60Candle.LongShadow.Lower|120Candle.LongShadow.Lower|240Candle.LongShadow.Lower|1WCandle.LongShadow.Lower|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 298
+  },
+  {
+    "field_name": "Candle.LongShadow.UpperCandle.LongShadow.UpperCandle.LongShadow.Upper|1Candle.LongShadow.Upper|5Candle.LongShadow.Upper|15Candle.LongShadow.Upper|30Candle.LongShadow.Upper|60Candle.LongShadow.Upper|120Candle.LongShadow.Upper|240Candle.LongShadow.Upper|1WCandle.LongShadow.Upper|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 299
+  },
+  {
+    "field_name": "Candle.Marubozu.BlackCandle.Marubozu.BlackCandle.Marubozu.Black|1Candle.Marubozu.Black|5Candle.Marubozu.Black|15Candle.Marubozu.Black|30Candle.Marubozu.Black|60Candle.Marubozu.Black|120Candle.Marubozu.Black|240Candle.Marubozu.Black|1WCandle.Marubozu.Black|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 300
+  },
+  {
+    "field_name": "Candle.Marubozu.WhiteCandle.Marubozu.WhiteCandle.Marubozu.White|1Candle.Marubozu.White|5Candle.Marubozu.White|15Candle.Marubozu.White|30Candle.Marubozu.White|60Candle.Marubozu.White|120Candle.Marubozu.White|240Candle.Marubozu.White|1WCandle.Marubozu.White|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 301
+  },
+  {
+    "field_name": "Candle.MorningStarCandle.MorningStarCandle.MorningStar|1Candle.MorningStar|5Candle.MorningStar|15Candle.MorningStar|30Candle.MorningStar|60Candle.MorningStar|120Candle.MorningStar|240Candle.MorningStar|1WCandle.MorningStar|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 302
+  },
+  {
+    "field_name": "Candle.ShootingStarCandle.ShootingStarCandle.ShootingStar|1Candle.ShootingStar|5Candle.ShootingStar|15Candle.ShootingStar|30Candle.ShootingStar|60Candle.ShootingStar|120Candle.ShootingStar|240Candle.ShootingStar|1WCandle.ShootingStar|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 303
+  },
+  {
+    "field_name": "Candle.SpinningTop.BlackCandle.SpinningTop.BlackCandle.SpinningTop.Black|1Candle.SpinningTop.Black|5Candle.SpinningTop.Black|15Candle.SpinningTop.Black|30Candle.SpinningTop.Black|60Candle.SpinningTop.Black|120Candle.SpinningTop.Black|240Candle.SpinningTop.Black|1WCandle.SpinningTop.Black|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 304
+  },
+  {
+    "field_name": "Candle.SpinningTop.WhiteCandle.SpinningTop.WhiteCandle.SpinningTop.White|1Candle.SpinningTop.White|5Candle.SpinningTop.White|15Candle.SpinningTop.White|30Candle.SpinningTop.White|60Candle.SpinningTop.White|120Candle.SpinningTop.White|240Candle.SpinningTop.White|1WCandle.SpinningTop.White|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 305
+  },
+  {
+    "field_name": "Candle.TriStar.BearishCandle.TriStar.BearishCandle.TriStar.Bearish|1Candle.TriStar.Bearish|5Candle.TriStar.Bearish|15Candle.TriStar.Bearish|30Candle.TriStar.Bearish|60Candle.TriStar.Bearish|120Candle.TriStar.Bearish|240Candle.TriStar.Bearish|1WCandle.TriStar.Bearish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 306
+  },
+  {
+    "field_name": "Candle.TriStar.BullishCandle.TriStar.BullishCandle.TriStar.Bullish|1Candle.TriStar.Bullish|5Candle.TriStar.Bullish|15Candle.TriStar.Bullish|30Candle.TriStar.Bullish|60Candle.TriStar.Bullish|120Candle.TriStar.Bullish|240Candle.TriStar.Bullish|1WCandle.TriStar.Bullish|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 307
+  },
+  {
+    "field_name": "DonchCh20.MiddleDonchCh20.MiddleDonchCh20.Middle|1DonchCh20.Middle|5DonchCh20.Middle|15DonchCh20.Middle|30DonchCh20.Middle|60DonchCh20.Middle|120DonchCh20.Middle|240DonchCh20.Middle|1WDonchCh20.Middle|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 308
+  },
+  {
+    "field_name": "EMA2EMA2EMA2|1EMA2|5EMA2|15EMA2|30EMA2|60EMA2|120EMA2|240EMA2|1WEMA2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 309
+  },
+  {
+    "field_name": "EMA3EMA3EMA3|1EMA3|5EMA3|15EMA3|30EMA3|60EMA3|120EMA3|240EMA3|1WEMA3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 310
+  },
+  {
+    "field_name": "EMA6EMA6EMA6|1EMA6|5EMA6|15EMA6|30EMA6|60EMA6|120EMA6|240EMA6|1WEMA6|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 311
+  },
+  {
+    "field_name": "EMA7EMA7EMA7|1EMA7|5EMA7|15EMA7|30EMA7|60EMA7|120EMA7|240EMA7|1WEMA7|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 312
+  },
+  {
+    "field_name": "EMA8EMA8EMA8|1EMA8|5EMA8|15EMA8|30EMA8|60EMA8|120EMA8|240EMA8|1WEMA8|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 313
+  },
+  {
+    "field_name": "EMA9EMA9EMA9|1EMA9|5EMA9|15EMA9|30EMA9|60EMA9|120EMA9|240EMA9|1WEMA9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 314
+  },
+  {
+    "field_name": "EMA12EMA12EMA12|1EMA12|5EMA12|15EMA12|30EMA12|60EMA12|120EMA12|240EMA12|1WEMA12|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 315
+  },
+  {
+    "field_name": "EMA13EMA13EMA13|1EMA13|5EMA13|15EMA13|30EMA13|60EMA13|120EMA13|240EMA13|1WEMA13|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 316
+  },
+  {
+    "field_name": "EMA14EMA14EMA14|1EMA14|5EMA14|15EMA14|30EMA14|60EMA14|120EMA14|240EMA14|1WEMA14|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 317
+  },
+  {
+    "field_name": "EMA15EMA15EMA15|1EMA15|5EMA15|15EMA15|30EMA15|60EMA15|120EMA15|240EMA15|1WEMA15|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 318
+  },
+  {
+    "field_name": "EMA21EMA21EMA21|1EMA21|5EMA21|15EMA21|30EMA21|60EMA21|120EMA21|240EMA21|1WEMA21|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 319
+  },
+  {
+    "field_name": "EMA25EMA25EMA25|1EMA25|5EMA25|15EMA25|30EMA25|60EMA25|120EMA25|240EMA25|1WEMA25|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 320
+  },
+  {
+    "field_name": "EMA26EMA26EMA26|1EMA26|5EMA26|15EMA26|30EMA26|60EMA26|120EMA26|240EMA26|1WEMA26|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 321
+  },
+  {
+    "field_name": "EMA34EMA34EMA34|1EMA34|5EMA34|15EMA34|30EMA34|60EMA34|120EMA34|240EMA34|1WEMA34|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 322
+  },
+  {
+    "field_name": "EMA40EMA40EMA40|1EMA40|5EMA40|15EMA40|30EMA40|60EMA40|120EMA40|240EMA40|1WEMA40|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 323
+  },
+  {
+    "field_name": "EMA120EMA120|1EMA120|5EMA120|15EMA120|30EMA120|60EMA120|120EMA120|240EMA120|1WEMA120|1MEMA120",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 324
+  },
+  {
+    "field_name": "EMA144EMA144|1EMA144|5EMA144|15EMA144|30EMA144|60EMA144|120EMA144|240EMA144|1WEMA144|1MEMA144",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 325
+  },
+  {
+    "field_name": "EMA150EMA150|1EMA150|5EMA150|15EMA150|30EMA150|60EMA150|120EMA150|240EMA150|1WEMA150|1MEMA150",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 326
+  },
+  {
+    "field_name": "EMA250EMA250|1EMA250|5EMA250|15EMA250|30EMA250|60EMA250|120EMA250|240EMA250|1WEMA250|1MEMA250",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 327
+  },
+  {
+    "field_name": "EMA300EMA300|1EMA300|5EMA300|15EMA300|30EMA300|60EMA300|120EMA300|240EMA300|1WEMA300|1MEMA300",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 328
+  },
+  {
+    "field_name": "EMA55EMA55|1EMA55|5EMA55|15EMA55|30EMA55|60EMA55|120EMA55|240EMA55|1WEMA55|1MEMA55",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 329
+  },
+  {
+    "field_name": "EMA60EMA60|1EMA60|5EMA60|15EMA60|30EMA60|60EMA60|120EMA60|240EMA60|1WEMA60|1MEMA60",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 330
+  },
+  {
+    "field_name": "EMA75EMA75|1EMA75|5EMA75|15EMA75|30EMA75|60EMA75|120EMA75|240EMA75|1WEMA75|1MEMA75",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 331
+  },
+  {
+    "field_name": "EMA89EMA89|1EMA89|5EMA89|15EMA89|30EMA89|60EMA89|120EMA89|240EMA89|1WEMA89|1MEMA89",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 332
+  },
+  {
+    "field_name": "High.1M.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 333
+  },
+  {
+    "field_name": "High.3M.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 334
+  },
+  {
+    "field_name": "High.5D",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 335
+  },
+  {
+    "field_name": "High.6M.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 336
+  },
+  {
+    "field_name": "High.All.Calc",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 337
+  },
+  {
+    "field_name": "High.All.Calc.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 338
+  },
+  {
+    "field_name": "High.All.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 339
+  },
+  {
+    "field_name": "HullMA20HullMA20HullMA20|1HullMA20|5HullMA20|15HullMA20|30HullMA20|60HullMA20|120HullMA20|240HullMA20|1WHullMA20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 340
+  },
+  {
+    "field_name": "HullMA200HullMA200|1HullMA200|5HullMA200|15HullMA200|30HullMA200|60HullMA200|120HullMA200|240HullMA200|1WHullMA200|1MHullMA200",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 341
+  },
+  {
+    "field_name": "Ichimoku.BLine_20_60_120_30Ichimoku.BLine_20_60_120_30Ichimoku.BLine_20_60_120_30|1Ichimoku.BLine_20_60_120_30|5Ichimoku.BLine_20_60_120_30|15Ichimoku.BLine_20_60_120_30|30Ichimoku.BLine_20_60_120_30|60Ichimoku.BLine_20_60_120_30|120Ichimoku.BLine_20_60_120_30|240Ichimoku.BLine_20_60_120_30|1WIchimoku.BLine_20_60_120_30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 342
+  },
+  {
+    "field_name": "Ichimoku.CLine_20_60_120_30Ichimoku.CLine_20_60_120_30Ichimoku.CLine_20_60_120_30|1Ichimoku.CLine_20_60_120_30|5Ichimoku.CLine_20_60_120_30|15Ichimoku.CLine_20_60_120_30|30Ichimoku.CLine_20_60_120_30|60Ichimoku.CLine_20_60_120_30|120Ichimoku.CLine_20_60_120_30|240Ichimoku.CLine_20_60_120_30|1WIchimoku.CLine_20_60_120_30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 343
+  },
+  {
+    "field_name": "Ichimoku.Lead1_20_60_120_30Ichimoku.Lead1_20_60_120_30Ichimoku.Lead1_20_60_120_30|1Ichimoku.Lead1_20_60_120_30|5Ichimoku.Lead1_20_60_120_30|15Ichimoku.Lead1_20_60_120_30|30Ichimoku.Lead1_20_60_120_30|60Ichimoku.Lead1_20_60_120_30|120Ichimoku.Lead1_20_60_120_30|240Ichimoku.Lead1_20_60_120_30|1WIchimoku.Lead1_20_60_120_30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 344
+  },
+  {
+    "field_name": "Ichimoku.Lead2_20_60_120_30Ichimoku.Lead2_20_60_120_30Ichimoku.Lead2_20_60_120_30|1Ichimoku.Lead2_20_60_120_30|5Ichimoku.Lead2_20_60_120_30|15Ichimoku.Lead2_20_60_120_30|30Ichimoku.Lead2_20_60_120_30|60Ichimoku.Lead2_20_60_120_30|120Ichimoku.Lead2_20_60_120_30|240Ichimoku.Lead2_20_60_120_30|1WIchimoku.Lead2_20_60_120_30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 345
+  },
+  {
+    "field_name": "KltChnl.basisKltChnl.basisKltChnl.basis|1KltChnl.basis|5KltChnl.basis|15KltChnl.basis|30KltChnl.basis|60KltChnl.basis|120KltChnl.basis|240KltChnl.basis|1WKltChnl.basis|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 346
+  },
+  {
+    "field_name": "Low.1M.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 347
+  },
+  {
+    "field_name": "Low.3M.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 348
+  },
+  {
+    "field_name": "Low.5D",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 349
+  },
+  {
+    "field_name": "Low.6M.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 350
+  },
+  {
+    "field_name": "Low.After.High.All",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 351
+  },
+  {
+    "field_name": "Low.All.Calc",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 352
+  },
+  {
+    "field_name": "Low.All.Calc.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 353
+  },
+  {
+    "field_name": "Low.All.Date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 354
+  },
+  {
+    "field_name": "MACD.histMACD.histMACD.hist|1MACD.hist|5MACD.hist|15MACD.hist|30MACD.hist|60MACD.hist|120MACD.hist|240MACD.hist|1WMACD.hist|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 355
+  },
+  {
+    "field_name": "Mom[1]Mom[1]Mom[1]|1Mom[1]|5Mom[1]|15Mom[1]|30Mom[1]|60Mom[1]|120Mom[1]|240Mom[1]|1WMom[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 356
+  },
+  {
+    "field_name": "Mom_14Mom_14Mom_14|1Mom_14|5Mom_14|15Mom_14|30Mom_14|60Mom_14|120Mom_14|240Mom_14|1WMom_14|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 357
+  },
+  {
+    "field_name": "Mom_14[1]Mom_14[1]Mom_14[1]|1Mom_14[1]|5Mom_14[1]|15Mom_14[1]|30Mom_14[1]|60Mom_14[1]|120Mom_14[1]|240Mom_14[1]|1WMom_14[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 358
+  },
+  {
+    "field_name": "Open.All.Calc",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 359
+  },
+  {
+    "field_name": "Perf.10Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 360
+  },
+  {
+    "field_name": "Perf.1M.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 361
+  },
+  {
+    "field_name": "Perf.1W.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 362
+  },
+  {
+    "field_name": "Perf.1Y.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 363
+  },
+  {
+    "field_name": "Perf.3M.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 364
+  },
+  {
+    "field_name": "Perf.3Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 365
+  },
+  {
+    "field_name": "Perf.5D",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 366
+  },
+  {
+    "field_name": "Perf.5Y.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 367
+  },
+  {
+    "field_name": "Perf.6M.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 368
+  },
+  {
+    "field_name": "Perf.YTD.MarketCap",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 369
+  },
+  {
+    "field_name": "RSI2RSI2RSI2|1RSI2|5RSI2|15RSI2|30RSI2|60RSI2|120RSI2|240RSI2|1WRSI2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 370
+  },
+  {
+    "field_name": "RSI3RSI3RSI3|1RSI3|5RSI3|15RSI3|30RSI3|60RSI3|120RSI3|240RSI3|1WRSI3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 371
+  },
+  {
+    "field_name": "RSI4RSI4RSI4|1RSI4|5RSI4|15RSI4|30RSI4|60RSI4|120RSI4|240RSI4|1WRSI4|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 372
+  },
+  {
+    "field_name": "RSI5RSI5RSI5|1RSI5|5RSI5|15RSI5|30RSI5|60RSI5|120RSI5|240RSI5|1WRSI5|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 373
+  },
+  {
+    "field_name": "RSI9RSI9RSI9|1RSI9|5RSI9|15RSI9|30RSI9|60RSI9|120RSI9|240RSI9|1WRSI9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 374
+  },
+  {
+    "field_name": "RSI10RSI10RSI10|1RSI10|5RSI10|15RSI10|30RSI10|60RSI10|120RSI10|240RSI10|1WRSI10|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 375
+  },
+  {
+    "field_name": "RSI20RSI20RSI20|1RSI20|5RSI20|15RSI20|30RSI20|60RSI20|120RSI20|240RSI20|1WRSI20|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 376
+  },
+  {
+    "field_name": "RSI21RSI21RSI21|1RSI21|5RSI21|15RSI21|30RSI21|60RSI21|120RSI21|240RSI21|1WRSI21|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 377
+  },
+  {
+    "field_name": "RSI30RSI30RSI30|1RSI30|5RSI30|15RSI30|30RSI30|60RSI30|120RSI30|240RSI30|1WRSI30|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 378
+  },
+  {
+    "field_name": "RSI10[1]RSI10[1]RSI10[1]|1RSI10[1]|5RSI10[1]|15RSI10[1]|30RSI10[1]|60RSI10[1]|120RSI10[1]|240RSI10[1]|1WRSI10[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 379
+  },
+  {
+    "field_name": "RSI20[1]RSI20[1]RSI20[1]|1RSI20[1]|5RSI20[1]|15RSI20[1]|30RSI20[1]|60RSI20[1]|120RSI20[1]|240RSI20[1]|1WRSI20[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 380
+  },
+  {
+    "field_name": "RSI21[1]RSI21[1]RSI21[1]|1RSI21[1]|5RSI21[1]|15RSI21[1]|30RSI21[1]|60RSI21[1]|120RSI21[1]|240RSI21[1]|1WRSI21[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 381
+  },
+  {
+    "field_name": "RSI2[1]RSI2[1]RSI2[1]|1RSI2[1]|5RSI2[1]|15RSI2[1]|30RSI2[1]|60RSI2[1]|120RSI2[1]|240RSI2[1]|1WRSI2[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 382
+  },
+  {
+    "field_name": "RSI30[1]RSI30[1]RSI30[1]|1RSI30[1]|5RSI30[1]|15RSI30[1]|30RSI30[1]|60RSI30[1]|120RSI30[1]|240RSI30[1]|1WRSI30[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 383
+  },
+  {
+    "field_name": "RSI3[1]RSI3[1]RSI3[1]|1RSI3[1]|5RSI3[1]|15RSI3[1]|30RSI3[1]|60RSI3[1]|120RSI3[1]|240RSI3[1]|1WRSI3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 384
+  },
+  {
+    "field_name": "RSI4[1]RSI4[1]RSI4[1]|1RSI4[1]|5RSI4[1]|15RSI4[1]|30RSI4[1]|60RSI4[1]|120RSI4[1]|240RSI4[1]|1WRSI4[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 385
+  },
+  {
+    "field_name": "RSI5[1]RSI5[1]RSI5[1]|1RSI5[1]|5RSI5[1]|15RSI5[1]|30RSI5[1]|60RSI5[1]|120RSI5[1]|240RSI5[1]|1WRSI5[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 386
+  },
+  {
+    "field_name": "RSI7[1]RSI7[1]RSI7[1]|1RSI7[1]|5RSI7[1]|15RSI7[1]|30RSI7[1]|60RSI7[1]|120RSI7[1]|240RSI7[1]|1WRSI7[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 387
+  },
+  {
+    "field_name": "RSI9[1]RSI9[1]RSI9[1]|1RSI9[1]|5RSI9[1]|15RSI9[1]|30RSI9[1]|60RSI9[1]|120RSI9[1]|240RSI9[1]|1WRSI9[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 388
+  },
+  {
+    "field_name": "RSI[1]RSI[1]RSI[1]|1RSI[1]|5RSI[1]|15RSI[1]|30RSI[1]|60RSI[1]|120RSI[1]|240RSI[1]|1WRSI[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 389
+  },
+  {
+    "field_name": "Rec.BBPowerRec.BBPowerRec.BBPower|1Rec.BBPower|5Rec.BBPower|15Rec.BBPower|30Rec.BBPower|60Rec.BBPower|120Rec.BBPower|240Rec.BBPower|1WRec.BBPower|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 390
+  },
+  {
+    "field_name": "Rec.HullMA9Rec.HullMA9Rec.HullMA9|1Rec.HullMA9|5Rec.HullMA9|15Rec.HullMA9|30Rec.HullMA9|60Rec.HullMA9|120Rec.HullMA9|240Rec.HullMA9|1WRec.HullMA9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 391
+  },
+  {
+    "field_name": "Rec.IchimokuRec.IchimokuRec.Ichimoku|1Rec.Ichimoku|5Rec.Ichimoku|15Rec.Ichimoku|30Rec.Ichimoku|60Rec.Ichimoku|120Rec.Ichimoku|240Rec.Ichimoku|1WRec.Ichimoku|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 392
+  },
+  {
+    "field_name": "Rec.Stoch.RSIRec.Stoch.RSIRec.Stoch.RSI|1Rec.Stoch.RSI|5Rec.Stoch.RSI|15Rec.Stoch.RSI|30Rec.Stoch.RSI|60Rec.Stoch.RSI|120Rec.Stoch.RSI|240Rec.Stoch.RSI|1WRec.Stoch.RSI|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 393
+  },
+  {
+    "field_name": "Rec.UORec.UORec.UO|1Rec.UO|5Rec.UO|15Rec.UO|30Rec.UO|60Rec.UO|120Rec.UO|240Rec.UO|1WRec.UO|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 394
+  },
+  {
+    "field_name": "Rec.VWMARec.VWMARec.VWMA|1Rec.VWMA|5Rec.VWMA|15Rec.VWMA|30Rec.VWMA|60Rec.VWMA|120Rec.VWMA|240Rec.VWMA|1WRec.VWMA|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 395
+  },
+  {
+    "field_name": "Rec.WRRec.WRRec.WR|1Rec.WR|5Rec.WR|15Rec.WR|30Rec.WR|60Rec.WR|120Rec.WR|240Rec.WR|1WRec.WR|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 396
+  },
+  {
+    "field_name": "SMA2SMA2SMA2|1SMA2|5SMA2|15SMA2|30SMA2|60SMA2|120SMA2|240SMA2|1WSMA2|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 397
+  },
+  {
+    "field_name": "SMA3SMA3SMA3|1SMA3|5SMA3|15SMA3|30SMA3|60SMA3|120SMA3|240SMA3|1WSMA3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 398
+  },
+  {
+    "field_name": "SMA6SMA6SMA6|1SMA6|5SMA6|15SMA6|30SMA6|60SMA6|120SMA6|240SMA6|1WSMA6|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 399
+  },
+  {
+    "field_name": "SMA7SMA7SMA7|1SMA7|5SMA7|15SMA7|30SMA7|60SMA7|120SMA7|240SMA7|1WSMA7|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 400
+  },
+  {
+    "field_name": "SMA8SMA8SMA8|1SMA8|5SMA8|15SMA8|30SMA8|60SMA8|120SMA8|240SMA8|1WSMA8|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 401
+  },
+  {
+    "field_name": "SMA9SMA9SMA9|1SMA9|5SMA9|15SMA9|30SMA9|60SMA9|120SMA9|240SMA9|1WSMA9|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 402
+  },
+  {
+    "field_name": "SMA12SMA12SMA12|1SMA12|5SMA12|15SMA12|30SMA12|60SMA12|120SMA12|240SMA12|1WSMA12|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 403
+  },
+  {
+    "field_name": "SMA13SMA13SMA13|1SMA13|5SMA13|15SMA13|30SMA13|60SMA13|120SMA13|240SMA13|1WSMA13|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 404
+  },
+  {
+    "field_name": "SMA14SMA14SMA14|1SMA14|5SMA14|15SMA14|30SMA14|60SMA14|120SMA14|240SMA14|1WSMA14|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 405
+  },
+  {
+    "field_name": "SMA15SMA15SMA15|1SMA15|5SMA15|15SMA15|30SMA15|60SMA15|120SMA15|240SMA15|1WSMA15|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 406
+  },
+  {
+    "field_name": "SMA21SMA21SMA21|1SMA21|5SMA21|15SMA21|30SMA21|60SMA21|120SMA21|240SMA21|1WSMA21|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 407
+  },
+  {
+    "field_name": "SMA25SMA25SMA25|1SMA25|5SMA25|15SMA25|30SMA25|60SMA25|120SMA25|240SMA25|1WSMA25|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 408
+  },
+  {
+    "field_name": "SMA26SMA26SMA26|1SMA26|5SMA26|15SMA26|30SMA26|60SMA26|120SMA26|240SMA26|1WSMA26|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 409
+  },
+  {
+    "field_name": "SMA34SMA34SMA34|1SMA34|5SMA34|15SMA34|30SMA34|60SMA34|120SMA34|240SMA34|1WSMA34|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 410
+  },
+  {
+    "field_name": "SMA40SMA40SMA40|1SMA40|5SMA40|15SMA40|30SMA40|60SMA40|120SMA40|240SMA40|1WSMA40|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 411
+  },
+  {
+    "field_name": "SMA120SMA120|1SMA120|5SMA120|15SMA120|30SMA120|60SMA120|120SMA120|240SMA120|1WSMA120|1MSMA120",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 412
+  },
+  {
+    "field_name": "SMA144SMA144|1SMA144|5SMA144|15SMA144|30SMA144|60SMA144|120SMA144|240SMA144|1WSMA144|1MSMA144",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 413
+  },
+  {
+    "field_name": "SMA150SMA150|1SMA150|5SMA150|15SMA150|30SMA150|60SMA150|120SMA150|240SMA150|1WSMA150|1MSMA150",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 414
+  },
+  {
+    "field_name": "SMA250SMA250|1SMA250|5SMA250|15SMA250|30SMA250|60SMA250|120SMA250|240SMA250|1WSMA250|1MSMA250",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 415
+  },
+  {
+    "field_name": "SMA300SMA300|1SMA300|5SMA300|15SMA300|30SMA300|60SMA300|120SMA300|240SMA300|1WSMA300|1MSMA300",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 416
+  },
+  {
+    "field_name": "SMA55SMA55|1SMA55|5SMA55|15SMA55|30SMA55|60SMA55|120SMA55|240SMA55|1WSMA55|1MSMA55",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 417
+  },
+  {
+    "field_name": "SMA60SMA60|1SMA60|5SMA60|15SMA60|30SMA60|60SMA60|120SMA60|240SMA60|1WSMA60|1MSMA60",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 418
+  },
+  {
+    "field_name": "SMA75SMA75|1SMA75|5SMA75|15SMA75|30SMA75|60SMA75|120SMA75|240SMA75|1WSMA75|1MSMA75",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 419
+  },
+  {
+    "field_name": "SMA89SMA89|1SMA89|5SMA89|15SMA89|30SMA89|60SMA89|120SMA89|240SMA89|1WSMA89|1MSMA89",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 420
+  },
+  {
+    "field_name": "Stoch.D[1]Stoch.D[1]Stoch.D[1]|1Stoch.D[1]|5Stoch.D[1]|15Stoch.D[1]|30Stoch.D[1]|60Stoch.D[1]|120Stoch.D[1]|240Stoch.D[1]|1WStoch.D[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 421
+  },
+  {
+    "field_name": "Stoch.D_14_1_3Stoch.D_14_1_3Stoch.D_14_1_3|1Stoch.D_14_1_3|5Stoch.D_14_1_3|15Stoch.D_14_1_3|30Stoch.D_14_1_3|60Stoch.D_14_1_3|120Stoch.D_14_1_3|240Stoch.D_14_1_3|1WStoch.D_14_1_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 422
+  },
+  {
+    "field_name": "Stoch.D_14_1_3[1]Stoch.D_14_1_3[1]Stoch.D_14_1_3[1]|1Stoch.D_14_1_3[1]|5Stoch.D_14_1_3[1]|15Stoch.D_14_1_3[1]|30Stoch.D_14_1_3[1]|60Stoch.D_14_1_3[1]|120Stoch.D_14_1_3[1]|240Stoch.D_14_1_3[1]|1WStoch.D_14_1_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 423
+  },
+  {
+    "field_name": "Stoch.D_5_3_3Stoch.D_5_3_3Stoch.D_5_3_3|1Stoch.D_5_3_3|5Stoch.D_5_3_3|15Stoch.D_5_3_3|30Stoch.D_5_3_3|60Stoch.D_5_3_3|120Stoch.D_5_3_3|240Stoch.D_5_3_3|1WStoch.D_5_3_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 424
+  },
+  {
+    "field_name": "Stoch.D_5_3_3[1]Stoch.D_5_3_3[1]Stoch.D_5_3_3[1]|1Stoch.D_5_3_3[1]|5Stoch.D_5_3_3[1]|15Stoch.D_5_3_3[1]|30Stoch.D_5_3_3[1]|60Stoch.D_5_3_3[1]|120Stoch.D_5_3_3[1]|240Stoch.D_5_3_3[1]|1WStoch.D_5_3_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 425
+  },
+  {
+    "field_name": "Stoch.D_6_3_3Stoch.D_6_3_3Stoch.D_6_3_3|1Stoch.D_6_3_3|5Stoch.D_6_3_3|15Stoch.D_6_3_3|30Stoch.D_6_3_3|60Stoch.D_6_3_3|120Stoch.D_6_3_3|240Stoch.D_6_3_3|1WStoch.D_6_3_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 426
+  },
+  {
+    "field_name": "Stoch.D_6_3_3[1]Stoch.D_6_3_3[1]Stoch.D_6_3_3[1]|1Stoch.D_6_3_3[1]|5Stoch.D_6_3_3[1]|15Stoch.D_6_3_3[1]|30Stoch.D_6_3_3[1]|60Stoch.D_6_3_3[1]|120Stoch.D_6_3_3[1]|240Stoch.D_6_3_3[1]|1WStoch.D_6_3_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 427
+  },
+  {
+    "field_name": "Stoch.D_8_3_3Stoch.D_8_3_3Stoch.D_8_3_3|1Stoch.D_8_3_3|5Stoch.D_8_3_3|15Stoch.D_8_3_3|30Stoch.D_8_3_3|60Stoch.D_8_3_3|120Stoch.D_8_3_3|240Stoch.D_8_3_3|1WStoch.D_8_3_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 428
+  },
+  {
+    "field_name": "Stoch.D_8_3_3[1]Stoch.D_8_3_3[1]Stoch.D_8_3_3[1]|1Stoch.D_8_3_3[1]|5Stoch.D_8_3_3[1]|15Stoch.D_8_3_3[1]|30Stoch.D_8_3_3[1]|60Stoch.D_8_3_3[1]|120Stoch.D_8_3_3[1]|240Stoch.D_8_3_3[1]|1WStoch.D_8_3_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 429
+  },
+  {
+    "field_name": "Stoch.K[1]Stoch.K[1]Stoch.K[1]|1Stoch.K[1]|5Stoch.K[1]|15Stoch.K[1]|30Stoch.K[1]|60Stoch.K[1]|120Stoch.K[1]|240Stoch.K[1]|1WStoch.K[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 430
+  },
+  {
+    "field_name": "Stoch.K_14_1_3Stoch.K_14_1_3Stoch.K_14_1_3|1Stoch.K_14_1_3|5Stoch.K_14_1_3|15Stoch.K_14_1_3|30Stoch.K_14_1_3|60Stoch.K_14_1_3|120Stoch.K_14_1_3|240Stoch.K_14_1_3|1WStoch.K_14_1_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 431
+  },
+  {
+    "field_name": "Stoch.K_14_1_3[1]Stoch.K_14_1_3[1]Stoch.K_14_1_3[1]|1Stoch.K_14_1_3[1]|5Stoch.K_14_1_3[1]|15Stoch.K_14_1_3[1]|30Stoch.K_14_1_3[1]|60Stoch.K_14_1_3[1]|120Stoch.K_14_1_3[1]|240Stoch.K_14_1_3[1]|1WStoch.K_14_1_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 432
+  },
+  {
+    "field_name": "Stoch.K_5_3_3Stoch.K_5_3_3Stoch.K_5_3_3|1Stoch.K_5_3_3|5Stoch.K_5_3_3|15Stoch.K_5_3_3|30Stoch.K_5_3_3|60Stoch.K_5_3_3|120Stoch.K_5_3_3|240Stoch.K_5_3_3|1WStoch.K_5_3_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 433
+  },
+  {
+    "field_name": "Stoch.K_5_3_3[1]Stoch.K_5_3_3[1]Stoch.K_5_3_3[1]|1Stoch.K_5_3_3[1]|5Stoch.K_5_3_3[1]|15Stoch.K_5_3_3[1]|30Stoch.K_5_3_3[1]|60Stoch.K_5_3_3[1]|120Stoch.K_5_3_3[1]|240Stoch.K_5_3_3[1]|1WStoch.K_5_3_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 434
+  },
+  {
+    "field_name": "Stoch.K_6_3_3Stoch.K_6_3_3Stoch.K_6_3_3|1Stoch.K_6_3_3|5Stoch.K_6_3_3|15Stoch.K_6_3_3|30Stoch.K_6_3_3|60Stoch.K_6_3_3|120Stoch.K_6_3_3|240Stoch.K_6_3_3|1WStoch.K_6_3_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 435
+  },
+  {
+    "field_name": "Stoch.K_6_3_3[1]Stoch.K_6_3_3[1]Stoch.K_6_3_3[1]|1Stoch.K_6_3_3[1]|5Stoch.K_6_3_3[1]|15Stoch.K_6_3_3[1]|30Stoch.K_6_3_3[1]|60Stoch.K_6_3_3[1]|120Stoch.K_6_3_3[1]|240Stoch.K_6_3_3[1]|1WStoch.K_6_3_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 436
+  },
+  {
+    "field_name": "Stoch.K_8_3_3Stoch.K_8_3_3Stoch.K_8_3_3|1Stoch.K_8_3_3|5Stoch.K_8_3_3|15Stoch.K_8_3_3|30Stoch.K_8_3_3|60Stoch.K_8_3_3|120Stoch.K_8_3_3|240Stoch.K_8_3_3|1WStoch.K_8_3_3|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 437
+  },
+  {
+    "field_name": "Stoch.K_8_3_3[1]Stoch.K_8_3_3[1]Stoch.K_8_3_3[1]|1Stoch.K_8_3_3[1]|5Stoch.K_8_3_3[1]|15Stoch.K_8_3_3[1]|30Stoch.K_8_3_3[1]|60Stoch.K_8_3_3[1]|120Stoch.K_8_3_3[1]|240Stoch.K_8_3_3[1]|1WStoch.K_8_3_3[1]|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 438
+  },
+  {
+    "field_name": "actively_managed",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 439
+  },
+  {
+    "field_name": "all_time_high",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 440
+  },
+  {
+    "field_name": "all_time_high_day",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 441
+  },
+  {
+    "field_name": "all_time_low",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 442
+  },
+  {
+    "field_name": "all_time_low_day",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 443
+  },
+  {
+    "field_name": "all_time_open",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 444
+  },
+  {
+    "field_name": "amount_recent",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 445
+  },
+  {
+    "field_name": "amount_upcoming",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 446
+  },
+  {
+    "field_name": "asset_class",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 447
+  },
+  {
+    "field_name": "asset_turnover_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 448
+  },
+  {
+    "field_name": "asset_turnover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 449
+  },
+  {
+    "field_name": "aum",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 450
+  },
+  {
+    "field_name": "aum_perf.1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 451
+  },
+  {
+    "field_name": "aum_perf.1Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 452
+  },
+  {
+    "field_name": "aum_perf.3M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 453
+  },
+  {
+    "field_name": "aum_perf.3Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 454
+  },
+  {
+    "field_name": "aum_perf.5Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 455
+  },
+  {
+    "field_name": "aum_perf.YTD",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 456
+  },
+  {
+    "field_name": "average_volume",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 457
+  },
+  {
+    "field_name": "bars_countbars_countbars_count|1bars_count|5bars_count|15bars_count|30bars_count|60bars_count|120bars_count|240bars_count|1Wbars_count|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 458
+  },
+  {
+    "field_name": "base_currency_kind",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 459
+  },
+  {
+    "field_name": "beta_3_year",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 460
+  },
+  {
+    "field_name": "beta_5_year",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 461
+  },
+  {
+    "field_name": "book_value_per_share_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 462
+  },
+  {
+    "field_name": "book_value_per_share_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 463
+  },
+  {
+    "field_name": "brand",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 464
+  },
+  {
+    "field_name": "buyback_yield",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 465
+  },
+  {
+    "field_name": "cagr_5_earnings_per_share_basic",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 466
+  },
+  {
+    "field_name": "cagr_5_free_cash_flow",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 467
+  },
+  {
+    "field_name": "cagr_5_net_income",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 468
+  },
+  {
+    "field_name": "cagr_5_revenue",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 469
+  },
+  {
+    "field_name": "capital_expenditures_qoq_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 470
+  },
+  {
+    "field_name": "capital_expenditures_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 471
+  },
+  {
+    "field_name": "capital_expenditures_unchanged_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 472
+  },
+  {
+    "field_name": "capital_expenditures_unchanged_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 473
+  },
+  {
+    "field_name": "capital_expenditures_unchanged_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 474
+  },
+  {
+    "field_name": "capital_expenditures_yoy_growth_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 475
+  },
+  {
+    "field_name": "capital_expenditures_yoy_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 476
+  },
+  {
+    "field_name": "capital_expenditures_yoy_growth_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 477
+  },
+  {
+    "field_name": "cash_dividend_coverage_ratio_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 478
+  },
+  {
+    "field_name": "cash_dividend_coverage_ratio_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 479
+  },
+  {
+    "field_name": "cash_f_financing_activities_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 480
+  },
+  {
+    "field_name": "cash_f_investing_activities_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 481
+  },
+  {
+    "field_name": "cash_f_operating_activities_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 482
+  },
+  {
+    "field_name": "cash_n_short_term_invest_to_total_current_liabilities_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 483
+  },
+  {
+    "field_name": "cash_n_short_term_invest_to_total_current_liabilities_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 484
+  },
+  {
+    "field_name": "cash_n_short_term_invest_to_total_debt_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 485
+  },
+  {
+    "field_name": "cash_n_short_term_invest_to_total_debt_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 486
+  },
+  {
+    "field_name": "cash_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 487
+  },
+  {
+    "field_name": "category",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 488
+  },
+  {
+    "field_name": "continuous_dividend_growth",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 489
+  },
+  {
+    "field_name": "continuous_dividend_payout",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 490
+  },
+  {
+    "field_name": "country_code_fund",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 491
+  },
+  {
+    "field_name": "coupon",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 492
+  },
+  {
+    "field_name": "cryptoasset-info.description",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 493
+  },
+  {
+    "field_name": "cryptoasset-info.id",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 494
+  },
+  {
+    "field_name": "currency_hedged_flag",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 495
+  },
+  {
+    "field_name": "currency_id",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 496
+  },
+  {
+    "field_name": "currency_kind",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 497
+  },
+  {
+    "field_name": "current_ratio_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 498
+  },
+  {
+    "field_name": "current_ratio_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 499
+  },
+  {
+    "field_name": "current_session",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 500
+  },
+  {
+    "field_name": "days_to_maturity",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 501
+  },
+  {
+    "field_name": "debt_to_asset_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 502
+  },
+  {
+    "field_name": "debt_to_asset_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 503
+  },
+  {
+    "field_name": "debt_to_assets",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 504
+  },
+  {
+    "field_name": "debt_to_equity_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 505
+  },
+  {
+    "field_name": "description",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 506
+  },
+  {
+    "field_name": "diluted_shares_outstanding_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 507
+  },
+  {
+    "field_name": "dividend_amount_recent",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 508
+  },
+  {
+    "field_name": "dividend_amount_upcoming",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 509
+  },
+  {
+    "field_name": "dividend_ex_date_recent",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 510
+  },
+  {
+    "field_name": "dividend_ex_date_upcoming",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 511
+  },
+  {
+    "field_name": "dividend_frequency_recent",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 512
+  },
+  {
+    "field_name": "dividend_frequency_upcoming",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 513
+  },
+  {
+    "field_name": "dividend_payment_date_recent",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 514
+  },
+  {
+    "field_name": "dividend_payment_date_upcoming",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 515
+  },
+  {
+    "field_name": "dividend_payout_ratio_percent_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 516
+  },
+  {
+    "field_name": "dividend_payout_ratio_percent_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 517
+  },
+  {
+    "field_name": "dividend_payout_ratio_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 518
+  },
+  {
+    "field_name": "dividend_treatment",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 519
+  },
+  {
+    "field_name": "dividend_yield_upcoming",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 520
+  },
+  {
+    "field_name": "dividends_frequency",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 521
+  },
+  {
+    "field_name": "dividends_yield",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 522
+  },
+  {
+    "field_name": "dividends_yield_current",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 523
+  },
+  {
+    "field_name": "dividends_yield_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 524
+  },
+  {
+    "field_name": "dividends_yield_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 525
+  },
+  {
+    "field_name": "dps_common_stock_prim_issue_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 526
+  },
+  {
+    "field_name": "dps_common_stock_prim_issue_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 527
+  },
+  {
+    "field_name": "earnings_per_share_basic_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 528
+  },
+  {
+    "field_name": "earnings_per_share_basic_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 529
+  },
+  {
+    "field_name": "earnings_per_share_diluted_5y_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 530
+  },
+  {
+    "field_name": "earnings_per_share_diluted_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 531
+  },
+  {
+    "field_name": "earnings_per_share_diluted_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 532
+  },
+  {
+    "field_name": "earnings_per_share_diluted_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 533
+  },
+  {
+    "field_name": "earnings_per_share_diluted_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 534
+  },
+  {
+    "field_name": "earnings_per_share_diluted_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 535
+  },
+  {
+    "field_name": "earnings_per_share_forecast_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 536
+  },
+  {
+    "field_name": "earnings_per_share_forecast_next_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 537
+  },
+  {
+    "field_name": "earnings_per_share_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 538
+  },
+  {
+    "field_name": "earnings_publication_type_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 539
+  },
+  {
+    "field_name": "earnings_publication_type_next_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 540
+  },
+  {
+    "field_name": "earnings_release_calendar_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 541
+  },
+  {
+    "field_name": "earnings_release_next_calendar_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 542
+  },
+  {
+    "field_name": "earnings_release_next_time",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 543
+  },
+  {
+    "field_name": "earnings_release_next_trading_date_fq",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 544
+  },
+  {
+    "field_name": "earnings_release_next_trading_date_fy",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 545
+  },
+  {
+    "field_name": "earnings_release_time",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 546
+  },
+  {
+    "field_name": "earnings_release_trading_date_fq",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 547
+  },
+  {
+    "field_name": "earnings_release_trading_date_fy",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 548
+  },
+  {
+    "field_name": "ebit_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 549
+  },
+  {
+    "field_name": "ebitda_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 550
+  },
+  {
+    "field_name": "ebitda_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 551
+  },
+  {
+    "field_name": "ebitda_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 552
+  },
+  {
+    "field_name": "ebitda_interst_cover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 553
+  },
+  {
+    "field_name": "ebitda_interst_cover_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 554
+  },
+  {
+    "field_name": "ebitda_less_capex_interst_cover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 555
+  },
+  {
+    "field_name": "ebitda_less_capex_interst_cover_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 556
+  },
+  {
+    "field_name": "ebitda_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 557
+  },
+  {
+    "field_name": "ebitda_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 558
+  },
+  {
+    "field_name": "ebitda_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 559
+  },
+  {
+    "field_name": "enterprise_value_current",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 560
+  },
+  {
+    "field_name": "enterprise_value_ebitda_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 561
+  },
+  {
+    "field_name": "enterprise_value_to_ebit_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 562
+  },
+  {
+    "field_name": "enterprise_value_to_free_cash_flow_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 563
+  },
+  {
+    "field_name": "enterprise_value_to_gross_profit_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 564
+  },
+  {
+    "field_name": "enterprise_value_to_revenue_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 565
+  },
+  {
+    "field_name": "eps_diluted_growth_percent_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 566
+  },
+  {
+    "field_name": "eps_diluted_growth_percent_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 567
+  },
+  {
+    "field_name": "eps_surprise_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 568
+  },
+  {
+    "field_name": "eps_surprise_percent_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 569
+  },
+  {
+    "field_name": "etf_fund_currency",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 570
+  },
+  {
+    "field_name": "ex_dividend_date_recent",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 571
+  },
+  {
+    "field_name": "ex_dividend_date_upcoming",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 572
+  },
+  {
+    "field_name": "expected_annual_dividends",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 573
+  },
+  {
+    "field_name": "expense_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 574
+  },
+  {
+    "field_name": "expiration",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 575
+  },
+  {
+    "field_name": "first_bar_time",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 576
+  },
+  {
+    "field_name": "fiscal_period_end_fh",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 577
+  },
+  {
+    "field_name": "fiscal_period_end_fh_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 578
+  },
+  {
+    "field_name": "fiscal_period_end_fq",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 579
+  },
+  {
+    "field_name": "fiscal_period_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 580
+  },
+  {
+    "field_name": "fixed_assets_turnover_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 581
+  },
+  {
+    "field_name": "fixed_assets_turnover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 582
+  },
+  {
+    "field_name": "float_shares_outstanding_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 583
+  },
+  {
+    "field_name": "float_shares_percent_current",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 584
+  },
+  {
+    "field_name": "focus",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 585
+  },
+  {
+    "field_name": "fractional",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 586
+  },
+  {
+    "field_name": "free_cash_flow",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 587
+  },
+  {
+    "field_name": "free_cash_flow_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 588
+  },
+  {
+    "field_name": "free_cash_flow_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 589
+  },
+  {
+    "field_name": "free_cash_flow_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 590
+  },
+  {
+    "field_name": "free_cash_flow_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 591
+  },
+  {
+    "field_name": "free_cash_flow_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 592
+  },
+  {
+    "field_name": "free_cash_flow_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 593
+  },
+  {
+    "field_name": "free_cash_flow_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 594
+  },
+  {
+    "field_name": "frequency_recent",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 595
+  },
+  {
+    "field_name": "frequency_upcoming",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 596
+  },
+  {
+    "field_name": "fund_flows.1M",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 597
+  },
+  {
+    "field_name": "fund_flows.1Y",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 598
+  },
+  {
+    "field_name": "fund_flows.3M",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 599
+  },
+  {
+    "field_name": "fund_flows.3Y",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 600
+  },
+  {
+    "field_name": "fund_flows.5Y",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 601
+  },
+  {
+    "field_name": "fund_flows.YTD",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 602
+  },
+  {
+    "field_name": "fundamental_currency_code",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 603
+  },
+  {
+    "field_name": "gap_downgap_downgap_down|1gap_down|5gap_down|15gap_down|30gap_down|60gap_down|120gap_down|240gap_down|1Wgap_down|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 604
+  },
+  {
+    "field_name": "gap_down_absgap_down_absgap_down_abs|1gap_down_abs|5gap_down_abs|15gap_down_abs|30gap_down_abs|60gap_down_abs|120gap_down_abs|240gap_down_abs|1Wgap_down_abs|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 605
+  },
+  {
+    "field_name": "gap_upgap_upgap_up|1gap_up|5gap_up|15gap_up|30gap_up|60gap_up|120gap_up|240gap_up|1Wgap_up|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 606
+  },
+  {
+    "field_name": "gap_up_absgap_up_absgap_up_abs|1gap_up_abs|5gap_up_abs|15gap_up_abs|30gap_up_abs|60gap_up_abs|120gap_up_abs|240gap_up_abs|1Wgap_up_abs|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 607
+  },
+  {
+    "field_name": "goodwill_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 608
+  },
+  {
+    "field_name": "gross_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 609
+  },
+  {
+    "field_name": "gross_margin_percent_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 610
+  },
+  {
+    "field_name": "gross_margin_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 611
+  },
+  {
+    "field_name": "gross_profit_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 612
+  },
+  {
+    "field_name": "gross_profit_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 613
+  },
+  {
+    "field_name": "gross_profit_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 614
+  },
+  {
+    "field_name": "gross_profit_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 615
+  },
+  {
+    "field_name": "gross_profit_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 616
+  },
+  {
+    "field_name": "holdings_region",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 617
+  },
+  {
+    "field_name": "holds_derivatives_flag",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 618
+  },
+  {
+    "field_name": "index_id",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 619
+  },
+  {
+    "field_name": "index_priority",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 620
+  },
+  {
+    "field_name": "index_provider",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 621
+  },
+  {
+    "field_name": "indexes",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 622
+  },
+  {
+    "field_name": "indicated_annual_dividend",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 623
+  },
+  {
+    "field_name": "indicators_bars_countindicators_bars_countindicators_bars_count|1indicators_bars_count|5indicators_bars_count|15indicators_bars_count|30indicators_bars_count|60indicators_bars_count|120indicators_bars_count|240indicators_bars_count|1Windicators_bars_count|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 624
+  },
+  {
+    "field_name": "interst_cover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 625
+  },
+  {
+    "field_name": "interst_cover_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 626
+  },
+  {
+    "field_name": "invent_turnover_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 627
+  },
+  {
+    "field_name": "invent_turnover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 628
+  },
+  {
+    "field_name": "inverse_flag",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 629
+  },
+  {
+    "field_name": "is_blacklisted",
+    "field_type": "boolean",
+    "table_index": 0,
+    "row_index": 630
+  },
+  {
+    "field_name": "is_shariah_compliant",
+    "field_type": "boolean",
+    "table_index": 0,
+    "row_index": 631
+  },
+  {
+    "field_name": "issuance_of_stock_net_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 632
+  },
+  {
+    "field_name": "issuer",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 633
+  },
+  {
+    "field_name": "k1_form",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 634
+  },
+  {
+    "field_name": "last_bar_update_timelast_bar_update_timelast_bar_update_time|1last_bar_update_time|5last_bar_update_time|15last_bar_update_time|30last_bar_update_time|60last_bar_update_time|120last_bar_update_time|240last_bar_update_time|1Wlast_bar_update_time|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 635
+  },
+  {
+    "field_name": "last_report_frequency",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 636
+  },
+  {
+    "field_name": "launch_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 637
+  },
+  {
+    "field_name": "leverage",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 638
+  },
+  {
+    "field_name": "leverage_ratio",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 639
+  },
+  {
+    "field_name": "leveraged_flag",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 640
+  },
+  {
+    "field_name": "logoid",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 641
+  },
+  {
+    "field_name": "long_term_capital",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 642
+  },
+  {
+    "field_name": "long_term_debt_to_assets_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 643
+  },
+  {
+    "field_name": "long_term_debt_to_assets_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 644
+  },
+  {
+    "field_name": "long_term_debt_to_equity_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 645
+  },
+  {
+    "field_name": "low_after_high_all_change",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 646
+  },
+  {
+    "field_name": "low_after_high_all_change_abs",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 647
+  },
+  {
+    "field_name": "market",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 648
+  },
+  {
+    "field_name": "maturity_date",
+    "field_type": "time-yyyymmdd",
+    "table_index": 0,
+    "row_index": 649
+  },
+  {
+    "field_name": "minmov",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 650
+  },
+  {
+    "field_name": "minmove2",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 651
+  },
+  {
+    "field_name": "most_recent_quarter_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 652
+  },
+  {
+    "field_name": "name",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 653
+  },
+  {
+    "field_name": "nav",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 654
+  },
+  {
+    "field_name": "nav_discount_premium",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 655
+  },
+  {
+    "field_name": "nav_perf.1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 656
+  },
+  {
+    "field_name": "nav_perf.1Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 657
+  },
+  {
+    "field_name": "nav_perf.3M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 658
+  },
+  {
+    "field_name": "nav_perf.3Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 659
+  },
+  {
+    "field_name": "nav_perf.5Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 660
+  },
+  {
+    "field_name": "nav_perf.YTD",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 661
+  },
+  {
+    "field_name": "nav_total_return.1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 662
+  },
+  {
+    "field_name": "nav_total_return.1Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 663
+  },
+  {
+    "field_name": "nav_total_return.3M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 664
+  },
+  {
+    "field_name": "nav_total_return.3Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 665
+  },
+  {
+    "field_name": "nav_total_return.5Y",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 666
+  },
+  {
+    "field_name": "nav_total_return.6M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 667
+  },
+  {
+    "field_name": "nav_total_return.YTD",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 668
+  },
+  {
+    "field_name": "net_debt_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 669
+  },
+  {
+    "field_name": "net_debt_to_ebitda_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 670
+  },
+  {
+    "field_name": "net_debt_to_ebitda_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 671
+  },
+  {
+    "field_name": "net_income_bef_disc_oper_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 672
+  },
+  {
+    "field_name": "net_income_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 673
+  },
+  {
+    "field_name": "net_income_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 674
+  },
+  {
+    "field_name": "net_income_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 675
+  },
+  {
+    "field_name": "net_income_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 676
+  },
+  {
+    "field_name": "net_income_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 677
+  },
+  {
+    "field_name": "net_income_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 678
+  },
+  {
+    "field_name": "net_margin",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 679
+  },
+  {
+    "field_name": "net_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 680
+  },
+  {
+    "field_name": "net_margin_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 681
+  },
+  {
+    "field_name": "next_dividend_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 682
+  },
+  {
+    "field_name": "niche",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 683
+  },
+  {
+    "field_name": "non_gaap_price_to_earnings_per_share_forecast_next_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 684
+  },
+  {
+    "field_name": "number_of_employees_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 685
+  },
+  {
+    "field_name": "number_of_shareholders_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 686
+  },
+  {
+    "field_name": "oper_income_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 687
+  },
+  {
+    "field_name": "oper_income_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 688
+  },
+  {
+    "field_name": "oper_income_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 689
+  },
+  {
+    "field_name": "operating_margin_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 690
+  },
+  {
+    "field_name": "operating_margin_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 691
+  },
+  {
+    "field_name": "payment_date_recent",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 692
+  },
+  {
+    "field_name": "payment_date_upcoming",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 693
+  },
+  {
+    "field_name": "post_changepost_changepost_change|1post_change|5post_change|15post_change|30post_change|60post_change|120post_change|240post_change|1Wpost_change|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 694
+  },
+  {
+    "field_name": "postmarket_time",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 695
+  },
+  {
+    "field_name": "pre_changepre_changepre_change|1pre_change|5pre_change|15pre_change|30pre_change|60pre_change|120pre_change|240pre_change|1Wpre_change|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 696
+  },
+  {
+    "field_name": "pre_change_abspre_change_abspre_change_abs|1pre_change_abs|5pre_change_abs|15pre_change_abs|30pre_change_abs|60pre_change_abs|120pre_change_abs|240pre_change_abs|1Wpre_change_abs|1M",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 697
+  },
+  {
+    "field_name": "pre_tax_margin_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 698
+  },
+  {
+    "field_name": "preferred_dividends",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 699
+  },
+  {
+    "field_name": "premarket_time",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 700
+  },
+  {
+    "field_name": "price_52_week_high_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 701
+  },
+  {
+    "field_name": "price_52_week_low_date",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 702
+  },
+  {
+    "field_name": "price_annual_book",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 703
+  },
+  {
+    "field_name": "price_annual_sales",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 704
+  },
+  {
+    "field_name": "price_book_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 705
+  },
+  {
+    "field_name": "price_cash_flow_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 706
+  },
+  {
+    "field_name": "price_earnings_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 707
+  },
+  {
+    "field_name": "price_earnings_forward_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 708
+  },
+  {
+    "field_name": "price_earnings_growth_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 709
+  },
+  {
+    "field_name": "price_free_cash_flow_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 710
+  },
+  {
+    "field_name": "price_sales",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 711
+  },
+  {
+    "field_name": "price_sales_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 712
+  },
+  {
+    "field_name": "price_target_1y",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 713
+  },
+  {
+    "field_name": "price_target_1y_delta",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 714
+  },
+  {
+    "field_name": "price_target_average",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 715
+  },
+  {
+    "field_name": "price_target_high",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 716
+  },
+  {
+    "field_name": "price_target_low",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 717
+  },
+  {
+    "field_name": "price_target_median",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 718
+  },
+  {
+    "field_name": "price_to_cash_f_operating_activities_ttm",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 719
+  },
+  {
+    "field_name": "price_to_cash_ratio",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 720
+  },
+  {
+    "field_name": "price_to_working_capital_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 721
+  },
+  {
+    "field_name": "pricescale",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 722
+  },
+  {
+    "field_name": "provider-id",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 723
+  },
+  {
+    "field_name": "quick_ratio_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 724
+  },
+  {
+    "field_name": "quick_ratio_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 725
+  },
+  {
+    "field_name": "rates_cf",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 726
+  },
+  {
+    "field_name": "rates_current",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 727
+  },
+  {
+    "field_name": "rates_dividend_recent",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 728
+  },
+  {
+    "field_name": "rates_dividend_upcoming",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 729
+  },
+  {
+    "field_name": "rates_earnings_fq",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 730
+  },
+  {
+    "field_name": "rates_earnings_next_fq",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 731
+  },
+  {
+    "field_name": "rates_fh",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 732
+  },
+  {
+    "field_name": "rates_fq",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 733
+  },
+  {
+    "field_name": "rates_fy",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 734
+  },
+  {
+    "field_name": "rates_mc",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 735
+  },
+  {
+    "field_name": "rates_pt",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 736
+  },
+  {
+    "field_name": "rates_time_series",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 737
+  },
+  {
+    "field_name": "rates_ttm",
+    "field_type": "map",
+    "table_index": 0,
+    "row_index": 738
+  },
+  {
+    "field_name": "receivables_turnover_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 739
+  },
+  {
+    "field_name": "receivables_turnover_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 740
+  },
+  {
+    "field_name": "recommendation_buy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 741
+  },
+  {
+    "field_name": "recommendation_hold",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 742
+  },
+  {
+    "field_name": "recommendation_mark",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 743
+  },
+  {
+    "field_name": "recommendation_over",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 744
+  },
+  {
+    "field_name": "recommendation_sell",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 745
+  },
+  {
+    "field_name": "recommendation_total",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 746
+  },
+  {
+    "field_name": "recommendation_under",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 747
+  },
+  {
+    "field_name": "relative_volume",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 748
+  },
+  {
+    "field_name": "relative_volume_intraday|5",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 749
+  },
+  {
+    "field_name": "research_and_dev_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 750
+  },
+  {
+    "field_name": "research_and_dev_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 751
+  },
+  {
+    "field_name": "research_and_dev_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 752
+  },
+  {
+    "field_name": "return_of_invested_capital_percent_ttm",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 753
+  },
+  {
+    "field_name": "return_on_assets_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 754
+  },
+  {
+    "field_name": "return_on_assets_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 755
+  },
+  {
+    "field_name": "return_on_capital_employed_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 756
+  },
+  {
+    "field_name": "return_on_capital_employed_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 757
+  },
+  {
+    "field_name": "return_on_equity_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 758
+  },
+  {
+    "field_name": "return_on_equity_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 759
+  },
+  {
+    "field_name": "return_on_invested_capital_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 760
+  },
+  {
+    "field_name": "return_on_invested_capital_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 761
+  },
+  {
+    "field_name": "return_on_tang_assets_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 762
+  },
+  {
+    "field_name": "return_on_tang_assets_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 763
+  },
+  {
+    "field_name": "return_on_tang_equity_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 764
+  },
+  {
+    "field_name": "return_on_tang_equity_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 765
+  },
+  {
+    "field_name": "return_on_total_capital_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 766
+  },
+  {
+    "field_name": "return_on_total_capital_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 767
+  },
+  {
+    "field_name": "revenue_forecast_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 768
+  },
+  {
+    "field_name": "revenue_forecast_next_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 769
+  },
+  {
+    "field_name": "revenue_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 770
+  },
+  {
+    "field_name": "revenue_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 771
+  },
+  {
+    "field_name": "revenue_per_share_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 772
+  },
+  {
+    "field_name": "revenue_per_share_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 773
+  },
+  {
+    "field_name": "revenue_surprise_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 774
+  },
+  {
+    "field_name": "revenue_surprise_percent_fq",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 775
+  },
+  {
+    "field_name": "rtc",
+    "field_type": "price",
+    "table_index": 0,
+    "row_index": 776
+  },
+  {
+    "field_name": "selection_criteria",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 777
+  },
+  {
+    "field_name": "sell_gen_admin_exp_other_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 778
+  },
+  {
+    "field_name": "sell_gen_admin_exp_other_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 779
+  },
+  {
+    "field_name": "shrhldrs_equity_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 780
+  },
+  {
+    "field_name": "shrhldrs_equity_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 781
+  },
+  {
+    "field_name": "shrhldrs_equity_to_total_assets_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 782
+  },
+  {
+    "field_name": "shrhldrs_equity_to_total_assets_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 783
+  },
+  {
+    "field_name": "source-logoid",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 784
+  },
+  {
+    "field_name": "strategy",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 785
+  },
+  {
+    "field_name": "subtype",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 786
+  },
+  {
+    "field_name": "sum_for_enterprise_value",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 787
+  },
+  {
+    "field_name": "timetimetime|1time|5time|15time|30time|60time|120time|240time|1Wtime|1M",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 788
+  },
+  {
+    "field_name": "time_business_day",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 789
+  },
+  {
+    "field_name": "top_revenue_country_code",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 790
+  },
+  {
+    "field_name": "total_assets_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 791
+  },
+  {
+    "field_name": "total_assets_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 792
+  },
+  {
+    "field_name": "total_assets_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 793
+  },
+  {
+    "field_name": "total_assets_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 794
+  },
+  {
+    "field_name": "total_assets_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 795
+  },
+  {
+    "field_name": "total_assets_to_equity_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 796
+  },
+  {
+    "field_name": "total_assets_to_equity_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 797
+  },
+  {
+    "field_name": "total_capital",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 798
+  },
+  {
+    "field_name": "total_cash_dividends_paid_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 799
+  },
+  {
+    "field_name": "total_current_assets_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 800
+  },
+  {
+    "field_name": "total_current_liabilities_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 801
+  },
+  {
+    "field_name": "total_current_liabilities_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 802
+  },
+  {
+    "field_name": "total_debt_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 803
+  },
+  {
+    "field_name": "total_debt_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 804
+  },
+  {
+    "field_name": "total_debt_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 805
+  },
+  {
+    "field_name": "total_debt_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 806
+  },
+  {
+    "field_name": "total_debt_per_employee_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 807
+  },
+  {
+    "field_name": "total_debt_to_capital_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 808
+  },
+  {
+    "field_name": "total_debt_to_capital_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 809
+  },
+  {
+    "field_name": "total_debt_to_ebitda_fq",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 810
+  },
+  {
+    "field_name": "total_debt_to_ebitda_fy",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 811
+  },
+  {
+    "field_name": "total_equity_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 812
+  },
+  {
+    "field_name": "total_revenue_5y_growth_fy",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 813
+  },
+  {
+    "field_name": "total_revenue_fq_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 814
+  },
+  {
+    "field_name": "total_revenue_fy",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 815
+  },
+  {
+    "field_name": "total_revenue_fy_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 816
+  },
+  {
+    "field_name": "total_revenue_ttm",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 817
+  },
+  {
+    "field_name": "total_revenue_ttm_h",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 818
+  },
+  {
+    "field_name": "total_shares_outstanding_calculated",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 819
+  },
+  {
+    "field_name": "total_shares_outstanding_current",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 820
+  },
+  {
+    "field_name": "transparent_holding_flag",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 821
+  },
+  {
+    "field_name": "typespecs",
+    "field_type": "set",
+    "table_index": 0,
+    "row_index": 822
+  },
+  {
+    "field_name": "ucits_compliant_flag",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 823
+  },
+  {
+    "field_name": "update-time",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 824
+  },
+  {
+    "field_name": "update_modeupdate_modeupdate_mode|1update_mode|5update_mode|15update_mode|30update_mode|60update_mode|120update_mode|240update_mode|1Wupdate_mode|1M",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 825
+  },
+  {
+    "field_name": "update_time",
+    "field_type": "time",
+    "table_index": 0,
+    "row_index": 826
+  },
+  {
+    "field_name": "volume_changevolume_changevolume_change|1volume_change|5volume_change|15volume_change|30volume_change|60volume_change|120volume_change|240volume_change|1Wvolume_change|1M",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 827
+  },
+  {
+    "field_name": "volume_change_absvolume_change_absvolume_change_abs|1volume_change_abs|5volume_change_abs|15volume_change_abs|30volume_change_abs|60volume_change_abs|120volume_change_abs|240volume_change_abs|1Wvolume_change_abs|1M",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 828
+  },
+  {
+    "field_name": "weight_top_10",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 829
+  },
+  {
+    "field_name": "weight_top_25",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 830
+  },
+  {
+    "field_name": "weight_top_50",
+    "field_type": "percent",
+    "table_index": 0,
+    "row_index": 831
+  },
+  {
+    "field_name": "weighting_scheme",
+    "field_type": "string",
+    "table_index": 0,
+    "row_index": 832
+  },
+  {
+    "field_name": "working_capital_fq",
+    "field_type": "fundamental_price",
+    "table_index": 0,
+    "row_index": 833
+  },
+  {
+    "field_name": "yield_recent",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 834
+  },
+  {
+    "field_name": "yield_upcoming",
+    "field_type": "number",
+    "table_index": 0,
+    "row_index": 835
+  }
+]

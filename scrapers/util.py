@@ -1,18 +1,18 @@
+import json
 import os
 import platform
-
 from datetime import datetime
-import json
-from utils.logging_config import get_logger
-import sys
-
 from typing import List
-from scrapers.model_object import FedContent
 
+from scrapers.model_object import FedContent
+from utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
-def write_relevant_content_with_scraped_ids(content_items: List[FedContent], output_file: str):
+
+def write_relevant_content_with_scraped_ids(
+    content_items: List[FedContent], output_file: str
+):
     """Write relevant content with scraped_data_ids included"""
 
     if not content_items:
@@ -28,30 +28,44 @@ def write_relevant_content_with_scraped_ids(content_items: List[FedContent], out
 
             # Prepare output data
             output_data = {
-                'timestamp': datetime.now().isoformat(),
-                'content_count': len(content_items),
-                'items': []
+                "timestamp": datetime.now().isoformat(),
+                "content_count": len(content_items),
+                "items": [],
             }
 
             for content in content_items:
                 item_data = {
-                    'scraped_data_id': getattr(content, 'scraped_data_id', None),  # Include database ID
-                    'url': content.url,
-                    'title': content.title,
-                    'published_date': content.published_date.isoformat(),
-                    'sentiment_score': content.sentiment["sentiment_analysis"]["scores"] if content.sentiment else {},
-                    'sentiment': content.sentiment["sentiment_analysis"]['sentiment'] if content.sentiment else 'UNKNOWN',
-                    'model_name': content.sentiment["model"] if content.sentiment else 'unknown',
-                    'full_content': content.content,
-                    'summary': getattr(content, 'summary', 'No summary available')
+                    "scraped_data_id": getattr(
+                        content, "scraped_data_id", None
+                    ),  # Include database ID
+                    "url": content.url,
+                    "title": content.title,
+                    "published_date": content.published_date.isoformat(),
+                    "sentiment_score": (
+                        content.sentiment["sentiment_analysis"]["scores"]
+                        if content.sentiment
+                        else {}
+                    ),
+                    "sentiment": (
+                        content.sentiment["sentiment_analysis"]["sentiment"]
+                        if content.sentiment
+                        else "UNKNOWN"
+                    ),
+                    "model_name": (
+                        content.sentiment["model"] if content.sentiment else "unknown"
+                    ),
+                    "full_content": content.content,
+                    "summary": getattr(content, "summary", "No summary available"),
                 }
-                output_data['items'].append(item_data)
+                output_data["items"].append(item_data)
 
             # Write to output file
-            with open(output_file, 'w', encoding='utf-8') as f:
+            with open(output_file, "w", encoding="utf-8") as f:
                 json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-            logger.info(f"✅ Wrote {len(content_items)} relevant items with scraped_data_ids to {output_file}")
+            logger.info(
+                f"✅ Wrote {len(content_items)} relevant items with scraped_data_ids to {output_file}"
+            )
 
     except RuntimeError as e:
         logger.error(f"Could not write to output file (file locked): {e}")
@@ -65,7 +79,7 @@ class FileLocker:
     def __init__(self, lock_file: str):
         self.lock_file = lock_file
         self.lock_handle = None
-        self.is_windows = platform.system().lower() == 'windows'
+        self.is_windows = platform.system().lower() == "windows"
 
     def __enter__(self):
         try:
@@ -75,27 +89,35 @@ class FileLocker:
                 if self._is_lock_stale():
                     self._remove_stale_lock()
                 else:
-                    raise RuntimeError(f"Lock file exists and process is still running: {self.lock_file}")
+                    raise RuntimeError(
+                        f"Lock file exists and process is still running: {self.lock_file}"
+                    )
 
             # Create lock file
-            self.lock_handle = open(self.lock_file, 'w')
+            self.lock_handle = open(self.lock_file, "w")
 
             if self.is_windows:
                 # Windows file locking
                 try:
                     import msvcrt
+
                     msvcrt.locking(self.lock_handle.fileno(), msvcrt.LK_NBLCK, 1)
                 except ImportError:
                     # Fallback for Windows without msvcrt (shouldn't happen)
                     pass
                 except OSError:
                     self.lock_handle.close()
-                    raise RuntimeError(f"Could not acquire Windows lock: {self.lock_file}")
+                    raise RuntimeError(
+                        f"Could not acquire Windows lock: {self.lock_file}"
+                    )
             else:
                 # Unix file locking
                 try:
                     import fcntl
-                    fcntl.flock(self.lock_handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+
+                    fcntl.flock(
+                        self.lock_handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB
+                    )
                 except ImportError:
                     # Fallback if fcntl not available
                     pass
@@ -105,9 +127,9 @@ class FileLocker:
 
             # Write lock info
             lock_info = {
-                'pid': os.getpid(),
-                'started': datetime.now().isoformat(),
-                'platform': platform.system()
+                "pid": os.getpid(),
+                "started": datetime.now().isoformat(),
+                "platform": platform.system(),
             }
             self.lock_handle.write(json.dumps(lock_info, indent=2))
             self.lock_handle.flush()
@@ -128,12 +150,14 @@ class FileLocker:
                 if self.is_windows:
                     try:
                         import msvcrt
+
                         msvcrt.locking(self.lock_handle.fileno(), msvcrt.LK_UNLCK, 1)
                     except ImportError:
                         pass
                 else:
                     try:
                         import fcntl
+
                         fcntl.flock(self.lock_handle.fileno(), fcntl.LOCK_UN)
                     except ImportError:
                         pass
@@ -152,10 +176,10 @@ class FileLocker:
     def _is_lock_stale(self) -> bool:
         """Check if lock file is stale (process no longer running)"""
         try:
-            with open(self.lock_file, 'r') as f:
+            with open(self.lock_file, "r") as f:
                 lock_data = json.load(f)
 
-            pid = lock_data.get('pid')
+            pid = lock_data.get("pid")
             if not pid:
                 return True
 
@@ -173,11 +197,12 @@ class FileLocker:
         """Check if process is running on Windows"""
         try:
             import subprocess
+
             result = subprocess.run(
-                ['tasklist', '/FI', f'PID eq {pid}'],
+                ["tasklist", "/FI", f"PID eq {pid}"],
                 capture_output=True,
                 text=True,
-                timeout=5
+                timeout=5,
             )
             return str(pid) in result.stdout
         except Exception:

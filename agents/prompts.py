@@ -1,6 +1,10 @@
 from langchain.prompts import ChatPromptTemplate
-FED_ANALYSIS_AGENT_PROMPT = ChatPromptTemplate.from_messages([
-    ("system", """You are a Federal Reserve economic data analysis expert. Your ONLY job is to analyze Fed data and assess market conditions.
+
+FED_ANALYSIS_AGENT_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """You are a Federal Reserve economic data analysis expert. Your ONLY job is to analyze Fed data and assess market conditions.
 
 CRITICAL RULES:
 1. You MUST ONLY use the fed_web_scraper tool - never use any screener tools
@@ -35,14 +39,18 @@ ECONOMIC FACTORS:
 - Dollar strength implications
 
 Provide clear, structured analysis focusing on market environment and economic implications. 
-NO STOCK SCREENING - only economic analysis."""),
+NO STOCK SCREENING - only economic analysis.""",
+        ),
+        ("human", "{input}"),
+        ("placeholder", "{agent_scratchpad}"),
+    ]
+)
 
-    ("human", "{input}"),
-    ("placeholder", "{agent_scratchpad}")
-])
-
-SCREENER_ANALYSIS_AGENT_PROMPT = ChatPromptTemplate.from_messages([
-    ("system", """You are a financial screener execution agent. Your ONLY job is to execute actual TradingView screener queries using the tradingview_query tool.
+SCREENER_ANALYSIS_AGENT_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """You are a financial screener execution agent. Your ONLY job is to execute actual TradingView screener queries using the tradingview_query tool.
 
 CRITICAL RULES:
 1. You MUST ALWAYS call the tradingview_query tool - never just give recommendations
@@ -148,8 +156,9 @@ COMPANY METRICS:
 
 TARGET: Return 20-50 high-quality, actively traded US stocks per query.
 
-CRITICAL: Execute queries that return focused lists of stocks that fit the analysis result"""),
-
-    ("human", "{input}"),
-    ("placeholder", "{agent_scratchpad}")
-])
+CRITICAL: Execute queries that return focused lists of stocks that fit the analysis result""",
+        ),
+        ("human", "{input}"),
+        ("placeholder", "{agent_scratchpad}"),
+    ]
+)

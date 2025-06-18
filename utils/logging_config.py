@@ -14,13 +14,15 @@ class ScreenerLogger:
     _logger = None
 
     @classmethod
-    def initialize(cls,
-                   log_level: str = "INFO",
-                   log_file: Optional[str] = None,
-                   log_dir: str = "logs",
-                   max_file_size: int = 10 * 1024 * 1024,  # 10MB
-                   backup_count: int = 5,
-                   console_output: bool = True) -> logging.Logger:
+    def initialize(
+        cls,
+        log_level: str = "INFO",
+        log_file: Optional[str] = None,
+        log_dir: str = "logs",
+        max_file_size: int = 10 * 1024 * 1024,  # 10MB
+        backup_count: int = 5,
+        console_output: bool = True,
+    ) -> logging.Logger:
         """
         Initialize the centralized logging system
 
@@ -58,21 +60,18 @@ class ScreenerLogger:
 
         # Create formatters with line numbers prominently displayed
         detailed_formatter = logging.Formatter(
-            fmt='%(asctime)s | %(levelname)-8s | %(filename)s:%(lineno)-4d | %(funcName)s() | %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S'
+            fmt="%(asctime)s | %(levelname)-8s | %(filename)s:%(lineno)-4d | %(funcName)s() | %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
         )
 
         console_formatter = logging.Formatter(
-            fmt='%(asctime)s | %(levelname)-8s | %(filename)s:%(lineno)-4d | %(message)s',
-            datefmt='%H:%M:%S'
+            fmt="%(asctime)s | %(levelname)-8s | %(filename)s:%(lineno)-4d | %(message)s",
+            datefmt="%H:%M:%S",
         )
 
         # File handler with rotation
         file_handler = logging.handlers.RotatingFileHandler(
-            log_path,
-            maxBytes=max_file_size,
-            backupCount=backup_count,
-            encoding='utf-8'
+            log_path, maxBytes=max_file_size, backupCount=backup_count, encoding="utf-8"
         )
         file_handler.setLevel(logging.DEBUG)  # File gets all messages
         file_handler.setFormatter(detailed_formatter)
@@ -86,7 +85,7 @@ class ScreenerLogger:
             root_logger.addHandler(console_handler)
 
         # Create unified application logger
-        cls._logger = logging.getLogger('unified_screener')
+        cls._logger = logging.getLogger("unified_screener")
         cls._logger.setLevel(logging.DEBUG)
 
         # Log system initialization
@@ -114,7 +113,9 @@ class ScreenerLogger:
         """
 
         if not cls._initialized:
-            raise RuntimeError("Logger not initialized. Call ScreenerLogger.initialize() first.")
+            raise RuntimeError(
+                "Logger not initialized. Call ScreenerLogger.initialize() first."
+            )
 
         # Always return the unified logger regardless of name parameter
         return cls._logger
@@ -133,6 +134,7 @@ class ScreenerLogger:
             return
 
         import platform
+
         import psutil
 
         logger = cls._logger
@@ -141,7 +143,9 @@ class ScreenerLogger:
         logger.info(f"  Platform: {platform.platform()}")
         logger.info(f"  CPU Count: {psutil.cpu_count()}")
         logger.info(f"  Memory: {psutil.virtual_memory().total / (1024 ** 3):.1f} GB")
-        logger.info(f"  Disk Space: {psutil.disk_usage('/').total / (1024 ** 3):.1f} GB")
+        logger.info(
+            f"  Disk Space: {psutil.disk_usage('/').total / (1024 ** 3):.1f} GB"
+        )
 
 
 # Convenience functions for easy access
